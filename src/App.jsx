@@ -1,7 +1,6 @@
 import React from 'react';
 import Authentication from './components/authentication/authentication.jsx';
-import Login from './components/login/login.jsx';
-import Signup from './components/signup/signup.jsx';
+import Profile from './components/user_profile/profile.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -13,6 +12,7 @@ class App extends React.Component {
       <div>
         <div>Hello World</div>
         <Authentication/>
+        <Profile/>
 
       </div>
 
