@@ -10,7 +10,7 @@ class Landing extends React.Component {
     this.state = {
       popularMovies: [],
       popularTV: [],
-      isLoggedIn:true,
+      isLoggedIn:false,
       recommended:[],
       watched:[]
     }

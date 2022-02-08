@@ -30,8 +30,20 @@ div.horizontalScrollBar{
   grid-template-columns: 5% auto 5%;
   height:80%;
   width:100%;
+}
 
+div.horizontalScrollBar #leftScrollIcon{
+  grid-column:1;
+  width:30%;
+  height:75%;
+  padding:10px;
 
+}
+div.horizontalScrollBar #rightScrollIcon{
+  grid-column:3;
+  width:30%;
+  height:75%;
+  padding:20px;
 }
 div#popularMovies div.movieDisplay{
   grid-column:2;
@@ -49,7 +61,8 @@ div#popularTV div.movieDisplay{
   border-radius: 50px;
   border-spacing: 20px;
 }
-button.previousMovies{
+
+/*button.previousMovies{
   grid-column:1;
   border-left:50px;
   font-size: xx-large;
@@ -61,8 +74,8 @@ button.previousMovies{
   height:70%;
   border-radius: 5px;
   opacity: 0.5;
-}
- button.nextMovies{
+}*/
+ /*button.nextMovies{
   grid-column:3;
   border-right: 0px;
   font-size: xx-large;
@@ -74,4 +87,4 @@ button.previousMovies{
   height:70%;
   border-radius: 5px;
   opacity: 0.5;
-}
+}*/

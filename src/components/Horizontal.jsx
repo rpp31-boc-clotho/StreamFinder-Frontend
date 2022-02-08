@@ -23,19 +23,28 @@ var Horizontal = function(props) {
     id="popularTV";
     header= "Popular TV Shows"
   }
-
+  let leftScroll = function(event){
+    console.log(event);
+    console.log(event.target.parentElement.nextSibling);
+  }
+  let rightScroll = function(event){
+    console.log(event.target.parentElement.previousSibling);
+  }
   return(
     <div className = "horizontal" id={id}>
         <div className="horizontalHeader">
           {header}
         </div>
         <div className="horizontalScrollBar">
-          <button className="previousMovies"><FontAwesomeIcon  icon = {faAngleLeft} /></button>
+          <FontAwesomeIcon  id="leftScrollIcon" onClick={(event) => leftScroll(event)} icon = {faAngleLeft} />
           <Display/>
-          <button className="nextMovies" ><FontAwesomeIcon  icon = {faAngleRight} /></button>
+          <FontAwesomeIcon  id="rightScrollIcon" onClick={(event) => rightScroll(event)} icon = {faAngleRight} />
         </div>
     </div>
   );
 }
 
 export default Horizontal;
+
+// <button className="nextMovies" ><FontAwesomeIcon  onClick={(event) => rightScroll(event)} icon = {faAngleRight} /></button>
+// <button className="previousMovies"><FontAwesomeIcon  onClick={(event) => leftScroll(event)} icon = {faAngleLeft} /></button>
