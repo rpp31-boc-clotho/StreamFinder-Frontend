@@ -1,3 +1,77 @@
 #app {
-  font-size: 50px;
+  font-size: 50Px;
+}
+
+div.landingPage {
+  width:100%;
+  height:100%;
+}
+div#popularMovies div.horizontalHeader{
+  height:20%;
+  width:50%;
+}
+div#popularTV div.horizontalHeader{
+  border-left: 100px;
+  height:20%;
+  width:50%;
+}
+div#popularMovies {
+  font-size:50px;
+  height:250px;
+  border-spacing: 20px;
+}
+
+div#popularTV {
+  font-size:50px;
+  height:250px;
+}
+div.horizontalScrollBar{
+  display:grid;
+  grid-template-columns: 5% auto 5%;
+  height:80%;
+  width:100%;
+
+
+}
+div#popularMovies div.movieDisplay{
+  grid-column:2;
+  width:100%;
+  border:solid;
+  height:100%;
+  border-radius: 50px;
+
+}
+div#popularTV div.movieDisplay{
+  grid-column:2;
+  width:100%;
+  border:solid;
+  height:100%;
+  border-radius: 50px;
+  border-spacing: 20px;
+}
+button.previousMovies{
+  grid-column:1;
+  border-left:50px;
+  font-size: xx-large;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: none;
+  outline: none;
+  width:10%;
+  height:70%;
+  border-radius: 5px;
+  opacity: 0.5;
+}
+ button.nextMovies{
+  grid-column:3;
+  border-right: 0px;
+  font-size: xx-large;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: none;
+  outline: none;
+  width:10%;
+  height:70%;
+  border-radius: 5px;
+  opacity: 0.5;
 }
