@@ -11,9 +11,6 @@ class App extends React.Component {
     return (
       <div>
         <div>Hello World</div>
-        <Authentication/>
-        <Profile/>
-
       </div>
 
     )

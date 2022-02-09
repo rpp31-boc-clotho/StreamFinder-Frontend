@@ -1,0 +1,25 @@
+version: 2.1
+jobs:
+  run_tests:
+    docker:
+      - image: circleci/node:17.1
+    steps:
+      - checkout
+      - run:
+          name: Install npm dependencies
+          command: |
+            npm install --save
+      - run:
+          name: Run webpack build
+          command: |
+            npm run build
+      - run:
+          name: Run unit tests
+          command: |
+            npm run test
+      - store_test_results:
+          path: test-results
+workflows:
+  build_test:
+    jobs:
+      - run_tests
