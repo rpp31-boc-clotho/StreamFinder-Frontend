@@ -1,4 +1,6 @@
 import React from 'react';
+import Authentication from './components/authentication/authentication.jsx';
+import Profile from './components/user_profile/profile.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -7,7 +9,10 @@ class App extends React.Component {
 
   render () {
     return (
-      <div>Hello World</div>
+      <div>
+        <div>Hello World</div>
+      </div>
+
     )
   }
 }
