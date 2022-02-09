@@ -1,6 +1,6 @@
 import React from 'react';
-import Authentication from './components/authentication/authentication.jsx';
-import Profile from './components/user_profile/profile.jsx';
+import Authentication from './components/Authentication/Authentication.jsx';
+import Profile from './components/User_Profile/Profile.jsx';
 
 class App extends React.Component {
   constructor(props) {
