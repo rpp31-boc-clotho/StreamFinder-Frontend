@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import Login from '../login/login.jsx';
-import Signup from '../signup/signup.jsx';
+import Login from '../Login/Login.jsx';
+import Signup from '../Signup/Signup.jsx';
 
 const authentication = (props) => {
 
