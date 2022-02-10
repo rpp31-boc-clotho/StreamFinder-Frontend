@@ -19,7 +19,6 @@ class MovieCard extends React.Component {
 
   displayImage () {
     let url = ('https://image.tmdb.org/t/p/w185' + (this.props.film.poster_path))
-    console.log(url)
     return (<img src={url} className="cardImage"></img>)
   }
 
