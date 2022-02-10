@@ -2,14 +2,18 @@
 
 
 import React from 'react';
+import Header from './Header.jsx';
+import Search from './Search.jsx';
 import Horizontal from './Horizontal.jsx';
+import exampleData from '../../exampleData.js';
+
 
 class Landing extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      popularMovies: [],
-      popularTV: [],
+      popularMovies: exampleData.movies,
+      popularTV: exampleData.tv,
       isLoggedIn:false,
       recommended:[],
       watched:[]
@@ -19,12 +23,14 @@ class Landing extends React.Component {
   render(){
     return(
       <div className="landingPage">
+        <Header />
+        <Search />
         {this.state.isLoggedIn
         ?<div>
           <Horizontal popularMovies = {this.state.popularMovies} />
           <Horizontal popularTV = {this.state.popularTV} />
           <Horizontal recommended = {this.state.recommended} />
-          <Horizontal watched = {this.state.watched} />
+          <Horizontal watched = {this.state.watchlist} />
          </div>
         :<div>
           <Horizontal popularMovies = {this.state.popularMovies} />

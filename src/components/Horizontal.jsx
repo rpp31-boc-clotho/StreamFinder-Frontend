@@ -8,20 +8,25 @@ import Display from './Display.jsx';
 
 var Horizontal = function(props) {
   var id="";
-  var header = ""
+  var header = "";
+  var list = "";
   if(props.popularMovies) {
     id="popularMovies";
-    header = "Popular Movies"
+    header = "Popular Movies";
+    list = props.popularMovies;
   }else if(props.popularTV){
     id="popularTV";
     header= "Popular TV Shows"
+    list = props.popularTV;
   }else if(props.recommended){
     id="popularTV";
     header= "Popular TV Shows"
+    list = props.recommended;
   }
   else if(props.watched){
     id="popularTV";
     header= "Popular TV Shows"
+    list = props.watchlist;
   }
   let leftScroll = function(event){
     console.log(event);
@@ -37,7 +42,7 @@ var Horizontal = function(props) {
         </div>
         <div className="horizontalScrollBar">
           <FontAwesomeIcon  id="leftScrollIcon" onClick={(event) => leftScroll(event)} icon = {faAngleLeft} />
-          <Display/>
+          <Display list={list} />
           <FontAwesomeIcon  id="rightScrollIcon" onClick={(event) => rightScroll(event)} icon = {faAngleRight} />
         </div>
     </div>

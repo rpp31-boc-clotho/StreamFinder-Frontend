@@ -1,5 +1,19 @@
 #app {
-  font-size: 50Px;
+  font-size: 20Px;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+}
+
+.login {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 20px;
+  margin-top: 10px;
+  margin-right: 10px;
 }
 
 div.landingPage {
@@ -17,13 +31,15 @@ div#popularTV div.horizontalHeader{
 }
 div#popularMovies {
   font-size:50px;
-  height:250px;
+  height:450px;
   border-spacing: 20px;
+  margin-bottom: 40px;
 }
 
 div#popularTV {
   font-size:50px;
-  height:250px;
+  height:450px;
+  margin-bottom: 20px;
 }
 div.horizontalScrollBar{
   display:grid;
@@ -51,6 +67,8 @@ div#popularMovies div.movieDisplay{
   border:solid;
   height:100%;
   border-radius: 50px;
+  display: flex;
+  flex-direction: row;
 
 }
 div#popularTV div.movieDisplay{
@@ -60,7 +78,54 @@ div#popularTV div.movieDisplay{
   height:100%;
   border-radius: 50px;
   border-spacing: 20px;
+  display: flex;
+  flex-direction: row;
 }
+
+div.filmCard {
+  position: relative;
+  margin-left: 20px;
+  margin-top: 12px;;
+  border: solid;
+  border-radius: 50px;
+  font-size: 15px;
+  height: 85%;
+  width: 200px;
+}
+
+.cardImage {
+  margin-top: 8px;
+  margin-left:15px;
+ height: 215px;
+ width:170px;
+ border-radius: 15%;
+ object-fit: fill;
+}
+
+.filmRating {
+ float:right;
+ height: 30px;
+ width: 30px;
+ padding: 2px;
+ border: solid;
+ border-spacing: 10px;
+ border-width: 1px;
+ border-radius: 50%;
+ line-height: 30px;
+}
+
+/* .filmTitle {
+  position: absolute;
+  margin-top: 12px;
+  margin-left: 8px;
+} */
+
+/* .filmDate {
+  position: absolute;
+  margin-top: 50px;
+  margin-left: 8px;
+} */
+
 
 /*button.previousMovies{
   grid-column:1;
