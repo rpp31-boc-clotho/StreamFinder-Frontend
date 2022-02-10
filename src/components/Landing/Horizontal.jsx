@@ -20,7 +20,7 @@ var Horizontal = function(props) {
     list = props.popularTV;
   }else if(props.recommended){
     id="recommended";
-    header= "Recommended List"
+    header= "Recommended"
     list = props.recommended;
   }
   else if(props.watched){
