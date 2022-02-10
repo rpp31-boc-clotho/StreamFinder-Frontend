@@ -19,31 +19,40 @@ var Horizontal = function(props) {
     header= "Popular TV Shows"
     list = props.popularTV;
   }else if(props.recommended){
-    id="popularTV";
-    header= "Popular TV Shows"
+    id="recommended";
+    header= "Recommended List"
     list = props.recommended;
   }
   else if(props.watched){
-    id="popularTV";
-    header= "Popular TV Shows"
-    list = props.watchlist;
+    console.log("inside THIS");
+    id="watchList";
+    header= "Watched"
+    list = props.watched;
   }
-  let leftScroll = function(event){
+  let leftScroll = function(event, offset){
     console.log(event);
     console.log(event.target.parentElement.nextSibling);
+    let element = event.target.parentElement.nextSibling;
+    element.scrollLeft = element.scrollLeft + offset;
+
   }
-  let rightScroll = function(event){
+  let rightScroll = function(event, offset){
     console.log(event.target.parentElement.previousSibling);
+    let element = event.target.parentElement.previousSibling;
+    console.log(element);
+    element.scrollLeft = element.scrollLeft + offset;
   }
+
   return(
+
     <div className = "horizontal" id={id}>
         <div className="horizontalHeader">
           {header}
         </div>
         <div className="horizontalScrollBar">
-          <FontAwesomeIcon  id="leftScrollIcon" onClick={(event) => leftScroll(event)} icon = {faAngleLeft} />
+          <FontAwesomeIcon  id="leftScrollIcon" onClick={(event) => leftScroll(event, -1000)} icon = {faAngleLeft} />
           <Display list={list} />
-          <FontAwesomeIcon  id="rightScrollIcon" onClick={(event) => rightScroll(event)} icon = {faAngleRight} />
+          <FontAwesomeIcon  id="rightScrollIcon" onClick={(event) => rightScroll(event, 1000)} icon = {faAngleRight} />
         </div>
     </div>
   );

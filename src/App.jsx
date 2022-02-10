@@ -1,5 +1,5 @@
 import React from 'react';
-import Landing from './components/Landing.jsx';
+import Landing from './components/Landing/Landing.jsx';
 import Authentication from './components/Authentication/Authentication.jsx';
 import Profile from './components/User_Profile/Profile.jsx';
 

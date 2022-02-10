@@ -3,9 +3,9 @@
 
 import React from 'react';
 import Header from './Header.jsx';
-import Search from './Search.jsx';
+import Search from '../Search.jsx';
 import Horizontal from './Horizontal.jsx';
-import exampleData from '../../exampleData.js';
+import exampleData from '../../../exampleData.js';
 
 
 class Landing extends React.Component {
@@ -14,9 +14,9 @@ class Landing extends React.Component {
     this.state = {
       popularMovies: exampleData.movies,
       popularTV: exampleData.tv,
-      isLoggedIn:false,
+      isLoggedIn:true,
       recommended:[],
-      watched:[]
+      watched:exampleData.movies
     }
   }
 
@@ -30,7 +30,7 @@ class Landing extends React.Component {
           <Horizontal popularMovies = {this.state.popularMovies} />
           <Horizontal popularTV = {this.state.popularTV} />
           <Horizontal recommended = {this.state.recommended} />
-          <Horizontal watched = {this.state.watchlist} />
+          <Horizontal watched = {this.state.watched} />
          </div>
         :<div>
           <Horizontal popularMovies = {this.state.popularMovies} />
