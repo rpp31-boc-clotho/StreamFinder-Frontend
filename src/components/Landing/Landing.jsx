@@ -22,7 +22,6 @@ class Landing extends React.Component {
   render(){
     return(
       <div className="landingPage">
-        <Search />
         {this.state.isLoggedIn
         ?<div>
           <Horizontal popularMovies = {this.state.popularMovies} />
