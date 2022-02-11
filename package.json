@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/rpp31-boc-clotho/boc-client#readme",
   "dependencies": {
+    "@auth0/auth0-react": "^1.9.0",
     "@babel/core": "^7.17.0",
     "@babel/preset-env": "^7.16.11",
     "@babel/preset-react": "^7.16.7",
