@@ -1,4 +1,6 @@
 import React from 'react';
+import Landing from './components/Landing/Landing.jsx';
+import Header from './components/Landing/Header.jsx';
 import Authentication from './components/Authentication/Authentication.jsx';
 import Profile from './components/User_Profile/Profile.jsx';
 import SearchBar from './components/Search/SearchBar.jsx';
@@ -11,9 +13,9 @@ class App extends React.Component {
   render () {
     return (
       <div>
-        <div>Hello World</div>
+      <Header />
+      <Landing />
       </div>
-
     )
   }
 }
