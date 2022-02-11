@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack",
-    "test": "jest"
+    "test": "jest",
+    "start": "nodemon server/server.js --watch"
   },
   "repository": {
     "type": "git",
@@ -18,6 +19,7 @@
   },
   "homepage": "https://github.com/rpp31-boc-clotho/boc-client#readme",
   "dependencies": {
+    "@auth0/auth0-react": "^1.9.0",
     "@babel/core": "^7.17.0",
     "@babel/preset-env": "^7.16.11",
     "@babel/preset-react": "^7.16.7",
@@ -26,6 +28,7 @@
     "@fortawesome/react-fontawesome": "^0.1.17",
     "axios": "^0.25.0",
     "babel-loader": "^8.2.3",
+    "express": "^4.17.2",
     "path": "^0.12.7",
     "react": "^17.0.2",
     "react-dev": "^0.0.1",
