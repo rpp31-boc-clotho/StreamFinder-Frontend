@@ -1,6 +1,166 @@
 #app {
-  font-size: 50px;
+  font-size: 20Px;
+  background: #F5F5DC;
+  /* display: flex;
+  justify-content: center; */
 }
+
+.header {
+  display: flex;
+  flex-direction: row;
+  border: solid;
+  background-color:#89a8c2;
+}
+
+.login {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 20px;
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
+div.landingPage {
+  width:100%;
+  height:100%;
+  /* text-align: center; */
+}
+div.landingPage div#popularMovies div.horizontalHeader,
+div.landingPage div#popularTV div.horizontalHeader,
+div.landingPage div#recommended div.horizontalHeader,
+div.landingPage div#watchList div.horizontalHeader{
+  height:20%;
+  width:50%;
+  margin-left: 100px;
+  margin-bottom: 0px;
+}
+
+div.landingPage div#popularMovies ,
+div.landingPage div#popularTV,
+div.landingPage div#recommended,
+div.landingPage div#watchList
+{
+  font-size:30px;
+  height:450px;
+  border-spacing: 20px;
+  margin-bottom: 40px;
+}
+
+
+div.landingPage div.horizontalScrollBar{
+  display:grid;
+  grid-template-columns: 5% 1250px 5%;
+  height:80%;
+  width:100%;
+
+}
+
+div.landingPage div.horizontalScrollBar #leftScrollIcon{
+  grid-column:1;
+  width:30%;
+  height:75%;
+  padding:10px;
+
+}
+div.landingPage div.horizontalScrollBar #rightScrollIcon{
+  grid-column:3;
+  width:30%;
+  height:75%;
+  padding:20px;
+}
+div.landingPage div#popularMovies div.movieDisplay,
+div.landingPage div#popularTV div.movieDisplay,
+div.landingPage div#recommended div.movieDisplay,
+div.landingPage div#watchList div.movieDisplay
+{
+  grid-column:2;
+  width:100%;
+  border:solid;
+  height:100%;
+  border-radius: 50px;
+  display: flex;
+  flex-direction: row;
+  background-color:rgb(248, 223, 131)
+}
+
+div.landingPage div.movieDisplay {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+
+}
+
+div.filmCard {
+  position: relative;
+  margin-left: 20px;
+  margin-top: 12px;;
+  border: solid;
+  border-radius: 30px;
+  font-size: 15px;
+  height: 85%;
+  width: 300px;
+  font-weight:bold;
+  background-color:#F5F5DC
+}
+
+.cardImage {
+  /*margin-top: 8px;*/
+  /*margin-left:15px;*/
+ height: 215px;
+ width:170px;
+ border-radius: 15%;
+ object-fit: fill;
+}
+
+.filmRating {
+ float:right;
+ /* position: absolute;
+ top:200px;
+ right:0; */
+ height: 30px;
+ width: 30px;
+ padding: 2px;
+ border: solid;
+ border-spacing: 10px;
+ border-width: 3px;
+ border-radius: 50%;
+ line-height: 30px;
+ background-color: rgb(14, 179, 14);
+}
+
+ .filmDate {
+color: gray;
+}
+
+
+/*button.previousMovies{
+  grid-column:1;
+  border-left:50px;
+  font-size: xx-large;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: none;
+  outline: none;
+  width:10%;
+  height:70%;
+  border-radius: 5px;
+  opacity: 0.5;
+}*/
+ /*button.nextMovies{
+  grid-column:3;
+  border-right: 0px;
+  font-size: xx-large;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: none;
+  outline: none;
+  width:10%;
+  height:70%;
+  border-radius: 5px;
+  opacity: 0.5;
+}*/
+  /*font-size: 50px;
+//}
 
 /* The switch - the box around the slider */
 .switch {
