@@ -3,7 +3,6 @@
 
 import React from 'react';
 import Header from './Header.jsx';
-import Search from '../Search.jsx';
 import Horizontal from './Horizontal.jsx';
 import exampleData from '../../../exampleData.js';
 
