@@ -1,6 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 
+//so if search this, it should send the props (term) through the looping portion of the search results
+
 const search = (props) => {
 
   return (
