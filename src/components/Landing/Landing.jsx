@@ -13,12 +13,18 @@ class Landing extends React.Component {
     this.state = {
       popularMovies: exampleData.movies,
       popularTV: exampleData.tv,
-      isLoggedIn:true,
+      isLoggedIn: false,
       recommended:[],
       watched:exampleData.movies
     }
   }
-
+  componentDidUpdate(prevProps){
+    if(this.props.isLoggedIn !== prevProps.isLoggedIn) {
+      this.setState({
+        isLoggedIn:true
+      })
+    }
+  }
   render(){
     return(
       <div className="landingPage">

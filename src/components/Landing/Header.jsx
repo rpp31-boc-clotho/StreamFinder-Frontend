@@ -1,19 +1,21 @@
 import React from 'react';
 
-class Header extends React.Component {
-  constructor(props) {
-    super(props)
 
-  };
 
-  render() {
+
+ var Header = (props) => {
+    console.log("Props.loggedin:",props.isLoggedIn);
     return (
       <div className="header">
         <h1 className="title">Stream Finder</h1>
-        <button className="login">Login</button>
+        {props.isLoggedIn === false
+          ?<button className="login" onClick={(event) => props.loginButtonClick(event)}>Login</button>
+          :<span className="login">Welcome User!</span>
+        }
       </div>
     );
-  };
+
 };
+
 
 export default Header;

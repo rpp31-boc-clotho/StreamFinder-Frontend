@@ -50,7 +50,7 @@ div.landingPage div#watchList
 
 div.landingPage div.horizontalScrollBar{
   display:grid;
-  grid-template-columns: 5% 1250px 5%;
+  grid-template-columns: 5% 90% 5%;
   height:80%;
   width:100%;
 

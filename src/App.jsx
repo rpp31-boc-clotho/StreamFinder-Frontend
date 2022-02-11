@@ -8,13 +8,22 @@ import SearchBar from './components/Search/SearchBar.jsx';
 class App extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      isLoggedIn:false
+    }
+    this.clickOnLoginButton = this.clickOnLoginButton.bind(this);
   }
-
+  clickOnLoginButton(event) {
+    console.log("inside click login");
+    this.setState({
+      isLoggedIn: true
+    })
+  }
   render () {
     return (
       <div>
-      <Header />
-      <Landing />
+      <Header loginButtonClick = {this.clickOnLoginButton} isLoggedIn = {this.state.isLoggedIn}/>
+      <Landing isLoggedIn = {this.state.isLoggedIn}/>
       </div>
     )
   }
