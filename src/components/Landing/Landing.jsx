@@ -23,7 +23,6 @@ class Landing extends React.Component {
   render(){
     return(
       <div className="landingPage">
-        <Header />
         <Search />
         {this.state.isLoggedIn
         ?<div>
