@@ -8,8 +8,6 @@ import Profile from './components/User_Profile/Profile.jsx';
 import SearchBar from './components/Search/SearchBar.jsx';
 import SearchPage from './components/Search/SearchPage.jsx';
 
-
-
 const App = (props) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const { isAuthenticated } = useAuth0();
