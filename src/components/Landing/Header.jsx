@@ -12,7 +12,7 @@ class Header extends React.Component {
     return (
       <div className="header">
         <h1 className="title">Stream Finder</h1>
-        <button className="login">Login</button>
+        {/* <button className="login">Login</button> */}
         <LoginButton />
       </div>
     );
