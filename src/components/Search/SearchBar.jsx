@@ -12,7 +12,7 @@ const search = (props) => {
 
   return (
     <div>
-      <form action="/" method="get">
+      <form action="/" method="get" onSubmit={props.handleSearch}>
         <label htmlFor="Search_Bar">
           <span className="Search_Bar_Title">Search for Movies or Shows!</span>
         </label>
