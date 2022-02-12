@@ -1,6 +1,5 @@
 import React from 'react';
-
-
+import sample from '../images/blankImg.png';
 
 
  var Header = (props) => {
@@ -10,7 +9,7 @@ import React from 'react';
         <h1 className="title">Stream Finder</h1>
         {props.isLoggedIn === false
           ?<button className="login" onClick={(event) => props.loginButtonClick(event)}>Login</button>
-          :<span className="login">Welcome User!</span>
+          :<img src={sample} className="avatar"></img>
         }
       </div>
     );

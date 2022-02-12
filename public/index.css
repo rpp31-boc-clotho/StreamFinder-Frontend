@@ -8,8 +8,14 @@
 .header {
   display: flex;
   flex-direction: row;
+  font-weight: lighter;
   border: solid;
-  background-color:#89a8c2;
+  background-color:#343c44f8;
+}
+
+.title {
+  color:white;
+  font-weight: lighter;
 }
 
 .login {
@@ -19,6 +25,17 @@
   font-size: 20px;
   margin-top: 10px;
   margin-right: 10px;
+}
+
+.avatar {
+  position: absolute;
+  top: 20px;
+  right: 15px;
+  height: 70px;
+  width: 70px;
+  border: solid;
+  border-radius: 50%;
+  padding: 2px;
 }
 
 div.landingPage {
@@ -93,15 +110,16 @@ div.landingPage div.movieDisplay {
 div.filmCard {
   position: relative;
   margin-left: 20px;
-  margin-top: 12px;;
+  margin-top: 25px;;
   border: solid;
   border-radius: 30px;
   font-size: 15px;
   height: 85%;
   width: 300px;
   font-weight:bold;
-  background-color:#F5F5DC
+  background-color:#F5F5DC;
 }
+
 
 .cardImage {
   /*margin-top: 8px;*/

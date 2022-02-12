@@ -14,11 +14,11 @@ class App extends React.Component {
     this.clickOnLoginButton = this.clickOnLoginButton.bind(this);
   }
   clickOnLoginButton(event) {
-    console.log("inside click login");
     this.setState({
       isLoggedIn: true
     })
   }
+
   render () {
     return (
       <div>
