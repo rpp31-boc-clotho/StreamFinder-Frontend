@@ -132,9 +132,6 @@ div.filmCard {
 
 .filmRating {
  float:right;
- /* position: absolute;
- top:200px;
- right:0; */
  height: 30px;
  width: 30px;
  padding: 2px;
