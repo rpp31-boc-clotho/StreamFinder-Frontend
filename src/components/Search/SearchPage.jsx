@@ -12,16 +12,18 @@ class SearchPage extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      media_type: {
+      mediaType: {
         movies: true,
-        TV_shows: true
+        TVShows: true
       },
       baseData: exampleData.movies,
       results: exampleData.movies
     }
     this.filterSearch = this.filterSearch.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
-  }
+    this.handleClickMovie = this.handleClickMovie.bind(this);
+    this.handleClickTVShow = this.handleClickTVShow.bind(this);
+    }
 
   handleSearch(event) {
     event.preventDefault();
@@ -31,6 +33,27 @@ class SearchPage extends React.Component {
     }));
   }
 
+  //maybe we could do an if statement here. lets build a handle click function.
+
+  handleClickMovie(){
+    this.setState (prevState => ({
+      ...prevState,
+      mediaType : {
+        ...prevState.mediaType,
+        movies: (!prevState.movies)
+      }
+    }))
+  }
+
+  handleClickTVShow(){
+    this.setState (prevState => ({
+      ...prevState,
+      mediaType : {
+        ...prevState.mediaType,
+        TVShows: (!prevState.TVShows)
+      }
+    }))
+  }
 
   filterSearch (films, query) {
     if(!query) {
@@ -47,6 +70,7 @@ class SearchPage extends React.Component {
       //gonna have to send the data through here, I think? need to decide where we are searching through the data.
       <div>
         <SearchBar filterSearch={this.filterSearch} handleSearch={this.handleSearch}/>
+        <button onClick={this.handleClickMovie}>Filter movies</button>
         <SearchResults results={this.state.results} />
       </div>
     )
