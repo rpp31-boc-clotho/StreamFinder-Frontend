@@ -40,7 +40,7 @@ jobs:
       - attach_workspace:
           at: .
       - checkout
-      - run: aws s3 sync ./app/build s3://boc-clotho-streamfinder
+      - run: aws s3 sync ./public s3://boc-clotho-streamfinder
 workflows:
   build_test_deploy:
     jobs:
