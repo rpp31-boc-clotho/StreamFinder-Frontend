@@ -3,10 +3,6 @@ jobs:
   build:
     machine:
       image: ubuntu-2004:202010-01
-    filters:
-      branches:
-        only:
-          - master
     steps:
       - checkout
       - run:
@@ -55,3 +51,7 @@ workflows:
       - deploy:
           requires:
             - test
+          filters:
+            branches:
+              only:
+                - master
