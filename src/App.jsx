@@ -24,6 +24,7 @@ const App = (props) => {
   return (
     <div>
       <Header isLoggedIn = {isLoggedIn}/>
+      <SearchBar />
       <Landing isLoggedIn = {isLoggedIn}/>
     </div>
   );
