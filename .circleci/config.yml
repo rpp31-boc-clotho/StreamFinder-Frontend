@@ -2,10 +2,10 @@ version: 2.1
 jobs:
   build:
     machine:
-      - image: ubuntu-2004:202010-01
+      image: ubuntu-2004:202010-01
     branches:
       only:
-        - master
+        master
     steps:
       - checkout
       - run:
