@@ -14,7 +14,7 @@ class Landing extends React.Component {
       popularMovies: exampleData.movies,
       popularTV: exampleData.tv,
       isLoggedIn: false,
-      recommended:[],
+      recommended:exampleData.movies,
       watched:exampleData.movies
     }
   }
