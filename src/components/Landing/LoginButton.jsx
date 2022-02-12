@@ -8,9 +8,7 @@ import MenuItem from '@mui/material/MenuItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
 import Tooltip from '@mui/material/Tooltip';
-import PersonAdd from '@mui/icons-material/PersonAdd';
 import Settings from '@mui/icons-material/Settings';
 import Logout from '@mui/icons-material/Logout';
 
@@ -45,7 +43,6 @@ const LoginButton = () => {
     return (
       <React.Fragment>
         <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
-
           <Tooltip title="Account settings">
             <IconButton
               onClick={handleClick}
@@ -55,7 +52,7 @@ const LoginButton = () => {
               aria-haspopup="true"
               aria-expanded={open ? 'true' : undefined}
             >
-              <Avatar sx={{ width: 32, height: 32 }}>{currentUser[0]}</Avatar>
+              <Avatar sx={{ width: 32, height: 32 }}>{currentUser[0].toUpperCase()}</Avatar>
             </IconButton>
           </Tooltip>
         </Box>
