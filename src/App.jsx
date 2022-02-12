@@ -4,6 +4,7 @@ import Header from './components/Landing/Header.jsx';
 import Authentication from './components/Authentication/Authentication.jsx';
 import Profile from './components/User_Profile/Profile.jsx';
 import SearchBar from './components/Search/SearchBar.jsx';
+import SearchPage from './components/Search/SearchPage.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -13,8 +14,8 @@ class App extends React.Component {
   render () {
     return (
       <div>
-      <Header />
-      <Landing />
+        <Header />
+        <Landing />
       </div>
     )
   }
