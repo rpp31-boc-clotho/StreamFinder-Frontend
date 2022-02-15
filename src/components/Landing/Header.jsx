@@ -1,22 +1,17 @@
 import React from 'react';
-import { useAuth0 } from '@auth0/auth0-react';
 import LoginButton from './LoginButton.jsx';
 
-class Header extends React.Component {
-  constructor(props) {
-    super(props)
 
-  };
+ var Header = (props) => {
 
-  render() {
     return (
       <div className="header">
         <h1 className="title">Stream Finder</h1>
-        {/* <button className="login">Login</button> */}
-        <LoginButton />
+        <span className="login"><LoginButton /></span>
       </div>
     );
-  };
+
 };
+
 
 export default Header;
