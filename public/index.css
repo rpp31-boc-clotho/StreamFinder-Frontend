@@ -5,6 +5,15 @@
   justify-content: center; */
 }
 
+#loading {
+  width: 50vw;
+  height: 50vh;
+  margin: auto;
+  text-align: center;
+  background-color: black;
+  color: #ccc;
+}
+
 .header {
   display: flex;
   flex-direction: row;
