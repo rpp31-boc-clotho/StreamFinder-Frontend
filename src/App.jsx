@@ -14,7 +14,7 @@ const App = (props) => {
 
   useEffect(() => {
     if (isAuthenticated) {
-     setIsLoggedIn(true)
+      setIsLoggedIn(true)
     } else {
       setIsLoggedIn(false)
     }
