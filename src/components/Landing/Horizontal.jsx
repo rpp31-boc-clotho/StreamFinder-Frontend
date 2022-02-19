@@ -4,12 +4,13 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleLeft, faAngleRight} from '@fortawesome/free-solid-svg-icons';
 import Display from './Display.jsx';
-
+import PlusCard from './PlusCard.jsx';
 
 var Horizontal = function(props) {
   var id="";
   var header = "";
   var list = "";
+  var isWatchList = false;
   if(props.popularMovies) {
     id="popularMovies";
     header = "Popular Movies";
@@ -28,6 +29,7 @@ var Horizontal = function(props) {
     id="watchList";
     header= "Watched"
     list = props.watched;
+    isWatchList=true;
   }
   let scroll = function(event, offset, leftOrRight){
     if(leftOrRight === 1) {
@@ -51,8 +53,12 @@ var Horizontal = function(props) {
         </div>
         <div className="horizontalScrollBar">
           <FontAwesomeIcon  id="leftScrollIcon" onClick={(event) => scroll(event, -1000, 1)} icon = {faAngleLeft} />
-          <Display list={list} />
+          <Display list={list} isWatchList={isWatchList}/>
           <FontAwesomeIcon  id="rightScrollIcon" onClick={(event) => scroll(event, 1000 , 2)} icon = {faAngleRight} />
+          {isWatchList
+          ?<div className="plusCard"><PlusCard/></div>
+          :<div></div>
+          }
         </div>
     </div>
   );
