@@ -1,5 +1,6 @@
 import React from 'react';
 import LoginButton from './LoginButton.jsx';
+import { Link } from 'react-router-dom';
 
 
  var Header = (props) => {
@@ -8,6 +9,9 @@ import LoginButton from './LoginButton.jsx';
       <div className="header">
         <h1 className="title">Stream Finder</h1>
         <span className="login"><LoginButton /></span>
+        <Link to="/search">Search</Link>
+        <Link to="/">Home</Link>
+        <Link to="/settings">Settings</Link>
       </div>
     );
 
