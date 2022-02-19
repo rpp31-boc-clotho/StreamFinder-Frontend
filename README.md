@@ -11,3 +11,5 @@
 - *Michael Lee - Software Engineer*
 - *Mike Pollens - Software Engineer*
 - *Sangeetha Nair - Software Engineer*
+
+**[link to API Documentation](https://github.com/rpp31-boc-clotho/boc-client/blob/master/API-Routes.md)**

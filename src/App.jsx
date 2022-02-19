@@ -7,33 +7,41 @@ import { useAuth0 } from '@auth0/auth0-react';
 import Profile from './components/User_Profile/Profile.jsx';
 import SearchBar from './components/Search/SearchBar.jsx';
 import SearchPage from './components/Search/SearchPage.jsx';
-import {
-  BrowserRouter,
-  Routes,
-  Route
-} from "react-router-dom";
+import SearchResults from './components/Search/SearchResults.jsx';
+import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
 
 const App = (props) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const { isAuthenticated } = useAuth0();
+  const { user } = useAuth0();
 
   useEffect(() => {
     if (isAuthenticated) {
-     setIsLoggedIn(true)
+      console.log('user id', user.sub, user)
+      setIsLoggedIn(true)
     } else {
       setIsLoggedIn(false)
     }
   });
 
   return (
-    <BrowserRouter>
-    <Header />
-    <Routes>
-
-    <Route path="Search" element={<SearchPage />} />
-    <Route path="/" element={<Landing isLoggedIn = {isLoggedIn}/>} />
-    </Routes>
-    </BrowserRouter>
+    <div className="App">
+      <BrowserRouter>
+        <nav>
+          <Header isLoggedIn = {isLoggedIn}/>
+        </nav>
+        <Routes>
+          <Route path="/" element={<Landing isLoggedIn = {isLoggedIn}/>} />
+          <Route path="/search" element={<SearchPage />} />
+          <Route path="/settings" element={<Profile />} />
+        </Routes>
+      </BrowserRouter>
+    </div>
+    // <div>
+    //   <Header isLoggedIn = {isLoggedIn}/>
+    //   <SearchBar />
+    //   <Landing isLoggedIn = {isLoggedIn}/>
+    // </div>
   );
 };
 

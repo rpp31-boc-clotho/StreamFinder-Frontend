@@ -1,6 +1,6 @@
 import React from 'react';
 import LoginButton from './LoginButton.jsx';
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 
  var Header = (props) => {
@@ -11,6 +11,9 @@ import { Link } from "react-router-dom";
         <Link to="/Search">Search</Link>
         <Link to="/">Landing</Link>
         <span className="login"><LoginButton /></span>
+        <Link to="/search">Search</Link>
+        <Link to="/">Home</Link>
+        <Link to="/settings">Settings</Link>
       </div>
     );
 

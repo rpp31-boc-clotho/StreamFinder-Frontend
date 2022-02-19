@@ -10,35 +10,35 @@ const profile = (props) => {
       <div>
         What services do you subscribe to?
         <div>
-          <label class="switch">
+          <label className="switch">
             <input type="checkbox"></input>
             Netflix
-            <span class="slider round"></span>
+            <span className="slider round"></span>
           </label>
           {/* <input id="services" type="checkbox"></input>
           <label>Netflix</label> */}
         </div>
         <div>
-          <label class="switch">
+          <label className="switch">
             <input type="checkbox"></input>
             Amazon Prime
-            <span class="slider round"></span>
+            <span className="slider round"></span>
           </label>
           {/* <input id="services" type="checkbox"></input>
           <label>Amazon Prime</label> */}
         </div>
         <div>
-          <label class="switch">
+          <label className="switch">
             <input type="checkbox"></input>
             Hulu
-            <span class="slider round"></span>
+            <span className="slider round"></span>
           </label>
         </div>
         <div>
-          <label class="switch">
+          <label className="switch">
             <input type="checkbox"></input>
             HBO Max
-            <span class="slider round"></span>
+            <span className="slider round"></span>
           </label>
         </div>
       </div>
