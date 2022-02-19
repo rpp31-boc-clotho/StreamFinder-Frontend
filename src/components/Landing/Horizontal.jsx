@@ -4,7 +4,7 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleLeft, faAngleRight} from '@fortawesome/free-solid-svg-icons';
 import Display from './Display.jsx';
-import PlusCard from './PlusCard.jsx';
+import AddToWatch from './AddToWatch.jsx';
 
 var Horizontal = function(props) {
   var id="";
@@ -27,7 +27,7 @@ var Horizontal = function(props) {
   else if(props.watched){
 
     id="watchList";
-    header= "Watched"
+    header= "Watch List"
     list = props.watched;
     isWatchList=true;
   }
@@ -56,13 +56,14 @@ var Horizontal = function(props) {
           <Display list={list} isWatchList={isWatchList}/>
           <FontAwesomeIcon  id="rightScrollIcon" onClick={(event) => scroll(event, 1000 , 2)} icon = {faAngleRight} />
           {isWatchList
-          ?<div className="plusCard"><PlusCard/></div>
+          ?<div className="addToWatch"><AddToWatch/></div>
           :<div></div>
           }
         </div>
     </div>
   );
 }
+
 
 export default Horizontal;
 

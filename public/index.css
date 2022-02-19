@@ -106,11 +106,9 @@ div.landingPage div.movieDisplay {
   scroll-behavior: smooth;
 
 }
-div.plusCard {
+button.addToWatch {
   grid-column:4;
-  margin-top: 100px;;
-  height:80px;
-  width: 100px;
+  margin-top:100px;
   align-items: center;
   font-size:large;
   background-color:rgb(248, 223, 131)
