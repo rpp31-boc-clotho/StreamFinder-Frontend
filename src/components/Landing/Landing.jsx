@@ -23,6 +23,13 @@ class Landing extends React.Component {
       })
     }
   }
+  componentDidMount(){
+    if(this.props.isLoggedIn) {
+      this.setState({
+        isLoggedIn:true
+      })
+    }
+  }
   render(){
     return(
       <div className="landingPage">
