@@ -35,7 +35,7 @@ const App = (props) => {
           <Route path="/" element={<Landing isLoggedIn = {isLoggedIn}/>} />
           <Route path="/search" element={<SearchPage />} />
           <Route path="/settings" element={<Profile />} />
-          <Route path="/info" element={<MediaInfoPage />} />
+          <Route path="/info/*" element={<MediaInfoPage />} />
         </Routes>
       </BrowserRouter>
     </div>
