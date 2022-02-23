@@ -33,15 +33,10 @@ const App = (props) => {
         <Routes>
           <Route path="/" element={<Landing isLoggedIn = {isLoggedIn}/>} />
           <Route path="/search" element={<SearchPage />} />
-          <Route path="/settings" element={<Profile />} />
+          <Route path="/settings" element={<Profile isLoggedIn={isLoggedIn}/>} />
         </Routes>
       </BrowserRouter>
     </div>
-    // <div>
-    //   <Header isLoggedIn = {isLoggedIn}/>
-    //   <SearchBar />
-    //   <Landing isLoggedIn = {isLoggedIn}/>
-    // </div>
   );
 };
 
