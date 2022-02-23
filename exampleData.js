@@ -430,7 +430,8 @@ let exampleData = {
                 "vote_count": 0,
                 "popularity": 988.217,
                 "media_type": "tv"
-            }
+            },
+
         ]
 }
 

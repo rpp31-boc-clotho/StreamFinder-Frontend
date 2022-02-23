@@ -1,10 +1,8 @@
-
-
-
 import React from 'react';
 import Header from './Header.jsx';
 import Horizontal from './Horizontal.jsx';
 import exampleData from '../../../exampleData.js';
+import SearchBar from '../Search/SearchBar.jsx';
 
 
 class Landing extends React.Component {
@@ -25,9 +23,17 @@ class Landing extends React.Component {
       })
     }
   }
+  componentDidMount(){
+    if(this.props.isLoggedIn) {
+      this.setState({
+        isLoggedIn:true
+      })
+    }
+  }
   render(){
     return(
       <div className="landingPage">
+        <SearchBar />
         {this.state.isLoggedIn
         ?<div>
           <Horizontal popularMovies = {this.state.popularMovies} />
