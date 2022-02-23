@@ -37,11 +37,6 @@ const App = (props) => {
         </Routes>
       </BrowserRouter>
     </div>
-    // <div>
-    //   <Header isLoggedIn = {isLoggedIn}/>
-    //   <SearchBar />
-    //   <Landing isLoggedIn = {isLoggedIn}/>
-    // </div>
   );
 };
 
