@@ -18,6 +18,114 @@
   font-weight: lighter;
 }
 
+
+a {
+  color: white;
+  text-decoration: none;
+  margin: 25px;
+  margin-top: 30px;
+}
+
+
+/* MODAL */
+.modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color:rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.modal-content {
+  font-size: 15px;
+  width: 700px;
+  height: 700px;
+  background-color: white;
+}
+
+.modal-header {
+  flex-direction: row;
+  padding: 10px;
+  text-align: left;
+}
+
+.modal-footer {
+  padding: 10px;
+  text-align: left;
+}
+
+.modal-footer-button {
+  font-family: 'Nanum Gothic', sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+  width: 50%;
+  height: 100px;
+  background-color: white;
+  color: black;
+  padding: 0px;
+}
+
+.modal-footer-button:hover {
+  background-color: var(--mustard);
+}
+
+.submit-button {
+  padding-top: 20px;
+}
+
+.answer-thumbnail {
+  height: 50px;
+}
+
+.question-error {
+  padding-top: 0px;
+}
+
+.error {
+  color: red;
+  padding-top: 20px;
+}
+
+.modal-title {
+  margin: 0;
+}
+
+.modal-subtitle {
+  margin: 0;
+  font-weight: bold;
+}
+
+.close-modal-button {
+  margin-left: 650px;
+  display: flex;
+  background-color: white;
+  font-weight: bolder;
+  text-align: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.modal-body {
+  padding: 10px;
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+}
+
+/* MODAL */
+
+
+.settings {
+  color: black;
+  margin: 0px;
+}
+
 .login {
   position: absolute;
   top: 0;
@@ -25,6 +133,14 @@
   font-size: 20px;
   margin-top: 10px;
   margin-right: 10px;
+}
+
+.login-button {
+  background-color: #343c44f8;
+  color: white;
+  margin: 30px;
+  font-size: 20px;
+  border: none;
 }
 
 .avatar {
