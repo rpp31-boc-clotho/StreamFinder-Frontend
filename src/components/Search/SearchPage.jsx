@@ -2,6 +2,7 @@ import React from 'react';
 import SearchBar from './SearchBar.jsx';
 import SearchResults from'./SearchResults.jsx';
 import exampleData from '../../../exampleData.js';
+import {searchFunction} from './SearchFunction.js';
 //import search results list
 
 //just createing a place holder for the page sepreate from the search component, still debating the design.
@@ -25,11 +26,13 @@ class SearchPage extends React.Component {
     this.handleClickTVShow = this.handleClickTVShow.bind(this);
     }
 
-  handleSearch(event) {
+  async handleSearch(event) {
     event.preventDefault();
     console.log(event.target[0].value);
+    let searched = await searchFunction('movie', event.target[0].value)
     this.setState (prevState => ({
-      results: this.filterSearch(this.state.baseData, event.target[0].value)
+      results: searched
+      //this.filterSearch(this.state.baseData, event.target[0].value)
     }));
   }
 
@@ -64,6 +67,8 @@ class SearchPage extends React.Component {
       return filmName.includes(query.toLowerCase());
     })
   }
+
+
 
   render() {
     return (

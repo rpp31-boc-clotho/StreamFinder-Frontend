@@ -10,7 +10,7 @@ class MovieCard extends React.Component {
   }
 
   displayDate () {
-    if (this.props.film.media_type === 'movie') {
+    if (this.props.film.mediaType === 'movie' || this.props.film.media_type === 'movie') {
       return (this.props.film.release_date.substring(0,4))
     } else {
       return (this.props.film.first_air_date.substring(0,4))
@@ -18,7 +18,13 @@ class MovieCard extends React.Component {
   }
 
   displayImage () {
-    let url = ('https://image.tmdb.org/t/p/w185' + (this.props.film.poster_path))
+    let url;
+    if (this.props.film.poster_path) {
+    url = ('https://image.tmdb.org/t/p/w185' + (this.props.film.poster_path))
+    } else {
+      url = this.props.film.imgUrl;
+    }
+
     return (<img src={url} className="cardImage"></img>)
   }
 

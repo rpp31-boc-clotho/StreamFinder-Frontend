@@ -12,7 +12,7 @@ const search = (props) => {
 
   return (
     <div>
-      <form action="/" method="get" onSubmit={props.handleSearch}>
+      <form action="/search" onSubmit={props.handleSearch}>
         <label htmlFor="Search_Bar">
           <span className="Search_Bar_Title">Search for Movies or Shows!</span>
         </label>
@@ -22,7 +22,7 @@ const search = (props) => {
           placeholder="Search for Movies or Shows!"
           name="SB"
         />
-        <button type="submit">Search</button>
+        <button type="submit" >Search</button>
       </form>
     </div>
   )
