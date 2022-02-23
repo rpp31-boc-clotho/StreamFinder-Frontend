@@ -24,12 +24,10 @@ class MovieCard extends React.Component {
   }
 
   makeURL(film) {
-    console.log(film.id, film.media_type)
     return '/info/' + film.media_type + '/' + film.id
   }
 
   render() {
-    console.log(this.makeURL(this.props.film))
     return (
       <div className="filmCard">
         <Link className="cardLink" to={this.makeURL(this.props.film)}>
