@@ -1,4 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+/* font-family: 'Ubuntu', sans-serif; */
+
+:root {
+  --main-bg: #F4F1DE;
+  --card-bg: #F4F1DE;
+  --component-bg: #F2CC84;
+  --border: #000000;
+  --accent-bg: #353531;
+  --accent-bg-high: #81B29A;
+  --accent-text-high: #000000;
+  --accent-bg-mid: #FFC857;
+  --accent-text-mid: #353531;
+  --accent-bg-low: #E7414C;
+  --accent-text-low: #FFC857;
+  --text: #000000;
+  --h-text: #FFC857;
+  --sub-text: #8D8E92;
+  --drop-shadow: rgba(0, 0, 0, 0.25);
+}
+
 #app {
+  font-family: 'Ubuntu', sans-serif;
   font-size: 20Px;
   background: #F5F5DC;
   /* display: flex;
