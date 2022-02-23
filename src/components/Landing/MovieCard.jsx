@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class MovieCard extends React.Component {
   constructor(props) {
@@ -22,9 +23,16 @@ class MovieCard extends React.Component {
     return (<img src={url} className="cardImage"></img>)
   }
 
+  makeURL(film) {
+    console.log(film.id, film.media_type)
+    return '/info/' + film.media_type + '/' + film.id
+  }
+
   render() {
+    console.log(this.makeURL(this.props.film))
     return (
       <div className="filmCard">
+        <Link className="cardLink" to={this.makeURL(this.props.film)}>
         <section className="filmImage"> {this.displayImage()} </section>
         <section className="filmRating">
           {this.getRating(this.props.film.vote_average)}
@@ -35,9 +43,11 @@ class MovieCard extends React.Component {
         <section className="filmDate">
           {this.displayDate()}
         </section>
+        </Link>
       </div>
     )
   }
 }
 
 export default MovieCard;
+
