@@ -18,6 +18,20 @@
   font-weight: lighter;
 }
 
+
+a {
+  color: white;
+  text-decoration: none;
+  margin: 25px;
+  margin-top: 30px;
+}
+
+
+.settings {
+  color: black;
+  margin: 0px;
+}
+
 .login {
   position: absolute;
   top: 0;
@@ -25,6 +39,14 @@
   font-size: 20px;
   margin-top: 10px;
   margin-right: 10px;
+}
+
+.login-button {
+  background-color: #343c44f8;
+  color: white;
+  margin: 30px;
+  font-size: 20px;
+  border: none;
 }
 
 .avatar {
