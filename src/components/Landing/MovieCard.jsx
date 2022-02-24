@@ -6,8 +6,15 @@ class MovieCard extends React.Component {
     super(props)
   }
 
-  getRating(rating) {
-    return (rating * 10) + '%'
+  displayRating(rating) {
+    let ratingPercent = (rating * 10)
+    if (ratingPercent >= 75) {
+      return  <section className="filmRating" style={{ background: 'rgb(14, 179, 14)' }}>{ratingPercent + '%'}</section>
+    } else if (ratingPercent <= 74 && ratingPercent >= 50) {
+      return  <section className="filmRating" style={{ background: 'rgb(245, 159, 0)' }}>{ratingPercent + '%'}</section>
+    } else {
+      return  <section className="filmRating" style={{ background: 'red' }}>{ratingPercent + '%'}</section>
+    }
   }
 
   displayDate () {
@@ -32,9 +39,10 @@ class MovieCard extends React.Component {
       <div className="filmCard">
         <Link className="cardLink" to={this.makeURL(this.props.film)}>
         <section className="filmImage"> {this.displayImage()} </section>
-        <section className="filmRating">
+        {this.displayRating(this.props.film.vote_average)}
+        {/* <section className="filmRating">
           {this.getRating(this.props.film.vote_average)}
-          </section>
+          </section> */}
         <section className="filmTitle">
           {this.props.film.name || this.props.film.title}
           </section>
