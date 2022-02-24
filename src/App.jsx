@@ -41,7 +41,7 @@ const App = (props) => {
           <Route path="/" element={<Landing isLoggedIn = {isLoggedIn} handleError={handleError}/>} />
           <Route path="/search" element={<SearchPage />} />
           <Route path="/settings" element={<Profile />} />
-
+          <Route path="/info/:media_type/:id" element={< Profile />} />
         </Routes>
       </BrowserRouter>
     </div>

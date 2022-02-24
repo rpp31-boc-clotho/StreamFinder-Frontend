@@ -1,4 +1,4 @@
-#app {
+html, body, #app {
   font-size: 20Px;
   background: #F5F5DC;
   /* display: flex;
@@ -73,7 +73,6 @@ div.landingPage div.horizontalScrollBar{
   grid-template-columns: 5% 80% 5% 5%;
   height:80%;
   width:100%;
-
 }
 
 div.landingPage div.horizontalScrollBar #leftScrollIcon{
@@ -81,14 +80,15 @@ div.landingPage div.horizontalScrollBar #leftScrollIcon{
   width:30%;
   height:75%;
   padding:10px;
-
 }
+
 div.landingPage div.horizontalScrollBar #rightScrollIcon{
   grid-column:3;
   width:30%;
   height:75%;
   padding:20px;
 }
+
 div.landingPage div#popularMovies div.movieDisplay,
 div.landingPage div#popularTV div.movieDisplay,
 div.landingPage div#recommended div.movieDisplay,
@@ -107,40 +107,44 @@ div.landingPage div#watchList div.movieDisplay
 div.landingPage div.movieDisplay {
   overflow-x: hidden;
   scroll-behavior: smooth;
-
 }
+
 button.addToWatch {
   grid-column:4;
   margin-top:100px;
   align-items: center;
   font-size:large;
   background-color:rgb(248, 223, 131)
-
 }
+
 div.filmCard {
   position: relative;
-  margin-left: 10px;
-  margin-right: 10px;
+  margin-left: 20px;
   margin-top: 25px;;
   border: solid;
+  border-color: black;
   border-radius: 30px;
   font-size: 15px;
   height: 85%;
-  width: 300px;
+  width: 190px;
   font-weight:bold;
   background-color:#F5F5DC;
 }
-div.filmCard:hover {
-  transform: scale(1.2);
+
+.filmCard:hover {
+  transform: scale(1.1);
+  transition: .3s;
 }
 
+.cardLink {
+  text-decoration: none;
+  color: black;
+}
 
 .cardImage {
-  /*margin-top: 8px;*/
-  /*margin-left:15px;*/
  height: 215px;
- width:170px;
- border-radius: 15%;
+ width:190px;
+ border-radius: 27px;
  object-fit: fill;
 }
 
@@ -149,6 +153,7 @@ div.filmCard:hover {
  height: 30px;
  width: 30px;
  padding: 2px;
+ color: black;
  border: solid;
  border-spacing: 10px;
  border-width: 3px;
