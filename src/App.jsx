@@ -8,6 +8,7 @@ import Profile from './components/User_Profile/Profile.jsx';
 import SearchBar from './components/Search/SearchBar.jsx';
 import SearchPage from './components/Search/SearchPage.jsx';
 import SearchResults from './components/Search/SearchResults.jsx';
+import MediaInfoPage from './components/MediaInfo/MediaInfoPage.jsx';
 import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
 
 const App = (props) => {
@@ -33,15 +34,11 @@ const App = (props) => {
         <Routes>
           <Route path="/" element={<Landing isLoggedIn = {isLoggedIn}/>} />
           <Route path="/search" element={<SearchPage />} />
-          <Route path="/settings" element={<Profile />} />
+          <Route path="/info/*" element={<MediaInfoPage />} />
+          <Route path="/settings" element={<Profile isLoggedIn={isLoggedIn}/>} />
         </Routes>
       </BrowserRouter>
     </div>
-    // <div>
-    //   <Header isLoggedIn = {isLoggedIn}/>
-    //   <SearchBar />
-    //   <Landing isLoggedIn = {isLoggedIn}/>
-    // </div>
   );
 };
 
