@@ -7,6 +7,8 @@ import axios from 'axios';
 
 const profile = (props) => {
 
+
+
   // Conditional
   if (!isAuthenticated) {
     <Navigate to="/"/>
@@ -22,13 +24,19 @@ const profile = (props) => {
   const [ providers, setProviders ] = useState([]);
 
   // Variables
-  const subs = [];
+  // const subs = [];
   let username = user.nickname
   let userId = localStorage.getItem('userId')
+
+  console.log('userId', userId, 'user email', typeof(user.email))
 
   // Functions
   const hideModal = () => {
     setModal(false);
+  }
+
+  const handleUpdate = (update) => {
+    setProvidersList(update);
   }
 
   // API Calls
@@ -42,7 +50,7 @@ const profile = (props) => {
       },
     })
     .then((response) => {
-      console.log('post response', response.data.subscriptions)
+      console.log('post response', response.data)
       setProvidersList(response.data.subscriptions)
     })
     .catch((e) => {
@@ -50,39 +58,38 @@ const profile = (props) => {
     })
   }
 
-  useEffect(() => {
+  const fetchUserData = () => {
+    console.log('sending userID', userId)
 
-    if (!userId) {
-      console.log('no user - going to post')
-      axios({
-        method: 'post',
-        url:'http://boc-backend-alb-1007494829.us-east-2.elb.amazonaws.com/homepage/user/create',
-        data: {
-          username: user.email
-        },
-      })
-      .then((response) => {
-        console.log('post response', response)
-        localStorage.setItem('userId', response.data.userProfile.username)
-      })
-      .catch((e) => {
-        console.log('Error Posting User', e)
-      })
+    axios.get('http://boc-backend-alb-1007494829.us-east-2.elb.amazonaws.com/homepage/user', {
+      params: {
+        username: user.email
+      }
+    })
+    .then((res) => {
+      console.log('get result data', res.data)
+      setProvidersList(res.data.subscriptions)
+    })
+  }
+
+  const createUser = () => {
+    axios({
+      method: 'post',
+      url:'http://boc-backend-alb-1007494829.us-east-2.elb.amazonaws.com/homepage/user/create',
+      data: {
+        username: user.email
+      },
+    })
+    .then((res) => {
+      console.log('post res', res)
+    })
+  }
+
+  useEffect(()=> {
+    if(!userId) {
+      createUser()
     } else {
-      axios({
-        method: 'get',
-        url: 'http://boc-backend-alb-1007494829.us-east-2.elb.amazonaws.com/homepage/user',
-        data: {
-          username: user.email
-        },
-      })
-      .then ((response) => {
-        console.log('get reponse', response)
-        setProvidersList(response.data.subscriptions);
-      })
-      .catch((e) => {
-        console.log('Error getting user:', e);
-      })
+      fetchUserData();
     }
   }, [])
 

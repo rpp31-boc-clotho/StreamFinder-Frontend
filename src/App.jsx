@@ -9,16 +9,20 @@ import SearchBar from './components/Search/SearchBar.jsx';
 import SearchPage from './components/Search/SearchPage.jsx';
 import SearchResults from './components/Search/SearchResults.jsx';
 import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
+import axios from 'axios';
 
 const App = (props) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [ providersList, setProvidersList] = useState({});
   const { isAuthenticated } = useAuth0();
   const { user } = useAuth0();
+
 
   useEffect(() => {
     if (isAuthenticated) {
       console.log('user id', user.sub, user)
       setIsLoggedIn(true)
+      console.log('providersList', providersList)
     } else {
       setIsLoggedIn(false)
     }
