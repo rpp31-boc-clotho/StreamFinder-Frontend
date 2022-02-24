@@ -9,12 +9,16 @@ import SearchBar from './components/Search/SearchBar.jsx';
 import SearchPage from './components/Search/SearchPage.jsx';
 import SearchResults from './components/Search/SearchResults.jsx';
 import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
+import Error from './components/Landing/Error.jsx';
 
 const App = (props) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const { isAuthenticated } = useAuth0();
   const { user } = useAuth0();
-
+  const [errorMessage, setErrorMessage] = useState('');
+  const handleError = (message) => {
+    setErrorMessage(message);
+  }
   useEffect(() => {
     if (isAuthenticated) {
       console.log('user id', user.sub, user)
@@ -24,14 +28,17 @@ const App = (props) => {
     }
   });
 
+
+
   return (
     <div className="App">
       <BrowserRouter>
         <nav>
           <Header isLoggedIn = {isLoggedIn}/>
+          <Error message={errorMessage} />
         </nav>
         <Routes>
-          <Route path="/" element={<Landing isLoggedIn = {isLoggedIn}/>} />
+          <Route path="/" element={<Landing isLoggedIn = {isLoggedIn} handleError={handleError}/>} />
           <Route path="/search" element={<SearchPage />} />
           <Route path="/settings" element={<Profile />} />
           <Route path="/info/:media_type/:id" element={< Profile />} />

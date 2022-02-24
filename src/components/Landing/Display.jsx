@@ -10,7 +10,9 @@ var Display = (props) => {
     <div className="movieDisplay">
 
        {props.list.map((film, i) => {
+
         return (
+
           <MovieCard film={film} key={i} />
         )
       })}
