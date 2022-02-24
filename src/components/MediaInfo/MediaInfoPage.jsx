@@ -1,6 +1,6 @@
 import React from 'react';
 import { useEffect, useState } from "react";
-import AddToWatchlist from './addToWatchlist.jsx';
+import AddToWatchlist from './AddToWatchlist.jsx';
 import Services from './Services.jsx';
 import axios from 'axios';
 import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
