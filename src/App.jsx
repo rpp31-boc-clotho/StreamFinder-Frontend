@@ -34,12 +34,8 @@ const App = (props) => {
         <Routes>
           <Route path="/" element={<Landing isLoggedIn = {isLoggedIn}/>} />
           <Route path="/search" element={<SearchPage />} />
-<<<<<<< HEAD
-          <Route path="/settings" element={<Profile />} />
           <Route path="/info/*" element={<MediaInfoPage />} />
-=======
           <Route path="/settings" element={<Profile isLoggedIn={isLoggedIn}/>} />
->>>>>>> f3699849d970916d3595ac7580bcacaada893330
         </Routes>
       </BrowserRouter>
     </div>
