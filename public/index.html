@@ -3,10 +3,22 @@
   <head>
     <meta charset="utf-8">
     <meta name="author" content="RPP31 Team Clotho">
-    <link rel="stylesheet" href="index.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/index.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/styles/media.css">
   </head>
-  <body>
-    <div id="app">React not working</div>
-    <script src="bundle.js"> </script>
+  <body style="margin: 0;">
+    <div id="app">
+      <div id="loading" style="
+      width: 100vw;
+      height: 100vh;
+      background-color: black;
+      color: #ccc;
+      display: flex;
+      align-items: center;
+      justify-content: center;">
+        Loading...
+      </div>
+    </div>
+    <script src="/bundle.js"> </script>
   </body>
 </html>
