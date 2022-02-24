@@ -49,9 +49,6 @@ class MovieCard extends React.Component {
         <Link className="cardLink" to={this.makeURL(this.props.film)}>
         <section className="filmImage"> {this.displayImage()} </section>
         {this.displayRating(this.props.film.rating)}
-        {/* <section className="filmRating">
-          {this.getRating(this.props.film.vote_average)}
-          </section> */}
         <section className="filmTitle">
           {this.props.film.name || this.props.film.title}
           </section>
@@ -65,5 +62,4 @@ class MovieCard extends React.Component {
 }
 
 export default MovieCard;
-//removed for backend data
-//{this.getRating(this.props.film.vote_average)}
+
