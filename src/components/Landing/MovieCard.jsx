@@ -41,7 +41,7 @@ class MovieCard extends React.Component {
   }
 
   makeURL(film) {
-    return '/info/' + film.media_type + '/' + film.id
+    return '/info/' + film.mediaType + '/' + film.id
   }
 
   render() {
