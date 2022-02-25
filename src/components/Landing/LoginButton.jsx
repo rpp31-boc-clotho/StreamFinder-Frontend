@@ -6,12 +6,10 @@ import Avatar from '@mui/material/Avatar';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
-import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
 import Settings from '@mui/icons-material/Settings';
 import Logout from '@mui/icons-material/Logout';
-
 import { Link } from 'react-router-dom';
 
 const LoginButton = () => {
@@ -39,7 +37,7 @@ const LoginButton = () => {
   };
 
   if (currentUser === 'Log In') {
-    return <button onClick={() => loginWithRedirect()}>Log In</button>
+    return <button className="login-button" onClick={() => loginWithRedirect()}>Log In</button>
   } else {
     return (
       <React.Fragment>
@@ -63,6 +61,7 @@ const LoginButton = () => {
           open={open}
           onClose={handleClose}
           onClick={handleClose}
+          disableScrollLock={true}
           PaperProps={{
             elevation: 0,
             sx: {
@@ -73,7 +72,7 @@ const LoginButton = () => {
                 width: 32,
                 height: 32,
                 ml: -0.5,
-                mr: 1,
+                mr: 0,
               },
               '&:before': {
                 content: '""',
@@ -96,7 +95,7 @@ const LoginButton = () => {
             <ListItemIcon >
             <Link to="/settings"><Settings fontSize="small" /></Link>
             </ListItemIcon>
-            <Link to="/settings">Account Settings</Link>
+            <Link to="/settings" className="settings">Account Settings</Link>
           </MenuItem>
           <MenuItem onClick={() => logout()}>
             <ListItemIcon>

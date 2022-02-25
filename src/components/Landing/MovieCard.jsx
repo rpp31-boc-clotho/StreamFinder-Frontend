@@ -47,7 +47,9 @@ class MovieCard extends React.Component {
     return (
       <div className="filmCard">
         <Link className="cardLink" to={this.makeURL(this.props.film)}>
-        <section className="filmImage"> {this.displayImage()} </section>
+          <section className='cardImgWrapper'>
+        {this.displayImage()}
+          </section>
         {this.displayRating(this.props.film.rating)}
         <section className="filmTitle">
           {this.props.film.name || this.props.film.title}
