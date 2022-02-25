@@ -10,10 +10,6 @@ const convertDate = (date) => {
 
 const Review = (props) => {
 
-  useEffect(() => {
-
-  });
-
   return (
     <div className="reviewContainer">
       <div className='reviewUsername'>{props.review.username}</div>
@@ -21,6 +17,7 @@ const Review = (props) => {
       <div className='reviewContent'>{props.review.reviewContent}</div>
     </div>
   );
+
 };
 
 export default Review;
