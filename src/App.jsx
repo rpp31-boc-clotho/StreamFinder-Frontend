@@ -23,14 +23,8 @@ const App = (props) => {
   const { user } = useAuth0();
   let userId = localStorage.getItem('userId');
 
-
   // states needed
-  // watch list => landing
   // recommended? => landing
-
-  // functions needed
-  // addtowatchlist => media
-
 
   // API Calls for User Data
   const updateSubscriptions = (changes) => {
@@ -58,7 +52,7 @@ const App = (props) => {
     })
     .then((res) => {
       setProvidersList(res.data.subscriptions)
-      //set watch list
+      setWatchList(res.data.watchList)
       setRecentlyWatched(res.data.watchHistory)
     })
     .catch((e) => {
@@ -78,12 +72,12 @@ const App = (props) => {
       if (res.status) {
         setProvidersList(res.data.userProfile.subscriptions);
         localStorage.setItem('userId', res.data.userProfile.username);
-        //set watch list
+        setWatchList(res.data.userProfile.watchList);
         setRecentlyWatched(res.data.userProfile.watchHistory);
       } else {
         setProvidersList(res.data.subscriptions);
         localStroage.setItem('userId', res.data.username);
-        //set watch list
+        setWatchList(res.data.watchList);
         setRecentlyWatched(res.data.watchHistory);
       }
     })
@@ -100,6 +94,20 @@ const App = (props) => {
     })
     .then((response) => {
       setRecentlyWatched(response.data.watchHistory)
+    })
+    .catch((e) => {
+      console.log('Error Adding to Recently Watched:', e)
+    })
+  }
+
+  const addWatchList = (changes) => {
+    axios({
+      method: 'post',
+      url:'http://boc-backend-alb-1007494829.us-east-2.elb.amazonaws.com/homepage/user/watchlist',
+      data: changes
+    })
+    .then((response) => {
+      setWatchList(response.data.watchList)
     })
     .catch((e) => {
       console.log('Error Adding to Recently Watched:', e)
@@ -131,9 +139,9 @@ const App = (props) => {
           <Header isLoggedIn = {isLoggedIn}/>
         </nav>
         <Routes>
-          <Route path="/" element={<Landing isLoggedIn={isLoggedIn} recentlyWatched={recentlyWatched} username={username} email={email}/>} />
+          <Route path="/" element={<Landing isLoggedIn={isLoggedIn} recentlyWatched={recentlyWatched} watchList={watchList} username={username} email={email}/>} />
           <Route path="/search" element={<SearchPage />} />
-          <Route path="/info/*" element={<MediaInfoPage providersList={providersList} addToWatchHistory={addToWatchHistory} username={username} email={email}/>} />
+          <Route path="/info/*" element={<MediaInfoPage providersList={providersList} addWatchList={addWatchList} addToWatchHistory={addToWatchHistory} username={username} email={email}/>} />
           <Route path="/settings" element={<Profile isLoggedIn={isLoggedIn} updateSubscriptions={updateSubscriptions} providersList={providersList} username={username} email={email}/>}/>
         </Routes>
       </BrowserRouter>
