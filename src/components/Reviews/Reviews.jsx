@@ -27,26 +27,27 @@ const Reviews = (props) => {
 
   useEffect(() => {
     //need to add axios call to get api data
-    axios({
-      method: 'post',
-      url:'http://boc-backend-alb-1007494829.us-east-2.elb.amazonaws.com/homepage/user/update',
-      data: {
-        contentType: 'shows',
-        contentId: 999999999
-      },
-    })
-    .then((response) => {
-      setProvidersList(response.data.subscriptions)
-    })
-    .catch((e) => {
-      console.log('Error Updating Subs:', e)
-    })
+    // axios({
+    //   method: 'post',
+    //   url:'http://boc-backend-alb-1007494829.us-east-2.elb.amazonaws.com/homepage/user/update',
+    //   data: {
+    //     contentType: 'shows',
+    //     contentId: 999999999
+    //   },
+    // })
+    // .then((response) => {
+    //   setProvidersList(response.data.subscriptions)
+    // })
+    // .catch((e) => {
+    //   console.log('Error Updating Subs:', e)
+    // })
     setRecommended(getRecommended(exampleData.reviews));
     setReviews(exampleData.reviews)
   });
 
   return (
     <div className="reviewsWrapper">
+      {/* {console.log('reviewProps', props)} */}
       <div className='reviewHeader'>
         <div className='reviewTitle'>Reviews ({reviews.length})</div>
         <div className='recommendedReviews'>{displayRecommended(recommended)} </div>
