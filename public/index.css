@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
-/* font-family: 'Ubuntu', sans-serif; */
 
 :root {
   --main-bg: #F4F1DE;
@@ -21,7 +20,7 @@
 
 html, body, #app {
   font-family: 'Ubuntu', sans-serif;
-  font-size: 20Px;
+  font-size: 20px;
   background: #F5F5DC;
   /* display: flex;
   justify-content: center; */
@@ -97,19 +96,6 @@ a {
 }
 
 .submit-button {
-  padding-top: 20px;
-}
-
-.answer-thumbnail {
-  height: 50px;
-}
-
-.question-error {
-  padding-top: 0px;
-}
-
-.error {
-  color: red;
   padding-top: 20px;
 }
 
