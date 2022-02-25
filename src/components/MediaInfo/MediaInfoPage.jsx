@@ -50,7 +50,9 @@ class MediaInfoPage extends React.Component {
           release: mediaInfo['release_date'],
           description: mediaInfo['summary'],
           rating: mediaInfo['rating'],
-          img: mediaInfo['imgUrl']
+          img: mediaInfo['imgUrl'],
+          type: url[2],
+          id: url[3]
         });
 
         // TODO: condition => path is to any other subdirectory in '/info' => redirect to search page
@@ -84,12 +86,10 @@ class MediaInfoPage extends React.Component {
           </div>
         </div>
         <Services />
-        <Reviews />
+        <Reviews id={this.state.id} type={this.state.type} />
       </div>
     )
   }
 }
 
 export default MediaInfoPage;
-
-//id={this.state.id} type={this.state.type}
