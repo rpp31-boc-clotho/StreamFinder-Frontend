@@ -39,7 +39,7 @@ class MediaInfoPage extends React.Component {
 
     return (
       <div className="mediaInfoPage">
-        <div className="mediaHeader" style={{ backgroundImage: `url(${"https://image.tmdb.org/t/p/w185" + testData['poster_path']})` }}>
+        <div className="mediaHeader" style={{ backgroundImage: `url(${"https://image.tmdb.org/t/p/w185" + testData['poster_path']})`}}>
           <div className="posterImage">
             <img src={"https://image.tmdb.org/t/p/w185" + testData['poster_path']}></img>
           </div>
