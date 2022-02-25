@@ -2,11 +2,10 @@ import React, { useState, useEffect } from 'react';
 import Providers from './Providers.jsx';
 
 const Update = (props) => {
-  console.log('providers list in update', props.providersList)
+
   let providers;
   if (props.providersList) {
     providers = Object.keys(props.providersList)
-
   }
 
   const updateSubscriptions = () => {

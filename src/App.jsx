@@ -24,24 +24,12 @@ const App = (props) => {
   let userId = localStorage.getItem('userId');
 
 
-  console.log('username in app', username)
-  // email asdf@gmail.com
-  // username asdf
-
-  // things needed
-  // userId => landing, media
-  // recently watched => landing
+  // states needed
   // watch list => landing
-  // providers => media
-
+  // recommended? => landing
 
   // functions needed
   // addtowatchlist => media
-  // recentlyWatched =>media
-
-  // watched list
-  // recommended
-
 
 
   // API Calls for User Data
@@ -55,7 +43,6 @@ const App = (props) => {
       },
     })
     .then((response) => {
-      console.log('post response', response.data)
       setProvidersList(response.data.subscriptions)
     })
     .catch((e) => {
@@ -64,18 +51,18 @@ const App = (props) => {
   }
 
   const fetchUserData = (email) => {
-    console.log('sending userID', userId)
-
     axios.get('http://boc-backend-alb-1007494829.us-east-2.elb.amazonaws.com/homepage/user', {
       params: {
         username: email
       }
     })
     .then((res) => {
-      console.log('get result data', res.data)
       setProvidersList(res.data.subscriptions)
       //set watch list
       setRecentlyWatched(res.data.watchHistory)
+    })
+    .catch((e) => {
+      console.log('Error fetching user data', e)
     })
   }
 
@@ -89,7 +76,6 @@ const App = (props) => {
     })
     .then((res) => {
       if (res.status) {
-        console.log('post res', res)
         setProvidersList(res.data.userProfile.subscriptions);
         localStorage.setItem('userId', res.data.userProfile.username);
         //set watch list
@@ -100,7 +86,9 @@ const App = (props) => {
         //set watch list
         setRecentlyWatched(res.data.watchHistory);
       }
-
+    })
+    .catch((e) => {
+      console.log('Error creating user', e)
     })
   }
 
@@ -111,22 +99,18 @@ const App = (props) => {
       data: changes
     })
     .then((response) => {
-      console.log('post response', response.data)
       setRecentlyWatched(response.data.watchHistory)
     })
     .catch((e) => {
-      console.log('Error Updating Subs:', e)
+      console.log('Error Adding to Recently Watched:', e)
     })
   }
 
   useEffect(() => {
-
     if (isAuthenticated) {
-      console.log('user id', user.sub, user)
       setIsLoggedIn(true)
       setEmail(user.email);
       setUsername(user.nickname);
-
     } else {
       setIsLoggedIn(false)
     }
@@ -147,10 +131,10 @@ const App = (props) => {
           <Header isLoggedIn = {isLoggedIn}/>
         </nav>
         <Routes>
-          <Route path="/" element={<Landing isLoggedIn={isLoggedIn} recentlyWatched={recentlyWatched}/>} />
+          <Route path="/" element={<Landing isLoggedIn={isLoggedIn} recentlyWatched={recentlyWatched} username={username} email={email}/>} />
           <Route path="/search" element={<SearchPage />} />
-          <Route path="/info/*" element={<MediaInfoPage providersList={providersList}/>} />
-          <Route path="/settings" element={<Profile isLoggedIn={isLoggedIn} updateSubscriptions={updateSubscriptions} providersList={providersList} username={username}/>}/>
+          <Route path="/info/*" element={<MediaInfoPage providersList={providersList} addToWatchHistory={addToWatchHistory} username={username} email={email}/>} />
+          <Route path="/settings" element={<Profile isLoggedIn={isLoggedIn} updateSubscriptions={updateSubscriptions} providersList={providersList} username={username} email={email}/>}/>
         </Routes>
       </BrowserRouter>
     </div>

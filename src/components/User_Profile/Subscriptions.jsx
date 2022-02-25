@@ -18,7 +18,7 @@ const Subscriptions = (props) => {
   }
 
   if (subs.length === 0) {
-    subs.push('Add Subs')
+    subs.push('Add Your Current Subscriptions')
   }
 
   return (
