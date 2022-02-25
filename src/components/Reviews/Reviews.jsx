@@ -26,25 +26,37 @@ const Reviews = (props) => {
   const [reviews, setReviews] = useState([]);
   const [recommended, setRecommended] = useState(0)
 
-  // useEffect(() => {
-  //   //need to add axios call to get api data
-  //   axios({
-  //     method: 'get',
-  //     url:'http://boc-backend-alb-1007494829.us-east-2.elb.amazonaws.com/homepage/user/homepage/review',
-  //     data: {
-  //       contentType: props.type,
-  //       contentId: props.id
-  //     },
-  //   })
-  //   .then((response) => {
-  //     console.log('response', response)
-  //     // setRecommended(getRecommended(exampleData.reviews));
-  //     // setReviews(exampleData.reviews)
-  //   })
-  //   .catch((e) => {
-  //     console.log('Error Updating Subs:', e)
-  //   })
-  // },[props.id]);
+  useEffect(() => {
+    //need to add axios call to get api data
+    axios.get('http://boc-backend-alb-1007494829.us-east-2.elb.amazonaws.com/homepage/user/homepage/review', {
+      params: {
+        contentType: props.type,
+        contentId: props.id
+      }
+    })
+    .then((res) => {
+      console.log('RESPONSE', response)
+    })
+    .catch((e) => {
+      console.log('Error fetching user data', e)
+    })
+    axios({
+      method: 'get',
+      url:'http://boc-backend-alb-1007494829.us-east-2.elb.amazonaws.com/homepage/review/',
+      params: {
+        contentType: props.type,
+        contentId: props.id
+      },
+    })
+    .then((response) => {
+      console.log('RESPONSE', response)
+      setRecommended(getRecommended(response.data));
+      setReviews(response.data)
+    })
+    .catch((e) => {
+      console.log('Error getting reviews:', e)
+    })
+  },[props.id]);
 
   return (
     <div className="reviewsWrapper">
@@ -54,7 +66,7 @@ const Reviews = (props) => {
         <div className='recommendedReviews'>{displayRecommended(recommended)} </div>
       </div>
       <div className='reviewList'>
-        {exampleData.reviews.map((review, i) => {
+        {reviews.map((review, i) => {
           return (
             <Review review={review} key={i} />
           )
