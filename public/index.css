@@ -99,19 +99,6 @@ a {
   padding-top: 20px;
 }
 
-.answer-thumbnail {
-  height: 50px;
-}
-
-.question-error {
-  padding-top: 0px;
-}
-
-.error {
-  color: red;
-  padding-top: 20px;
-}
-
 .modal-title {
   margin: 0;
 }
