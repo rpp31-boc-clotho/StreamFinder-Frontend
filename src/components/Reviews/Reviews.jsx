@@ -26,7 +26,7 @@ const Reviews = (props) => {
   const [recommended, setRecommended] = useState(0)
 
   useEffect(() => {
-    //axios call
+    //need to add axios call to get api data
     setRecommended(getRecommended(exampleData.reviews));
     setReviews(exampleData.reviews)
   });
@@ -34,8 +34,8 @@ const Reviews = (props) => {
   return (
     <div className="reviewsWrapper">
       <div className='reviewHeader'>
-      <div className='reviewTitle'>Reviews ({reviews.length})</div>
-      <div className='recommendedReviews'>{displayRecommended(recommended)} </div>
+        <div className='reviewTitle'>Reviews ({reviews.length})</div>
+        <div className='recommendedReviews'>{displayRecommended(recommended)} </div>
       </div>
       <div className='reviewList'>
         {exampleData.reviews.map((review, i) => {
