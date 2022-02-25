@@ -2,6 +2,7 @@ import React from 'react';
 import { useEffect, useState } from "react";
 import AddToWatchlist from './AddToWatchlist.jsx';
 import Services from './Services.jsx';
+import Reviews from '../Reviews/Reviews.jsx';
 import axios from 'axios';
 import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
 
@@ -52,7 +53,7 @@ class MediaInfoPage extends React.Component {
           </div>
         </div>
         <Services />
-        {/* <Reviews /> */}
+        <Reviews />
       </div>
     )
   }

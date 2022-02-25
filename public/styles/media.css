@@ -104,3 +104,36 @@
   height: 100%;
   background-color: rgba(255,255,255,0.25);
 }
+
+.reviewHeader {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 20px;
+}
+
+.reviewTitle {
+  margin-right: 200px;
+}
+
+.reviewContainer {
+  padding: 10px;
+  border: solid;
+  border-radius: 20px;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 80px auto 80px;
+  grid-template-rows: 50px 50px;
+}
+
+
+.reviewUsername {
+    grid-column: 1;
+}
+
+.reviewDate {
+  grid-column: 7;
+}
+
+.reviewContent {
+  grid-column: 2/ span 3
+}
