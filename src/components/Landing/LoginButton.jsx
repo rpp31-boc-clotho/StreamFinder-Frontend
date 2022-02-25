@@ -12,7 +12,6 @@ import Settings from '@mui/icons-material/Settings';
 import Logout from '@mui/icons-material/Logout';
 import { Link } from 'react-router-dom';
 
-
 const LoginButton = () => {
 
   const { loginWithRedirect } = useAuth0();
@@ -93,8 +92,8 @@ const LoginButton = () => {
           anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
         >
           <MenuItem>
-            <ListItemIcon>
-              <Settings fontSize="small" />
+            <ListItemIcon >
+            <Link to="/settings"><Settings fontSize="small" /></Link>
             </ListItemIcon>
             <Link to="/settings" className="settings">Account Settings</Link>
           </MenuItem>

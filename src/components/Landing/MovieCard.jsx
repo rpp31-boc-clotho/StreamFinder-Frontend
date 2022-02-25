@@ -21,9 +21,10 @@ class MovieCard extends React.Component {
     //added one more condition to make it work for data from backend
     if (this.props.film.media_type === 'movie' ||  this.props.film.mediaType === 'movie') {
       return (this.props.film.release_date.substring(0,4))
-    } else {
-      return (this.props.film.first_air_date.substring(0,4))
     }
+    // else {
+    //   return (this.props.film.first_air_date.substring(0,4))
+    // }
   }
 
   displayImage () {
@@ -40,7 +41,7 @@ class MovieCard extends React.Component {
   }
 
   makeURL(film) {
-    return '/info/' + film.media_type + '/' + film.id
+    return '/info/' + film.mediaType + '/' + film.id
   }
 
   render() {
@@ -64,5 +65,4 @@ class MovieCard extends React.Component {
 }
 
 export default MovieCard;
-
 
