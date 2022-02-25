@@ -26,10 +26,11 @@ class SearchPage extends React.Component {
     this.handleClickTVShow = this.handleClickTVShow.bind(this);
     }
 
-  async handleSearch(event) {
+  async handleSearch(term) {
     event.preventDefault();
-    console.log(event.target[0].value);
-    let searched = await searchFunction('movie', event.target[0].value)
+    console.log(term.target.value);
+    //for searched we can have a second value that will be dependent on the state of true false toggles. nothing crazy.
+    let searched = await searchFunction('movie', term.target.value)
     this.setState (prevState => ({
       results: searched
       //this.filterSearch(this.state.baseData, event.target[0].value)

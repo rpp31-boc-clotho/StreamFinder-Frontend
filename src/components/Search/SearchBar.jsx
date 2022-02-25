@@ -1,18 +1,29 @@
-import React from 'react';
 import axios from 'axios';
-
-//so if search this, it should send the props (term) through the looping portion of the search results
-
-//title, maybe original_title (do research on partial searches)
-
-//media type (TV vs Movie) toggle box, series of booleans creating switch statments dependent on wether the toggle is on or off
+import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom';
 
 
-const search = (props) => {
+function search({handleSearch, filterSearch}) {
+
+  const [searchTerm, changeTerm] = useState('');
+  const onSearch = () => {
+    if (!window.location.href.includes("/search")) {
+      <Link to={{
+        pathname: "/search",
+        state: searchTerm
+      }}/>
+     }
+     debugger
+     console.log("this is searchTerm: " + searchTerm)
+     //debugger
+    // console.log("href: " + JSON.stringify(window.location.href))
+    console.log('onSearch reached!')
+    handleSearch(searchTerm)
+  }
 
   return (
     <div>
-      <form action="/search" onSubmit={props.handleSearch}>
+      <form action="/search" onSubmit={onSearch} onChange={changeTerm}>
         <label htmlFor="Search_Bar">
           <span className="Search_Bar_Title">Search for Movies or Shows!</span>
         </label>
