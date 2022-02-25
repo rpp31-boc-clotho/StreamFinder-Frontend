@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Providers from './Providers.jsx';
 
-
-
-
 const Update = (props) => {
   console.log('providers list in update', props.providersList)
   let providers;
@@ -23,21 +20,7 @@ const Update = (props) => {
       changes[checked[i].id] = checked[i].checked
     }
 
-    // axios({
-    //   method: 'post',
-    //   url:'http://boc-backend-alb-1007494829.us-east-2.elb.amazonaws.com/homepage/user/update',
-    //   data: {
-    //     username: user.email,
-    //     subscriptions: changes
-    //   },
-    // })
-    // .then((response) => {
-    //   console.log('post response', response)
-
-    // })
     props.updateSubs(changes);
-
-
     props.hide();
   }
 
