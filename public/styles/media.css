@@ -9,16 +9,11 @@
 }
 
 .mediaHeader {
-  background-color: var(--card-bg);
   border: 1px solid black;
   border-radius: 20px;
   box-shadow: 0 5px 10px var(--drop-shadow);
   display: flex;
   overflow: hidden;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-blend-mode: overlay;
-  background-position-y: -100px;
 }
 
 .posterImage {
@@ -27,6 +22,7 @@
 
 .mediaHeader img {
   min-width: 200px;
+  max-width: 220px;
   height: 100%;
   border-radius: 20px 0 0 20px;
 }
@@ -34,6 +30,11 @@
 .mediaDetails {
   padding: 10px 30px;
   position: relative;
+  background-color: var(--card-bg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-blend-mode: overlay;
+  background-position-y: -100px;
 }
 
 .mediaDetails h1 {
@@ -49,6 +50,7 @@
 }
 
 .mediaDetails p {
+  font-size: 15px;
   max-height: 120px;
   overflow: scroll;
 }
