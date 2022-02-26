@@ -33,7 +33,7 @@ class Landing extends React.Component {
         popularMovies:response.data.movies,
 
       })
-      this.props.handleError("An error occurred while fetching data for popular movies");
+      //this.props.handleError("An error occurred while fetching data for popular movies");
     })
     .catch((error) => {
       console.log(error);
