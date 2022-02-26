@@ -2,6 +2,7 @@ import React from 'react';
 import SearchBar from './SearchBar.jsx';
 import SearchResults from'./SearchResults.jsx';
 import exampleData from '../../../exampleData.js';
+import {searchFunction} from './SearchFunction.js';
 //import search results list
 
 //just createing a place holder for the page sepreate from the search component, still debating the design.
@@ -23,13 +24,28 @@ class SearchPage extends React.Component {
     this.handleSearch = this.handleSearch.bind(this);
     this.handleClickMovie = this.handleClickMovie.bind(this);
     this.handleClickTVShow = this.handleClickTVShow.bind(this);
-    }
+    this.handleSearch2 = this.handleSearch2.bind(this);
+  }
 
-  handleSearch(event) {
-    event.preventDefault();
-    console.log(event.target[0].value);
+
+  async handleSearch2(term) {
+    console.log(term);
+    //for searched we can have a second value that will be dependent on the state of true false toggles. nothing crazy.
+    let searched = await searchFunction('movie', term)
     this.setState (prevState => ({
-      results: this.filterSearch(this.state.baseData, event.target[0].value)
+      results: searched
+      //this.filterSearch(this.state.baseData, event.target[0].value)
+    }));
+  }
+
+  async handleSearch(term) {
+    event.preventDefault();
+    console.log(term.target.value);
+    //for searched we can have a second value that will be dependent on the state of true false toggles. nothing crazy.
+    let searched = await searchFunction('movie', term.target.value)
+    this.setState (prevState => ({
+      results: searched
+      //this.filterSearch(this.state.baseData, event.target[0].value)
     }));
   }
 
@@ -64,6 +80,18 @@ class SearchPage extends React.Component {
       return filmName.includes(query.toLowerCase());
     })
   }
+
+  componentDidMount(){
+    let splitPath = window.location.pathname.split('/')
+    console.log("splitpath: "+ splitPath);
+    console.log("window loc: "+ window.location);
+    console.log("window loc: "+ JSON.stringify(window.location));
+    console.log("window loc: "+ window.location.href.split('=')[1]);
+    if (window.location.href.split('=').length > 1) {
+      this.handleSearch2(window.location.href.split('=')[1]);
+    }
+  }
+
 
   render() {
     return (
