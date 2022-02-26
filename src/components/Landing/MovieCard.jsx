@@ -6,6 +6,8 @@ class MovieCard extends React.Component {
     super(props)
   }
 
+
+
   displayRating(rating) {
     let ratingPercent = (rating * 10)
     if (ratingPercent >= 75) {
@@ -41,7 +43,11 @@ class MovieCard extends React.Component {
   }
 
   makeURL(film) {
-    return '/info/' + film.mediaType + '/' + film.id
+    if (film.mediaType) {
+      return '/info/' + film.mediaType + '/' + film.id
+    } else {
+      return '/info/' + film.media_type + '/' + film.id
+    }
   }
 
   render() {
@@ -51,7 +57,7 @@ class MovieCard extends React.Component {
           <section className='cardImgWrapper'>
         {this.displayImage()}
           </section>
-        {this.displayRating(this.props.film.rating)}
+        {this.displayRating(this.props.film.rating || this.props.film.vote_average)}
         <section className="filmTitle">
           {this.props.film.name || this.props.film.title}
           </section>
