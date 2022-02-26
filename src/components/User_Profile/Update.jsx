@@ -10,7 +10,7 @@ const Update = (props) => {
 
   const updateSubscriptions = () => {
     let changes = {};
-    var checked = document.getElementsByClassName('provider');
+    var checked = document.getElementsByClassName('cm-toggle');
 
     for (let i = 0; i < checked.length; i++) {
       if (checked[i].checked) {

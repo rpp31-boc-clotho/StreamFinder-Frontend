@@ -35,7 +35,7 @@ const App = (props) => {
   const updateSubscriptions = (changes) => {
     axios({
       method: 'post',
-      url:'http://boc-backend-alb-1007494829.us-east-2.elb.amazonaws.com/homepage/user/update',
+      url:'https://api.youpostalservice.com/homepage/user/update',
       data: {
         username: user.email,
         subscriptions: changes
@@ -49,26 +49,10 @@ const App = (props) => {
     })
   }
 
-  // const fetchUserData = (email) => {
-  //   axios.get('http://boc-backend-alb-1007494829.us-east-2.elb.amazonaws.com/homepage/user', {
-  //     params: {
-  //       username: email
-  //     }
-  //   })
-  //   .then((res) => {
-  //     setProvidersList(res.data.subscriptions)
-  //     setWatchList(res.data.watchList)
-  //     setRecentlyWatched(res.data.watchHistory)
-  //   })
-  //   .catch((e) => {
-  //     console.log('Error fetching user data', e)
-  //   })
-  // }
-
   const createUser = (email) => {
     axios({
       method: 'post',
-      url:'http://boc-backend-alb-1007494829.us-east-2.elb.amazonaws.com/homepage/user/create',
+      url:'https://api.youpostalservice.com/homepage/user/create',
       data: {
         username: email
       },
@@ -97,7 +81,7 @@ const App = (props) => {
   const addToWatchHistory = (changes) => {
     axios({
       method: 'post',
-      url:'http://boc-backend-alb-1007494829.us-east-2.elb.amazonaws.com/homepage/user/watched',
+      url:'https://api.youpostalservice.com/homepage/user/watched',
       data: changes
     })
     .then((response) => {
@@ -111,7 +95,7 @@ const App = (props) => {
   const addWatchList = (changes) => {
     axios({
       method: 'post',
-      url:'http://boc-backend-alb-1007494829.us-east-2.elb.amazonaws.com/homepage/user/watchlist',
+      url:'https://api.youpostalservice.com/homepage/user/watchlist',
       data: changes
     })
     .then((response) => {
@@ -141,7 +125,7 @@ const App = (props) => {
       <BrowserRouter>
         <nav>
           <Header isLoggedIn = {isLoggedIn}/>
-          <Error message={errorMessage} />
+          {/* <Error message={errorMessage} /> */}
         </nav>
         <Routes>
           <Route path="/" element={<Landing isLoggedIn={isLoggedIn} recentlyWatched={recentlyWatched} watchList={watchList} username={username} email={email} handleError={handleError}/>} />

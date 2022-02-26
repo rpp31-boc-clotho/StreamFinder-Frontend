@@ -7,7 +7,8 @@ const Providers = (props) => {
 
     return (
       <div>
-        {props.status ? <input type="checkbox" id={props.provider} className="provider" defaultChecked></input> : <input type="checkbox" id={props.provider} className="provider"></input> }
+        {props.status ?
+        <input type="checkbox" id={props.provider} className="cm-toggle" defaultChecked></input> : <input type="checkbox" id={props.provider} className="cm-toggle"></input> }
         <label htmlFor={props.provider}>{props.provider}</label>
       </div>
     )
