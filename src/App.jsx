@@ -156,15 +156,4 @@ const App = (props) => {
 };
 
 export default App;
-/*
- <div>
-      <Header isLoggedIn = {isLoggedIn}/>
-      <SearchBar />
-      <Landing isLoggedIn = {isLoggedIn} />
 
-    </div>
-*/
-
-/*
-
-*/

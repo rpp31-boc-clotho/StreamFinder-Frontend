@@ -63,11 +63,14 @@ class MediaInfoPage extends React.Component {
       })
   }
 
+  componentDidMount() {
+    this.getMediaInfo();
+  }
+
   render() {
     let testData = this.state.allData.movies[0];
     // console.log('dummy data:', testData);
     let posterUrl = 'https://image.tmdb.org/t/p/w185' + this.state['img'];
-    this.getMediaInfo();
 
 
     return (
@@ -86,7 +89,7 @@ class MediaInfoPage extends React.Component {
           </div>
         </div>
         <Services />
-        <Reviews id={this.state.id} type={this.state.type} />
+        <Reviews id={this.state.id} type={this.state.type} username={this.props.username} email={this.props.email} />
       </div>
     )
   }

@@ -12,8 +12,8 @@ const Review = (props) => {
 
   return (
     <div className="reviewContainer">
-      <div className='reviewUsername'>{props.review.username}</div>
-      <div className='reviewDate'>{convertDate(props.review.date)}</div>
+      <div className='reviewUsername'>{props.review.username.split("@")[0]}</div>
+      <div className='reviewDate'>{convertDate(props.review.createdDate)}</div>
       <div className='reviewContent'>{props.review.reviewContent}</div>
     </div>
   );
