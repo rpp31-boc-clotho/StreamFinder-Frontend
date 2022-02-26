@@ -170,7 +170,8 @@ div.landingPage {
 div.landingPage div#popularMovies div.horizontalHeader,
 div.landingPage div#popularTV div.horizontalHeader,
 div.landingPage div#recommended div.horizontalHeader,
-div.landingPage div#watchList div.horizontalHeader{
+div.landingPage div#watchList div.horizontalHeader,
+div.landingPage div#recentlyWatched div.horizontalHeader{
   height:20%;
   width:50%;
   margin-left: 100px;
@@ -180,8 +181,8 @@ div.landingPage div#watchList div.horizontalHeader{
 div.landingPage div#popularMovies ,
 div.landingPage div#popularTV,
 div.landingPage div#recommended,
-div.landingPage div#watchList
-{
+div.landingPage div#watchList,
+div.landingPage div#recentlyWatched{
   font-size:30px;
   height:450px;
   border-spacing: 20px;
@@ -216,8 +217,8 @@ div.landingPage div.horizontalScrollBar #rightScrollIcon{
 div.landingPage div#popularMovies div.movieDisplay,
 div.landingPage div#popularTV div.movieDisplay,
 div.landingPage div#recommended div.movieDisplay,
-div.landingPage div#watchList div.movieDisplay
-{
+div.landingPage div#watchList div.movieDisplay,
+div.landingPage div#recentlyWatched div.movieDisplay{
   grid-column:2;
   width:100%;
   border:solid;
