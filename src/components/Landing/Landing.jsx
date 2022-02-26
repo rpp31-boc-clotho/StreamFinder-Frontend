@@ -25,6 +25,8 @@ class Landing extends React.Component {
       })
     }
   }
+
+
   componentDidMount(){
     axios.get(server+'/homepage')
     .then((response) => {

@@ -30,7 +30,7 @@ class ReviewModal extends React.Component {
 
       axios({
         method: 'post',
-        url:'http://boc-backend-alb-1007494829.us-east-2.elb.amazonaws.com/homepage/review/create',
+        url:'https://api.youpostalservice.com/homepage/review/create',
         data: data,
       })
       .then((response) => {

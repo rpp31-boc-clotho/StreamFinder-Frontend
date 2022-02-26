@@ -33,7 +33,7 @@ const Reviews = (props) => {
   const getReviews = () => {
     axios({
       method: 'get',
-      url:'http://boc-backend-alb-1007494829.us-east-2.elb.amazonaws.com/homepage/review/',
+      url:'https://api.youpostalservice.com/homepage/review/',
       params: {
         contentType: props.type,
         contentId: props.id
