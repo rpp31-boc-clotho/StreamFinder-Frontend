@@ -24,7 +24,19 @@ class SearchPage extends React.Component {
     this.handleSearch = this.handleSearch.bind(this);
     this.handleClickMovie = this.handleClickMovie.bind(this);
     this.handleClickTVShow = this.handleClickTVShow.bind(this);
-    }
+    this.handleSearch2 = this.handleSearch2.bind(this);
+  }
+
+
+  async handleSearch2(term) {
+    console.log(term);
+    //for searched we can have a second value that will be dependent on the state of true false toggles. nothing crazy.
+    let searched = await searchFunction('movie', term)
+    this.setState (prevState => ({
+      results: searched
+      //this.filterSearch(this.state.baseData, event.target[0].value)
+    }));
+  }
 
   async handleSearch(term) {
     event.preventDefault();
@@ -69,6 +81,16 @@ class SearchPage extends React.Component {
     })
   }
 
+  componentDidMount(){
+    let splitPath = window.location.pathname.split('/')
+    console.log("splitpath: "+ splitPath);
+    console.log("window loc: "+ window.location);
+    console.log("window loc: "+ JSON.stringify(window.location));
+    console.log("window loc: "+ window.location.href.split('=')[1]);
+    if (window.location.href.split('=').length > 1) {
+      this.handleSearch2(window.location.href.split('=')[1]);
+    }
+  }
 
 
   render() {

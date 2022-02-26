@@ -3,16 +3,17 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
 
 
-function search({handleSearch, filterSearch}) {
+
+function searchBar({handleSearch, filterSearch}) {
 
   const [searchTerm, changeTerm] = useState('');
   const onSearch = () => {
-    if (!window.location.href.includes("/search")) {
+    if (window.location.href.includes("/search")) {
     //   <Link to={{
     //     pathname: "/search",
     //     state: searchTerm
     //   }}/>
-    //  }
+      }
     //  debugger
      console.log("this is searchTerm: " + searchTerm)
      //debugger
@@ -37,7 +38,6 @@ function search({handleSearch, filterSearch}) {
       </form>
     </div>
   )
-
 }
 
-export default search;
+export default searchBar;
