@@ -29,7 +29,7 @@ class MediaInfoPage extends React.Component {
 
   getMediaInfo() {
     let url = window.location.pathname.split('/');
-    console.log('path:', url);
+    console.log('requesting https:', url);
 
     let mediaInfo = null;
     let availability = {};
@@ -38,8 +38,7 @@ class MediaInfoPage extends React.Component {
     //   rejectUnauthorized: false
     // });
     // axios.get('https://something.com/foo', { httpsAgent: agent });
-
-    axios.get( 'https://boc-backend-alb-1007494829.us-east-2.elb.amazonaws.com/homepage/media/' + url[2] + '/' + url[3] )
+    axios.get( 'https://api.youpostalservice.com/homepage/media/' + url[2] + '/' + url[3] )
       .then(data => {
         mediaInfo = data.data.mediaDetails;
         availability = data.data.providers;
