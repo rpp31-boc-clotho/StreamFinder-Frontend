@@ -5,7 +5,7 @@ import exampleData from '../../../exampleData.js';
 import SearchBar from '../Search/SearchBar.jsx';
 import axios from 'axios';
 
-const server = 'http://boc-backend-alb-1007494829.us-east-2.elb.amazonaws.com';
+const server = 'https://api.youpostalservice.com';
 class Landing extends React.Component {
   constructor(props){
     super(props);
@@ -13,8 +13,9 @@ class Landing extends React.Component {
       popularMovies: exampleData.movies,
       popularTV: [],
       isLoggedIn: false,
-      recommended:[],
-      watched: []
+      recommended:exampleData.movies,
+      recentlyWatched: [],
+      watchList:[]
 
     }
   }
@@ -24,13 +25,39 @@ class Landing extends React.Component {
         isLoggedIn:true
       })
     }
+    if( prevProps.recentlyWatched !== this.props.recentlyWatched) {
+      if(this.props.recentlyWatched.length > 0) {
+        this.setState({
+          recentlyWatched:this.props.recentlyWatched
+        })
+      }else {
+        this.setState({
+          recentlyWatched:exampleData.movies
+        })
+      }
+
+    }
+    if( prevProps.watchList !== this.props.watchList) {
+     if(this.props.watchList.length > 0) {
+      this.setState({
+        watchList:this.props.watchList
+      })
+     }else {
+      this.setState({
+        watchList:exampleData.movies
+      })
+     }
+
+    }
   }
   componentDidMount(){
+
     axios.get(server+'/homepage')
     .then((response) => {
       console.log('axios response:', response);
       this.setState({
         popularMovies:response.data.movies,
+        popularTV: response.data.shows
 
       })
       //this.props.handleError("An error occurred while fetching data for popular movies");
@@ -41,9 +68,18 @@ class Landing extends React.Component {
     })
     if(this.props.isLoggedIn) {
       this.setState({
-        isLoggedIn:true
+        isLoggedIn:true,
+
       })
     }
+    /*this.setState({
+      recentlyWatched:this.props.recentlyWatched,
+      watchList:this.props.watchList
+    })*/
+    this.setState({
+      recentlyWatched:exampleData.movies,
+      watchList:exampleData.movies
+    })
   }
   render(){
     return(
@@ -55,7 +91,9 @@ class Landing extends React.Component {
           <Horizontal popularMovies = {this.state.popularMovies} />
           <Horizontal popularTV = {this.state.popularTV} />
           <Horizontal recommended = {this.state.recommended} />
-          <Horizontal watched = {this.state.watched} />
+          <Horizontal recentlyWatched = {this.state.recentlyWatched} />
+          <Horizontal watchList = {this.state.watchList} />
+
          </div>
         :<div>
           <Horizontal popularMovies = {this.state.popularMovies} />

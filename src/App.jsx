@@ -16,8 +16,8 @@ import axios from 'axios';
 const App = (props) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [ providersList, setProvidersList] = useState({});
-  const [ watchList, setWatchList ] = useState({});
-  const [ recentlyWatched, setRecentlyWatched ] = useState({});
+  const [ watchList, setWatchList ] = useState([]);
+  const [ recentlyWatched, setRecentlyWatched ] = useState([]);
   const [ email, setEmail ] = useState(null);
   const [ username, setUsername ] = useState(null);
   const { isAuthenticated } = useAuth0();
@@ -27,7 +27,7 @@ const App = (props) => {
     setErrorMessage(message);
   }
   let userId = localStorage.getItem('userId');
-
+  let server = 'https://api.youpostalservice.com';
   // states needed
   // recommended? => landing
 
@@ -35,7 +35,7 @@ const App = (props) => {
   const updateSubscriptions = (changes) => {
     axios({
       method: 'post',
-      url:'http://boc-backend-alb-1007494829.us-east-2.elb.amazonaws.com/homepage/user/update',
+      url: server+'/homepage/user/update',
       data: {
         username: user.email,
         subscriptions: changes
@@ -50,7 +50,7 @@ const App = (props) => {
   }
 
   const fetchUserData = (email) => {
-    axios.get('http://boc-backend-alb-1007494829.us-east-2.elb.amazonaws.com/homepage/user', {
+    axios.get(server+'/homepage/user', {
       params: {
         username: email
       }
@@ -68,7 +68,7 @@ const App = (props) => {
   const createUser = (email) => {
     axios({
       method: 'post',
-      url:'http://boc-backend-alb-1007494829.us-east-2.elb.amazonaws.com/homepage/user/create',
+      url:server+'/homepage/user/create',
       data: {
         username: email
       },
@@ -76,12 +76,14 @@ const App = (props) => {
     .then((res) => {
       if (res.status) {
         setProvidersList(res.data.userProfile.subscriptions);
-        localStorage.setItem('userId', res.data.userProfile.username);
+        localStorage.setItem('userId',email);
+        //localStorage.setItem('userId', res.data.userProfile.username);
         setWatchList(res.data.userProfile.watchList);
         setRecentlyWatched(res.data.userProfile.watchHistory);
       } else {
         setProvidersList(res.data.subscriptions);
-        localStroage.setItem('userId', res.data.username);
+        localStorage.setItem('userId',email);
+        //localStroage.setItem('userId', res.data.username);
         setWatchList(res.data.watchList);
         setRecentlyWatched(res.data.watchHistory);
       }
@@ -94,7 +96,7 @@ const App = (props) => {
   const addToWatchHistory = (changes) => {
     axios({
       method: 'post',
-      url:'http://boc-backend-alb-1007494829.us-east-2.elb.amazonaws.com/homepage/user/watched',
+      url:server+'/homepage/user/watched',
       data: changes
     })
     .then((response) => {
@@ -108,7 +110,7 @@ const App = (props) => {
   const addWatchList = (changes) => {
     axios({
       method: 'post',
-      url:'http://boc-backend-alb-1007494829.us-east-2.elb.amazonaws.com/homepage/user/watchlist',
+      url:server+'/homepage/user/watchlist',
       data: changes
     })
     .then((response) => {
@@ -128,14 +130,10 @@ const App = (props) => {
       setIsLoggedIn(false)
     }
   });
-
+  console.log('userid:',user);
   useEffect(() => {
-    if (userId) {
-      fetchUserData(userId)
-    } else {
-      createUser(email)
-    }
-  }, [])
+    createUser(email)
+  }, [email])
 
   return (
     <div className="App">
