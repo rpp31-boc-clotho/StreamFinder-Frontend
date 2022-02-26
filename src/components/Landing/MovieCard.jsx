@@ -6,6 +6,8 @@ class MovieCard extends React.Component {
     super(props)
   }
 
+
+
   displayRating(rating) {
     let ratingPercent = (rating * 10)
     if (ratingPercent >= 75) {

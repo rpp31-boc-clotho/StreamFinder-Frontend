@@ -26,7 +26,9 @@ var Horizontal = function(props) {
   const [maxScrollWidth, setMaxScrollWidth] = useState(0);
 
   let chooseStyle = (inputList) => {
+    //console.log('inputList',inputList);
     if(inputList.length <= 6) {
+     // console.log('inputList length',inputList.length);
       setRightScrollStyle(hideStyle, [list]);
     }else {
       setRightScrollStyle(visibleStyle, [list]);
@@ -39,6 +41,7 @@ var Horizontal = function(props) {
   }
   useEffect(() => {
     setLeftScrollStyle(hideStyle);
+    setRightScrollStyle(hideStyle);
    if(props.popularMovies) {
       setId("popularMovies");
       setHeader("Popular Movies");
@@ -56,12 +59,21 @@ var Horizontal = function(props) {
       setList(props.recommended);
       chooseStyle(props.recommended);
     }
-    else if(props.watched){
+    else if(props.recentlyWatched){
+      setId("recentlyWatched");
+      setHeader("Recently Watched");
+      setList(props.recentlyWatched);
+      chooseStyle(props.recentlyWatched);
+    }
+    else if(props.watchList){
       setId("watchList");
-      setHeader("Watchlist");
-      setList(props.watched);
+      setHeader("Watch List");
+      setList(props.watchList);
       setIsWatchList(true);
-      chooseStyle(props.watched);
+      chooseStyle(props.watchList);
+    }
+    if(list.length>0){
+      chooseStyle(list);
     }
 
   }, [props]);
@@ -134,8 +146,8 @@ var Horizontal = function(props) {
 
 
   //}
-
-
+  //console.log('id:',id);
+ // console.log('list:',list);
   return(
 
     <div className = "horizontal" id={id}>
