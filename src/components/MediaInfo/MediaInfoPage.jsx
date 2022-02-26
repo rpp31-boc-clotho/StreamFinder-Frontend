@@ -2,7 +2,6 @@ import React from 'react';
 import { useEffect, useState } from "react";
 import AddToWatchlist from './AddToWatchlist.jsx';
 import Services from './Services.jsx';
-import Reviews from '../Reviews/Reviews.jsx';
 import MediaDetails from './MediaDetails.jsx';
 
 import axios from 'axios';
@@ -17,7 +16,6 @@ class MediaInfoPage extends React.Component {
     super(props);
     this.state = {
       allData: exampleData,
-      id: '',
       type: null,
       title: '',
       release: '',
@@ -32,11 +30,6 @@ class MediaInfoPage extends React.Component {
   getMediaInfo() {
     let url = window.location.pathname.split('/');
     console.log('path:', url);
-
-    // this.setState({
-    //   type: url[2],
-    //   id: url[3]
-    // })
 
     let mediaInfo = null;
     let availability = {};
@@ -57,9 +50,7 @@ class MediaInfoPage extends React.Component {
           release: mediaInfo['release_date'],
           description: mediaInfo['summary'],
           rating: mediaInfo['rating'],
-          img: mediaInfo['imgUrl'],
-          type: url[2],
-          id: url[3]
+          img: mediaInfo['imgUrl']
         });
 
         // TODO: condition => path is to any other subdirectory in '/info' => redirect to search page
@@ -68,10 +59,6 @@ class MediaInfoPage extends React.Component {
       .catch(err => {
         console.log('error fetching data:', err);
       })
-  }
-
-  componentDidMount() {
-    this.getMediaInfo();
   }
 
   render() {
@@ -95,14 +82,14 @@ class MediaInfoPage extends React.Component {
           </div>
         </div>
         <Services />
-        <Reviews id={this.state.id} type={this.state.type} username={this.props.username} email={this.props.email} />
+        {/* <Reviews /> */}
       </div>
     )
   }
 
-  // componentDidMount() {
-  //   this.getMediaInfo();
-  // }
+  componentDidMount() {
+    this.getMediaInfo();
+  }
 }
 
 export default MediaInfoPage;

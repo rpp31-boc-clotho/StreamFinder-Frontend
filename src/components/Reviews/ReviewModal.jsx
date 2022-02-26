@@ -27,7 +27,6 @@ class ReviewModal extends React.Component {
         reviewContent: this.state.message
       }
 
-      console.log('data', data)
 
       axios({
         method: 'post',
