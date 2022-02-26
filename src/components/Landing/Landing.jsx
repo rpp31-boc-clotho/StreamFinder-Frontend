@@ -3,17 +3,19 @@ import Header from './Header.jsx';
 import Horizontal from './Horizontal.jsx';
 import exampleData from '../../../exampleData.js';
 import SearchBar from '../Search/SearchBar.jsx';
+import axios from 'axios';
 
-
+const server = 'http://boc-backend-alb-1007494829.us-east-2.elb.amazonaws.com';
 class Landing extends React.Component {
   constructor(props){
     super(props);
     this.state = {
       popularMovies: exampleData.movies,
-      popularTV: exampleData.tv,
+      popularTV: [],
       isLoggedIn: false,
-      recommended:exampleData.movies,
-      watched:exampleData.movies
+      recommended:[],
+      watched: []
+
     }
   }
   componentDidUpdate(prevProps){
@@ -23,9 +25,32 @@ class Landing extends React.Component {
       })
     }
   }
+
+
+  componentDidMount(){
+    axios.get(server+'/homepage')
+    .then((response) => {
+      console.log('axios response:', response);
+      this.setState({
+        popularMovies:response.data.movies,
+
+      })
+      this.props.handleError("An error occurred while fetching data for popular movies");
+    })
+    .catch((error) => {
+      console.log(error);
+      this.props.handleError(error);
+    })
+    if(this.props.isLoggedIn) {
+      this.setState({
+        isLoggedIn:true
+      })
+    }
+  }
   render(){
     return(
       <div className="landingPage">
+
         <SearchBar />
         {this.state.isLoggedIn
         ?<div>
@@ -39,8 +64,6 @@ class Landing extends React.Component {
           <Horizontal popularTV = {this.state.popularTV} />
         </div>
         }
-
-
       </div>
     )
   }
