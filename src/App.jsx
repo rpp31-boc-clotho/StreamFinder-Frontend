@@ -46,21 +46,21 @@ const App = (props) => {
     })
   }
 
-  const fetchUserData = (email) => {
-    axios.get('http://boc-backend-alb-1007494829.us-east-2.elb.amazonaws.com/homepage/user', {
-      params: {
-        username: email
-      }
-    })
-    .then((res) => {
-      setProvidersList(res.data.subscriptions)
-      setWatchList(res.data.watchList)
-      setRecentlyWatched(res.data.watchHistory)
-    })
-    .catch((e) => {
-      console.log('Error fetching user data', e)
-    })
-  }
+  // const fetchUserData = (email) => {
+  //   axios.get('http://boc-backend-alb-1007494829.us-east-2.elb.amazonaws.com/homepage/user', {
+  //     params: {
+  //       username: email
+  //     }
+  //   })
+  //   .then((res) => {
+  //     setProvidersList(res.data.subscriptions)
+  //     setWatchList(res.data.watchList)
+  //     setRecentlyWatched(res.data.watchHistory)
+  //   })
+  //   .catch((e) => {
+  //     console.log('Error fetching user data', e)
+  //   })
+  // }
 
   const createUser = (email) => {
     axios({
