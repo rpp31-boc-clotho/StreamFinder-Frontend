@@ -62,8 +62,6 @@ class Landing extends React.Component {
           <Horizontal popularTV = {this.state.popularTV} />
         </div>
         }
-
-
       </div>
     )
   }

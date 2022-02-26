@@ -1,46 +1,35 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import Subscriptions from './Subscriptions.jsx';
+import Update from './Update.jsx';
+import { useAuth0 } from '@auth0/auth0-react';
+import { Navigate } from 'react-router-dom';
+import axios from 'axios';
 
 const profile = (props) => {
 
+  // States
+  const [ modal, setModal ] = useState(false);
+
+  // Functions
+  const hideModal = () => {
+    setModal(false);
+  }
+
+  //Render
   return (
     <div>
+      {props.username}
       <div>
-        Username
+        Your Subscriptions
       </div>
       <div>
-        What services do you subscribe to?
-        <div>
-          <label className="switch">
-            <input type="checkbox"></input>
-            Netflix
-            <span className="slider round"></span>
-          </label>
-          {/* <input id="services" type="checkbox"></input>
-          <label>Netflix</label> */}
-        </div>
-        <div>
-          <label className="switch">
-            <input type="checkbox"></input>
-            Amazon Prime
-            <span className="slider round"></span>
-          </label>
-          {/* <input id="services" type="checkbox"></input>
-          <label>Amazon Prime</label> */}
-        </div>
-        <div>
-          <label className="switch">
-            <input type="checkbox"></input>
-            Hulu
-            <span className="slider round"></span>
-          </label>
-        </div>
-        <div>
-          <label className="switch">
-            <input type="checkbox"></input>
-            HBO Max
-            <span className="slider round"></span>
-          </label>
-        </div>
+        <Subscriptions providersList={props.providersList} />
+      </div>
+      <div>
+        <button onClick={() => setModal(true)}>Edit Subscriptions</button>
+      </div>
+      <div>
+        <Update show={modal} hide={hideModal} providersList={props.providersList} updateSubs={props.updateSubscriptions}/>
       </div>
     </div>
   )
