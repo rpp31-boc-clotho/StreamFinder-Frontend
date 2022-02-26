@@ -17,14 +17,16 @@ class SearchPage extends React.Component {
         movies: true,
         TVShows: true
       },
-      baseData: exampleData.movies,
-      results: exampleData.movies
+      baseData: [],
+      results: []
     }
-    this.filterSearch = this.filterSearch.bind(this);
+
     this.handleSearch = this.handleSearch.bind(this);
-    this.handleClickMovie = this.handleClickMovie.bind(this);
-    this.handleClickTVShow = this.handleClickTVShow.bind(this);
     this.handleSearch2 = this.handleSearch2.bind(this);
+    //this.filterSearch = this.filterSearch.bind(this);
+    //this.handleClickMovie = this.handleClickMovie.bind(this);
+    //this.handleClickTVShow = this.handleClickTVShow.bind(this);
+
   }
 
 
@@ -71,22 +73,22 @@ class SearchPage extends React.Component {
     }))
   }
 
-  filterSearch (films, query) {
-    if(!query) {
-      return films;
-    }
-    return films.filter((film) => {
-      const filmName = film.title.toLowerCase();
-      return filmName.includes(query.toLowerCase());
-    })
-  }
+  // filterSearch (films, query) {
+  //   if(!query) {
+  //     return films;
+  //   }
+  //   return films.filter((film) => {
+  //     const filmName = film.title.toLowerCase();
+  //     return filmName.includes(query.toLowerCase());
+  //   })
+  // }
 
   componentDidMount(){
     let splitPath = window.location.pathname.split('/')
-    console.log("splitpath: "+ splitPath);
-    console.log("window loc: "+ window.location);
-    console.log("window loc: "+ JSON.stringify(window.location));
-    console.log("window loc: "+ window.location.href.split('=')[1]);
+    // console.log("splitpath: "+ splitPath);
+    // console.log("window loc: "+ window.location);
+    // console.log("window loc: "+ JSON.stringify(window.location));
+    // console.log("window loc: "+ window.location.href.split('=')[1]);
     if (window.location.href.split('=').length > 1) {
       this.handleSearch2(window.location.href.split('=')[1]);
     }
@@ -98,7 +100,9 @@ class SearchPage extends React.Component {
       //gonna have to send the data through here, I think? need to decide where we are searching through the data.
       <div>
         <SearchBar filterSearch={this.filterSearch} handleSearch={this.handleSearch}/>
-        <button onClick={this.handleClickMovie}>Filter movies</button>
+        <button onClick={this.handleClickMovie}>Filter Movies</button>
+        <button onClick={this.handleClickTVShows}> Filter TV Shows</button>
+        <button>Look for both!</button>
         <SearchResults results={this.state.results} />
       </div>
     )
