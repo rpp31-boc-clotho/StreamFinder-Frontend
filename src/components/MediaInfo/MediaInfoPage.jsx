@@ -6,6 +6,8 @@ import Reviews from '../Reviews/Reviews.jsx';
 import MediaDetails from './MediaDetails.jsx';
 
 import axios from 'axios';
+// const https = require('https');
+// import https from 'express';
 import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
 
 import exampleData from '../../../exampleData.js';
@@ -39,7 +41,12 @@ class MediaInfoPage extends React.Component {
     let mediaInfo = null;
     let availability = {};
 
-    axios.get( 'http://boc-backend-alb-1007494829.us-east-2.elb.amazonaws.com/homepage/media/' + url[2] + '/' + url[3] )
+    // const agent = new https.Agent({
+    //   rejectUnauthorized: false
+    // });
+    // axios.get('https://something.com/foo', { httpsAgent: agent });
+
+    axios.get( 'https://boc-backend-alb-1007494829.us-east-2.elb.amazonaws.com/homepage/media/' + url[2] + '/' + url[3] )
       .then(data => {
         mediaInfo = data.data.mediaDetails;
         availability = data.data.providers;
@@ -72,7 +79,6 @@ class MediaInfoPage extends React.Component {
     // console.log('dummy data:', testData);
     let posterUrl = 'https://image.tmdb.org/t/p/w185' + this.state['img'];
 
-
     return (
       <div className="mediaInfoPage">
         <div className="mediaHeader">
@@ -93,6 +99,10 @@ class MediaInfoPage extends React.Component {
       </div>
     )
   }
+
+  // componentDidMount() {
+  //   this.getMediaInfo();
+  // }
 }
 
 export default MediaInfoPage;
