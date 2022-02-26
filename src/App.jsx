@@ -28,6 +28,8 @@ const App = (props) => {
   }
   let userId = localStorage.getItem('userId');
 
+
+
   // states needed
   // recommended? => landing
 
@@ -49,21 +51,21 @@ const App = (props) => {
     })
   }
 
-  const fetchUserData = (email) => {
-    axios.get('http://boc-backend-alb-1007494829.us-east-2.elb.amazonaws.com/homepage/user', {
-      params: {
-        username: email
-      }
-    })
-    .then((res) => {
-      setProvidersList(res.data.subscriptions)
-      setWatchList(res.data.watchList)
-      setRecentlyWatched(res.data.watchHistory)
-    })
-    .catch((e) => {
-      console.log('Error fetching user data', e)
-    })
-  }
+  // const fetchUserData = (email) => {
+  //   axios.get('http://boc-backend-alb-1007494829.us-east-2.elb.amazonaws.com/homepage/user', {
+  //     params: {
+  //       username: email
+  //     }
+  //   })
+  //   .then((res) => {
+  //     setProvidersList(res.data.subscriptions)
+  //     setWatchList(res.data.watchList)
+  //     setRecentlyWatched(res.data.watchHistory)
+  //   })
+  //   .catch((e) => {
+  //     console.log('Error fetching user data', e)
+  //   })
+  // }
 
   const createUser = (email) => {
     axios({
@@ -74,12 +76,15 @@ const App = (props) => {
       },
     })
     .then((res) => {
-      if (res.status) {
+      console.log('res', res)
+      if (res.data.status) {
+        console.log('hitting user exists')
         setProvidersList(res.data.userProfile.subscriptions);
         localStorage.setItem('userId', res.data.userProfile.username);
         setWatchList(res.data.userProfile.watchList);
         setRecentlyWatched(res.data.userProfile.watchHistory);
       } else {
+        console.log('hitting new user')
         setProvidersList(res.data.subscriptions);
         localStroage.setItem('userId', res.data.username);
         setWatchList(res.data.watchList);
@@ -130,12 +135,8 @@ const App = (props) => {
   });
 
   useEffect(() => {
-    if (userId) {
-      fetchUserData(userId)
-    } else {
-      createUser(email)
-    }
-  }, [])
+    createUser(email)
+  }, [email])
 
   return (
     <div className="App">
