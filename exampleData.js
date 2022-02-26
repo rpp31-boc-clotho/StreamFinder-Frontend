@@ -6,7 +6,7 @@ let exampleData = {
                 "original_title": "Spider-Man: No Way Home",
                 "poster_path": "/1g0dhYtq4irTY1GPXvft6k4YLjm.jpg",
                 "id": 634649,
-                "vote_average": 8.4,
+                "rating": 8.4,
                 "overview": "Peter Parker is unmasked and no longer able to separate his normal life from the high-stakes of being a super-hero. When he asks for help from Doctor Strange the stakes become even more dangerous, forcing him to discover what it truly means to be Spider-Man.",
                 "release_date": "2021-12-15",
                 "vote_count": 7356,
@@ -39,7 +39,7 @@ let exampleData = {
                 "release_date": "2021-12-22",
                 "title": "The King's Man",
                 "video": false,
-                "vote_average": 6.8,
+                "rating": 6.8,
                 "vote_count": 465,
                 "popularity": 470.655,
                 "media_type": "movie"
@@ -60,7 +60,7 @@ let exampleData = {
                 "poster_path": "/vHla3Ej2m53rNmvmYkzvennLrKn.jpg",
                 "vote_count": 859,
                 "video": false,
-                "vote_average": 6.6,
+                "rating": 6.6,
                 "title": "House of Gucci",
                 "popularity": 1594.798,
                 "media_type": "movie"
@@ -81,7 +81,7 @@ let exampleData = {
                     14,
                     878
                 ],
-                "vote_average": 7.2,
+                "rating": 7.2,
                 "original_language": "en",
                 "original_title": "Eternals",
                 "popularity": 4114.555,
@@ -102,7 +102,7 @@ let exampleData = {
                 "id": 774825,
                 "title": "The Ice Age Adventures of Buck Wild",
                 "video": false,
-                "vote_average": 7.3,
+                "rating": 7.3,
                 "poster_path": "/zzXFM4FKDG7l1ufrAkwQYv2xvnh.jpg",
                 "overview": "The fearless one-eyed weasel Buck teams up with mischievous possum brothers Crash & Eddie as they head off on a new adventure into Buck's home: The Dinosaur World.",
                 "release_date": "2022-01-28",
@@ -124,7 +124,7 @@ let exampleData = {
                 "poster_path": "/sg4xJaufDiQl7caFEskBtQXfD4x.jpg",
                 "title": "Ghostbusters: Afterlife",
                 "video": false,
-                "vote_average": 7.7,
+                "rating": 7.7,
                 "adult": false,
                 "overview": "When a single mom and her two kids arrive in a small town, they begin to discover their connection to the original Ghostbusters and the secret legacy their grandfather left behind.",
                 "popularity": 2671.325,
@@ -132,7 +132,7 @@ let exampleData = {
             },
             {
                 "video": false,
-                "vote_average": 7.2,
+                "rating": 7.2,
                 "overview": "An ambitious carnival man with a talent for manipulating people with a few well-chosen words hooks up with a female psychiatrist who is even more dangerous than he is.",
                 "release_date": "2021-12-02",
                 "adult": false,
@@ -162,7 +162,7 @@ let exampleData = {
                 "original_title": "Encanto",
                 "poster_path": "/4j0PNHkMr5ax3IA8tjtxcmPU3QT.jpg",
                 "video": false,
-                "vote_average": 7.8,
+                "rating": 7.8,
                 "vote_count": 4063,
                 "overview": "The tale of an extraordinary family, the Madrigals, who live hidden in the mountains of Colombia, in a magical house, in a vibrant town, in a wondrous, charmed place called an Encanto. The magic of the Encanto has blessed every child in the family with a unique gift from super strength to the power to heal—every child except one, Mirabel. But when she discovers that the magic surrounding the Encanto is in danger, Mirabel decides that she, the only ordinary Madrigal, might just be her exceptional family's last hope.",
                 "release_date": "2021-11-24",
@@ -185,7 +185,7 @@ let exampleData = {
                 "overview": "A group of top female agents from American, British, Chinese, Columbian and German  government agencies are drawn together to try and stop an organization from acquiring a deadly weapon to send the world into chaos.",
                 "release_date": "2022-01-05",
                 "title": "The 355",
-                "vote_average": 6.2,
+                "rating": 6.2,
                 "adult": false,
                 "backdrop_path": "/8pgKccb5PfE1kWB9qqiXJem83VC.jpg",
                 "id": 522016,
@@ -195,7 +195,7 @@ let exampleData = {
             },
             {
                 "video": false,
-                "vote_average": 6.8,
+                "rating": 6.8,
                 "overview": "Plagued by strange memories, Neo's life takes an unexpected turn when he finds himself back inside the Matrix.",
                 "id": 624860,
                 "adult": false,
@@ -230,7 +230,7 @@ let exampleData = {
                     18,
                     10765
                 ],
-                "vote_average": 8.8,
+                "rating": 8.8,
                 "origin_country": [
                     "KR"
                 ],
@@ -238,7 +238,7 @@ let exampleData = {
                 "media_type": "tv"
             },
             {
-                "vote_average": 8.3,
+                "rating": 8.3,
                 "overview": "Legendary bounty hunter Boba Fett and mercenary Fennec Shand must navigate the galaxy’s underworld when they return to the sands of Tatooine to stake their claim on the territory once ruled by Jabba the Hutt and his crime syndicate.",
                 "vote_count": 822,
                 "first_air_date": "2021-12-29",
@@ -270,7 +270,7 @@ let exampleData = {
                 "id": 108978,
                 "original_language": "en",
                 "poster_path": "/bQnnKBe3VsvXKMoNCaYmRzs1Dup.jpg",
-                "vote_average": 8.6,
+                "rating": 8.6,
                 "vote_count": 71,
                 "overview": "Jack Reacher was arrested for murder and now the police need his help. Based on the books by Lee Child.",
                 "name": "Reacher",
@@ -282,7 +282,7 @@ let exampleData = {
                 "media_type": "tv"
             },
             {
-                "vote_average": 8.4,
+                "rating": 8.4,
                 "overview": "A group of high school students navigate love and friendships in a world of drugs, sex, trauma, and social media.",
                 "id": 85552,
                 "first_air_date": "2019-06-16",
@@ -315,7 +315,7 @@ let exampleData = {
                     16,
                     10759
                 ],
-                "vote_average": 8.6,
+                "rating": 8.6,
                 "original_language": "ja",
                 "poster_path": "/aiy35Evcofzl7hASZZvsFgltHTX.jpg",
                 "id": 1429,
@@ -333,7 +333,7 @@ let exampleData = {
                 "vote_count": 708,
                 "first_air_date": "2022-01-13",
                 "backdrop_path": "/ctxm191q5o3axFzQsvNPlbKoSYv.jpg",
-                "vote_average": 8.7,
+                "rating": 8.7,
                 "genre_ids": [
                     10759,
                     35,
@@ -361,7 +361,7 @@ let exampleData = {
                 "id": 85937,
                 "vote_count": 3469,
                 "poster_path": "/wrCVHdkBlBWdJUZPvnJWcBRuhSY.jpg",
-                "vote_average": 8.8,
+                "rating": 8.8,
                 "name": "Demon Slayer: Kimetsu no Yaiba",
                 "overview": "It is the Taisho Period in Japan. Tanjiro, a kindhearted boy who sells charcoal for a living, finds his family slaughtered by a demon. To make matters worse, his younger sister Nezuko, the sole survivor, has been transformed into a demon herself. Though devastated by this grim reality, Tanjiro resolves to become a “demon slayer” so that he can turn his sister back into a human, and kill the demon that massacred his family.",
                 "popularity": 495.956,
@@ -379,7 +379,7 @@ let exampleData = {
                     35,
                     18
                 ],
-                "vote_average": 8.0,
+                "rating": 8.0,
                 "original_language": "en",
                 "origin_country": [
                     "US"
@@ -403,7 +403,7 @@ let exampleData = {
                 "origin_country": [
                     "US"
                 ],
-                "vote_average": 8.4,
+                "rating": 8.4,
                 "overview": "Seven noble families fight for control of the mythical land of Westeros. Friction between the houses leads to full-scale war. All while a very ancient evil awakens in the farthest north. Amidst the war, a neglected military order of misfits, the Night's Watch, is all that stands between the realms of men and icy horrors beyond.",
                 "id": 1399,
                 "vote_count": 17140,
@@ -426,7 +426,7 @@ let exampleData = {
                 "original_name": "Naomi",
                 "overview": "Follow a teen girl’s journey from her small northwestern town to the heights of the multiverse. When a supernatural event shakes her hometown to the core, Naomi sets out to uncover its origins, and what she discovers will challenge everything we believe about our heroes",
                 "poster_path": "/xwS6ggTI8hTkVTz1I4U6BZ48pgZ.jpg",
-                "vote_average": 0.0,
+                "rating": 0.0,
                 "vote_count": 0,
                 "popularity": 988.217,
                 "media_type": "tv"
