@@ -1,19 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import Providers from './Providers.jsx';
 
+const Update = (props) => {
 
-
-
-const update = (props) => {
+  let providers;
+  if (props.providersList) {
+    providers = Object.keys(props.providersList)
+  }
 
   const updateSubscriptions = () => {
+    let changes = {};
     var checked = document.getElementsByClassName('provider');
 
     for (let i = 0; i < checked.length; i++) {
       if (checked[i].checked) {
         console.log(checked[i].id)
       }
+      changes[checked[i].id] = checked[i].checked
     }
+
+    props.updateSubs(changes);
     props.hide();
   }
 
@@ -29,12 +35,10 @@ const update = (props) => {
           <h3 className="modal-title">Available Providers</h3>
         </div>
         <div className="modal-body">
-          {props.provider.map((providers, i) =>
+          {providers.map((providers, i) =>
             <Providers key={i} provider={providers} status={props.providersList[providers]} />
           )}
-
         </div>
-
         <div className="modal-footer">
           <div className="submit-button">
             <button className="modal-footer-button" onClick={() => updateSubscriptions()}>Update Subscriptions</button>
@@ -46,4 +50,4 @@ const update = (props) => {
   )
 }
 
-export default update;
+export default Update;
