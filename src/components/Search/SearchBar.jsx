@@ -8,12 +8,12 @@ function search({handleSearch, filterSearch}) {
   const [searchTerm, changeTerm] = useState('');
   const onSearch = () => {
     if (!window.location.href.includes("/search")) {
-      <Link to={{
-        pathname: "/search",
-        state: searchTerm
-      }}/>
-     }
-     debugger
+    //   <Link to={{
+    //     pathname: "/search",
+    //     state: searchTerm
+    //   }}/>
+    //  }
+    //  debugger
      console.log("this is searchTerm: " + searchTerm)
      //debugger
     // console.log("href: " + JSON.stringify(window.location.href))
