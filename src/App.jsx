@@ -28,8 +28,6 @@ const App = (props) => {
   }
   let userId = localStorage.getItem('userId');
 
-
-
   // states needed
   // recommended? => landing
 
