@@ -1,6 +1,7 @@
 import React from 'react';
 import { useEffect, useState } from "react";
 import AddToWatchlist from './AddToWatchlist.jsx';
+import Reviews from '../Reviews/Reviews.jsx';
 import Services from './Services.jsx';
 import MediaDetails from './MediaDetails.jsx';
 
@@ -21,7 +22,8 @@ class MediaInfoPage extends React.Component {
       release: '',
       description: '',
       rating: '',
-      img: ''
+      img: '',
+      id: ''
     }
 
     this.getMediaInfo = this.getMediaInfo.bind(this);
@@ -49,7 +51,9 @@ class MediaInfoPage extends React.Component {
           release: mediaInfo['release_date'],
           description: mediaInfo['summary'],
           rating: mediaInfo['rating'],
-          img: mediaInfo['imgUrl']
+          img: mediaInfo['imgUrl'],
+          type: url[2],
+          id: url[3]
         });
 
         // TODO: condition => path is to any other subdirectory in '/info' => redirect to search page
@@ -81,7 +85,7 @@ class MediaInfoPage extends React.Component {
           </div>
         </div>
         <Services />
-        {/* <Reviews /> */}
+        <Reviews  id={this.state.id} type={this.state.type} email={this.props.email}/>
       </div>
     )
   }

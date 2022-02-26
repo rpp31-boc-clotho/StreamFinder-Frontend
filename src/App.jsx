@@ -10,6 +10,7 @@ import SearchPage from './components/Search/SearchPage.jsx';
 import SearchResults from './components/Search/SearchResults.jsx';
 import MediaInfoPage from './components/MediaInfo/MediaInfoPage.jsx';
 import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
+import Error from './components/Landing/Error.jsx';
 import axios from 'axios';
 
 const App = (props) => {
@@ -21,6 +22,10 @@ const App = (props) => {
   const [ username, setUsername ] = useState(null);
   const { isAuthenticated } = useAuth0();
   const { user } = useAuth0();
+  const [errorMessage, setErrorMessage] = useState('');
+  const handleError = (message) => {
+    setErrorMessage(message);
+  }
   let userId = localStorage.getItem('userId');
 
 
@@ -138,11 +143,12 @@ const App = (props) => {
       <BrowserRouter>
         <nav>
           <Header isLoggedIn = {isLoggedIn}/>
+          <Error message={errorMessage} />
         </nav>
         <Routes>
-          <Route path="/" element={<Landing isLoggedIn={isLoggedIn} recentlyWatched={recentlyWatched} watchList={watchList} username={username} email={email}/>} />
+          <Route path="/" element={<Landing isLoggedIn={isLoggedIn} recentlyWatched={recentlyWatched} watchList={watchList} username={username} email={email} handleError={handleError}/>} />
           <Route path="/search" element={<SearchPage />} />
-          <Route path="/info/*" element={<MediaInfoPage providersList={providersList} addWatchList={addWatchList} addToWatchHistory={addToWatchHistory} username={username} email={email}/>} />
+          <Route path="/info/*" element={<MediaInfoPage providersList={providersList} addWatchList={addWatchList} addToWatchHistory={addToWatchHistory} username={username} email={email} isLoggedIn = {isLoggedIn}/>} />
           <Route path="/settings" element={<Profile isLoggedIn={isLoggedIn} updateSubscriptions={updateSubscriptions} providersList={providersList} username={username} email={email}/>}/>
         </Routes>
       </BrowserRouter>
@@ -151,3 +157,4 @@ const App = (props) => {
 };
 
 export default App;
+

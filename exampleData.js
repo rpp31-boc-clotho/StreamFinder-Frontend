@@ -431,6 +431,16 @@ let exampleData = {
                 "popularity": 988.217,
                 "media_type": "tv"
             }
+        ],
+        reviews: [
+            {
+                contentId: 5,
+                contentType: 'movie',
+                username: 'testName',
+                recommend: true,
+                reviewContent: 'This movie was the best that I have ever seen in my entire life!!',
+                date: '2022-02-25T02:39:16.786Z'
+            }
         ]
 }
 
