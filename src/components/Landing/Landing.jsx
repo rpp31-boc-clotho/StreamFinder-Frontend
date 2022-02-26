@@ -11,10 +11,10 @@ class Landing extends React.Component {
     super(props);
     this.state = {
       popularMovies: exampleData.movies,
-      popularTV: [],
+      popularTV: exampleData.tv,
       isLoggedIn: false,
-      recommended:[],
-      watched: []
+      recommended:exampleData.movies,
+      watched: exampleData.tv
 
     }
   }
@@ -35,7 +35,7 @@ class Landing extends React.Component {
         popularMovies:response.data.movies,
 
       })
-      this.props.handleError("An error occurred while fetching data for popular movies");
+      // this.props.handleError("An error occurred while fetching data for popular movies");
     })
     .catch((error) => {
       console.log(error);

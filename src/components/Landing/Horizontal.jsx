@@ -58,7 +58,7 @@ var Horizontal = function(props) {
     }
     else if(props.watched){
       setId("watchList");
-      setHeader("Watch List");
+      setHeader("Watchlist");
       setList(props.watched);
       setIsWatchList(true);
       chooseStyle(props.watched);
