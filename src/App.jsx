@@ -27,6 +27,12 @@ const App = (props) => {
   const handleError = (message) => {
     setErrorMessage(message);
   }
+  // const activity = [];
+
+  // const addActivity = (action) => {
+  //   activity.push(action);
+  //   localStorage.setItem('userActivity', JSON.stringify(activity));
+  // }
   let userId = localStorage.getItem('userId');
   let server = 'https://api.youpostalservice.com';
   // states needed
