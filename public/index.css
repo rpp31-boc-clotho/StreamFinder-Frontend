@@ -197,6 +197,13 @@ a {
 
 .subscribedProviders {
   padding-bottom: 10px;
+  padding-left: 20px;
+}
+
+.providerLogo {
+  width: 30px;
+  height: 30px;
+  padding-right: 20px;
 }
 
 

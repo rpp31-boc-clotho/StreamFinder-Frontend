@@ -24,7 +24,10 @@ const Subscriptions = (props) => {
   return (
     <div>
       {subs.map((sub, i) =>
-        <div className="subscribedProviders" key={i}>{sub}</div>
+        <div className="subscribedProviders" key={i}>
+          <img className="providerLogo" src={`/providers/${sub}.jpeg`}></img>
+          {sub}
+        </div>
       )}
     </div>
   )

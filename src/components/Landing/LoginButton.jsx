@@ -52,7 +52,7 @@ const LoginButton = () => {
               aria-haspopup="true"
               aria-expanded={open ? 'true' : undefined}
             >
-              <Avatar sx={{ width: 32, height: 32 }}>{currentUser[0].toUpperCase()}</Avatar>
+              <Avatar sx={{ width: 50, height: 50 }}>{currentUser[0].toUpperCase()}</Avatar>
             </IconButton>
           </Tooltip>
         </Box>

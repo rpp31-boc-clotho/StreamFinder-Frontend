@@ -21,7 +21,7 @@ const profile = (props) => {
       <div className="profile">
         <div className="profileUserInfo">
           <img className="profileAvatar" src={props.avatar}></img>
-          <h2 className="profileUsername">{props.username}</h2>
+          <h1 className="profileUsername">{props.username}</h1>
         </div>
         <div className="profileDivider"></div>
         <div className="profileSubscriptions">
