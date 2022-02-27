@@ -145,6 +145,8 @@ a {
   padding-top: 25px;
   display: flex;
   justify-content: center;
+  height: 100%;
+
 }
 
 .profile {
@@ -153,7 +155,7 @@ a {
   padding-top: 25px;
   padding-left: 25px;
   width: 75%;
-  height: 75%;
+  height: 90%;
   background-color: #F2CC84;
   justify-content: center;
 }
@@ -171,14 +173,28 @@ a {
 
 .profileAvatar {
   border-radius: 50%;
+  width: 120px;
+  height: 120px;
 }
 
 .profileUsername {
-  padding: 20px;
+  padding-left: 20px;
+  padding-top: 10px;
+}
+
+.profileBody {
+  display: flex;
 }
 
 .profileSubscriptions {
   padding: 20px;
+  width: 45%;
+}
+
+.profileActivity {
+  padding: 20px;
+  width: 50%;
+  border-left: 2px solid;
 }
 
 .providerLabel {
@@ -187,7 +203,9 @@ a {
 }
 
 .profileEditSubsButton {
-  padding-top: 25px;
+  padding-top: 15px;
+  padding-bottom: 20px;
+  padding-left: 30px;
 }
 
 .editSubs {
@@ -196,14 +214,21 @@ a {
 }
 
 .subscribedProviders {
+  display: flex;
   padding-bottom: 10px;
   padding-left: 20px;
 }
 
+.userSubscribed {
+  padding-top: 2px;
+}
+
+
+
 .providerLogo {
   width: 30px;
   height: 30px;
-  padding-right: 20px;
+  padding-right: 15px;
 }
 
 

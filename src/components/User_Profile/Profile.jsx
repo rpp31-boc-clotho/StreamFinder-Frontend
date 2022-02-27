@@ -7,6 +7,8 @@ import axios from 'axios';
 
 const profile = (props) => {
 
+  console.log('recently watched', props.recentlyWatched)
+
   // States
   const [ modal, setModal ] = useState(false);
 
@@ -24,11 +26,18 @@ const profile = (props) => {
           <h1 className="profileUsername">{props.username}</h1>
         </div>
         <div className="profileDivider"></div>
-        <div className="profileSubscriptions">
-          <h2>Your Subscriptions</h2>
-          <div className="profileSubscriptionsList">
-            <Subscriptions providersList={props.providersList} />
+        <div className="profileBody">
+          <div className="profileSubscriptions">
+            <h2>Your Subscriptions</h2>
+            <div className="profileSubscriptionsList">
+              <Subscriptions providersList={props.providersList} />
+            </div>
           </div>
+          <div className="profileActivity">
+            <h2>Your Activity</h2>
+          </div>
+        </div>
+        <div className="profileFooter">
           <div className="profileEditSubsButton">
             <button className="editSubs" onClick={() => setModal(true)}>Edit Subscriptions</button>
           </div>

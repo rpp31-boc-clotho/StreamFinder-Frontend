@@ -32,8 +32,6 @@ const App = (props) => {
   // states needed
   // recommended? => landing
 
-  console.log('user', user)
-
   // API Calls for User Data
   const updateSubscriptions = (changes) => {
     axios({
@@ -65,15 +63,11 @@ const App = (props) => {
       if (res.data.status) {
         console.log('hitting user exists')
         setProvidersList(res.data.userProfile.subscriptions);
-        localStorage.setItem('userId',email);
-        //localStorage.setItem('userId', res.data.userProfile.username);
         setWatchList(res.data.userProfile.watchList);
         setRecentlyWatched(res.data.userProfile.watchHistory);
       } else {
         console.log('hitting new user')
         setProvidersList(res.data.subscriptions);
-        localStorage.setItem('userId',email);
-        //localStroage.setItem('userId', res.data.username);
         setWatchList(res.data.watchList);
         setRecentlyWatched(res.data.watchHistory);
       }
@@ -137,7 +131,7 @@ const App = (props) => {
           <Route path="/" element={<Landing isLoggedIn={isLoggedIn} recentlyWatched={recentlyWatched} watchList={watchList} username={username} email={email} handleError={handleError}/>} />
           <Route path="/search" element={<SearchPage />} />
           <Route path="/info/*" element={<MediaInfoPage providersList={providersList} addWatchList={addWatchList} addToWatchHistory={addToWatchHistory} username={username} email={email} isLoggedIn = {isLoggedIn}/>} />
-          <Route path="/settings" element={<Profile isLoggedIn={isLoggedIn} updateSubscriptions={updateSubscriptions} providersList={providersList} username={username} email={email} avatar={avatar}/>}/>
+          <Route path="/settings" element={<Profile isLoggedIn={isLoggedIn} updateSubscriptions={updateSubscriptions} providersList={providersList} recentlyWatched={recentlyWatched} username={username} email={email} avatar={avatar}/>}/>
         </Routes>
       </BrowserRouter>
     </div>
