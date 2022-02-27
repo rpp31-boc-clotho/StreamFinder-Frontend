@@ -2,12 +2,19 @@ import React, { useState, useEffect } from 'react';
 import Subscriptions from './Subscriptions.jsx';
 import Update from './Update.jsx';
 import { useAuth0 } from '@auth0/auth0-react';
-import { Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const profile = (props) => {
 
-  console.log('recently watched', props.recentlyWatched)
+  let navigate = useNavigate();
+  const isAuthenticated = useAuth0();
+
+  useEffect(() => {
+    if (!isAuthenticated.isLoading && !isAuthenticated.isAuthenticated) {
+      navigate('/')
+    }
+  })
 
   // States
   const [ modal, setModal ] = useState(false);
