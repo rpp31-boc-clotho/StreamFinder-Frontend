@@ -17,21 +17,28 @@ const profile = (props) => {
 
   //Render
   return (
-    <div>
-      {props.username}
-      <div>
-        Your Subscriptions
-      </div>
-      <div>
-        <Subscriptions providersList={props.providersList} />
-      </div>
-      <div>
-        <button onClick={() => setModal(true)}>Edit Subscriptions</button>
-      </div>
-      <div>
-        <Update show={modal} hide={hideModal} providersList={props.providersList} updateSubs={props.updateSubscriptions}/>
+    <div className="profileLayer">
+      <div className="profile">
+        <div className="profileUserInfo">
+          <img className="profileAvatar" src={props.avatar}></img>
+          <h2 className="profileUsername">{props.username}</h2>
+        </div>
+        <div className="profileDivider"></div>
+        <div className="profileSubscriptions">
+          <h2>Your Subscriptions</h2>
+          <div className="profileSubscriptionsList">
+            <Subscriptions providersList={props.providersList} />
+          </div>
+          <div className="profileEditSubsButton">
+            <button className="editSubs" onClick={() => setModal(true)}>Edit Subscriptions</button>
+          </div>
+          <div>
+            <Update show={modal} hide={hideModal} providersList={props.providersList} updateSubs={props.updateSubscriptions}/>
+          </div>
+        </div>
       </div>
     </div>
+
   )
 
 }

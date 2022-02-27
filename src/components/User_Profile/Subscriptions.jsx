@@ -24,7 +24,7 @@ const Subscriptions = (props) => {
   return (
     <div>
       {subs.map((sub, i) =>
-        <div key={i}>{sub}</div>
+        <div className="subscribedProviders" key={i}>{sub}</div>
       )}
     </div>
   )

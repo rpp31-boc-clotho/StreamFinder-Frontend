@@ -10,7 +10,7 @@ import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
 import Settings from '@mui/icons-material/Settings';
 import Logout from '@mui/icons-material/Logout';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const LoginButton = () => {
 
@@ -20,6 +20,7 @@ const LoginButton = () => {
   const { user } = useAuth0();
 
   let currentUser;
+  let navigate = useNavigate();
 
   if (isAuthenticated) {
     currentUser = user.name;
@@ -91,11 +92,11 @@ const LoginButton = () => {
           transformOrigin={{ horizontal: 'right', vertical: 'top' }}
           anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
         >
-          <MenuItem>
-            <ListItemIcon >
-            <Link to="/settings"><Settings fontSize="small" /></Link>
+          <MenuItem onClick={() => navigate('/settings')}>
+            <ListItemIcon>
+              <Settings fontSize="small" />
             </ListItemIcon>
-            <Link to="/settings" className="settings">Account Settings</Link>
+            Account Settings
           </MenuItem>
           <MenuItem onClick={() => logout()}>
             <ListItemIcon>

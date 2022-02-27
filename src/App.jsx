@@ -20,6 +20,7 @@ const App = (props) => {
   const [ recentlyWatched, setRecentlyWatched ] = useState([]);
   const [ email, setEmail ] = useState(null);
   const [ username, setUsername ] = useState(null);
+  const [ avatar, setAvatar ] = useState(null);
   const { isAuthenticated } = useAuth0();
   const { user } = useAuth0();
   const [errorMessage, setErrorMessage] = useState('');
@@ -30,6 +31,8 @@ const App = (props) => {
   let server = 'https://api.youpostalservice.com';
   // states needed
   // recommended? => landing
+
+  console.log('user', user)
 
   // API Calls for User Data
   const updateSubscriptions = (changes) => {
@@ -113,6 +116,7 @@ const App = (props) => {
       setIsLoggedIn(true)
       setEmail(user.email);
       setUsername(user.nickname);
+      setAvatar(user.picture);
     } else {
       setIsLoggedIn(false)
     }
@@ -133,7 +137,7 @@ const App = (props) => {
           <Route path="/" element={<Landing isLoggedIn={isLoggedIn} recentlyWatched={recentlyWatched} watchList={watchList} username={username} email={email} handleError={handleError}/>} />
           <Route path="/search" element={<SearchPage />} />
           <Route path="/info/*" element={<MediaInfoPage providersList={providersList} addWatchList={addWatchList} addToWatchHistory={addToWatchHistory} username={username} email={email} isLoggedIn = {isLoggedIn}/>} />
-          <Route path="/settings" element={<Profile isLoggedIn={isLoggedIn} updateSubscriptions={updateSubscriptions} providersList={providersList} username={username} email={email}/>}/>
+          <Route path="/settings" element={<Profile isLoggedIn={isLoggedIn} updateSubscriptions={updateSubscriptions} providersList={providersList} username={username} email={email} avatar={avatar}/>}/>
         </Routes>
       </BrowserRouter>
     </div>
