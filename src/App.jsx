@@ -49,22 +49,6 @@ const App = (props) => {
     })
   }
 
-  const fetchUserData = (email) => {
-    axios.get(server+'/homepage/user', {
-      params: {
-        username: email
-      }
-    })
-    .then((res) => {
-      setProvidersList(res.data.subscriptions)
-      setWatchList(res.data.watchList)
-      setRecentlyWatched(res.data.watchHistory)
-    })
-    .catch((e) => {
-      console.log('Error fetching user data', e)
-    })
-  }
-
   const createUser = (email) => {
     axios({
       method: 'post',
@@ -133,7 +117,7 @@ const App = (props) => {
       setIsLoggedIn(false)
     }
   });
-  console.log('userid:',user);
+
   useEffect(() => {
     createUser(email)
   }, [email])
@@ -143,7 +127,7 @@ const App = (props) => {
       <BrowserRouter>
         <nav>
           <Header isLoggedIn = {isLoggedIn}/>
-          <Error message={errorMessage} />
+          {/* <Error message={errorMessage} /> */}
         </nav>
         <Routes>
           <Route path="/" element={<Landing isLoggedIn={isLoggedIn} recentlyWatched={recentlyWatched} watchList={watchList} username={username} email={email} handleError={handleError}/>} />
