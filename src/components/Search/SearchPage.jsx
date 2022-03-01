@@ -44,7 +44,7 @@ class SearchPage extends React.Component {
     event.preventDefault();
     console.log(term.target.value);
     //for searched we can have a second value that will be dependent on the state of true false toggles. nothing crazy.
-    let searched = await searchFunction('movie', term.target.value)
+    let searched = await searchFunction('tv', term.target.value)
     this.setState (prevState => ({
       results: searched
       //this.filterSearch(this.state.baseData, event.target[0].value)

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+// import QuestionMark from '/public/SeekPng.com_questionmark-png_1144413.png';
 
 class MovieCard extends React.Component {
   constructor(props) {
@@ -20,9 +21,11 @@ class MovieCard extends React.Component {
   }
 
   displayDate () {
-    //added one more condition to make it work for data from backend
-    if (this.props.film.media_type === 'movie' ||  this.props.film.mediaType === 'movie') {
-      return (this.props.film.release_date.substring(0,4))
+    //added one more condition to make it work for data from backend, as well as check to see if the property was present in the data
+    if (this.props.film.release_date){
+      if (this.props.film.media_type === 'movie' || this.props.film.mediaType === 'movie') {
+        return (this.props.film.release_date.substring(0,4))
+      }
     }
     // else {
     //   return (this.props.film.first_air_date.substring(0,4))
@@ -35,7 +38,11 @@ class MovieCard extends React.Component {
     if(this.props.film.poster_path) {
       url = ('https://image.tmdb.org/t/p/w185' + (this.props.film.poster_path))
     } else {
-      url = this.props.film.imgUrl;
+      if (this.props.film.imgUrl.includes('null')) {
+        return (<img src= '/questionMark.jpg' className="cardImage"></img>)
+      } else {
+        url = this.props.film.imgUrl;
+      }
     }
     //let url = ('https://image.tmdb.org/t/p/w185' + (this.props.film.poster_path))
 
