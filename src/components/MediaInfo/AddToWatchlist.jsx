@@ -4,6 +4,10 @@ const AddToWatchlist = function(props) {
   let inWatchlist = false;
   let pluralType = props.type + 's';
 
+  if (pluralType === 'tvs') {
+    pluralType = 'shows';
+  }
+
   console.log('watchlist:', props.watchList);
   console.log('just this type?', props.watchList[pluralType]);
 
