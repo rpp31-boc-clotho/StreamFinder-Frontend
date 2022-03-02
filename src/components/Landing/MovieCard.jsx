@@ -10,7 +10,9 @@ class MovieCard extends React.Component {
 
 
   displayRating(rating) {
+    console.log("Rating - "+rating)
     let ratingPercent = (rating * 10)
+    console.log("Rating - perrcent "+ratingPercent)
     if (ratingPercent >= 75) {
       return  <section className="filmRating" style={{ background: 'rgb(14, 179, 14)' }}>{ratingPercent + '%'}</section>
     } else if (ratingPercent <= 74 && ratingPercent >= 50) {
@@ -64,7 +66,7 @@ class MovieCard extends React.Component {
           <section className='cardImgWrapper'>
         {this.displayImage()}
           </section>
-        {this.displayRating(this.props.film.rating || this.props.film.vote_average)}
+        {this.displayRating(this.props.film.rating!== undefined ? this.props.film.rating : this.props.film.vote_average)}
         <section className="filmTitle">
           {this.props.film.name || this.props.film.title}
           </section>
