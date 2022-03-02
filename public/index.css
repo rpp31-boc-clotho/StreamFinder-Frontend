@@ -56,6 +56,7 @@ a {
   right: 0;
   bottom: 0;
   background-color:rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(15px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -66,33 +67,39 @@ a {
   font-size: 15px;
   width: 700px;
   height: 700px;
-  background-color: white;
+  background-color: #F2CC84;
 }
 
 .modal-header {
   flex-direction: row;
   padding: 10px;
   text-align: left;
+  background-color: #353531;
+  color: white;
 }
 
 .modal-footer {
-  padding: 10px;
+  padding: 20px;
   text-align: left;
+  background-color: #353531;
+  color: white;
+  justify-content: center;
 }
 
 .modal-footer-button {
-  font-family: 'Nanum Gothic', sans-serif;
-  font-size: 15px;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 20px;
   font-weight: bold;
   width: 50%;
   height: 100px;
   background-color: white;
   color: black;
   padding: 0px;
+  justify-content: center;
 }
 
 .modal-footer-button:hover {
-  background-color: var(--mustard);
+  background-color: #F2CC84;
 }
 
 .submit-button {
@@ -112,12 +119,17 @@ a {
   margin-left: 650px;
   display: flex;
   background-color: white;
+  color: black;
   font-weight: bolder;
   text-align: center;
   justify-content: center;
   width: 20px;
   height: 20px;
   cursor: pointer;
+}
+
+.close-modal-button:hover {
+  background-color: #F2CC84;
 }
 
 .modal-body {
@@ -127,6 +139,98 @@ a {
 }
 
 /* MODAL */
+
+
+.profileLayer {
+  padding-top: 25px;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+
+}
+
+.profile {
+  border: 2px solid;
+  border-radius: 25px;
+  padding-top: 25px;
+  padding-left: 25px;
+  width: 75%;
+  height: 90%;
+  background-color: #F2CC84;
+  justify-content: center;
+}
+
+.profileUserInfo {
+  display: flex;
+  padding: 20px;
+}
+
+.profileDivider {
+
+  width: 95%;
+  border-top: 2px solid;
+}
+
+.profileAvatar {
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+}
+
+.profileUsername {
+  padding-left: 20px;
+  padding-top: 10px;
+}
+
+.profileBody {
+  display: flex;
+}
+
+.profileSubscriptions {
+  padding: 20px;
+  width: 45%;
+}
+
+.profileActivity {
+  padding: 20px;
+  width: 50%;
+  border-left: 2px solid;
+}
+
+.providerLabel {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.profileEditSubsButton {
+  padding-top: 15px;
+  padding-bottom: 20px;
+  padding-left: 30px;
+}
+
+.editSubs {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 18px;
+}
+
+.subscribedProviders {
+  display: flex;
+  padding-bottom: 10px;
+  padding-left: 20px;
+}
+
+.userSubscribed {
+  padding-top: 2px;
+}
+
+
+
+.providerLogo {
+  width: 30px;
+  height: 30px;
+  padding-right: 15px;
+}
+
 
 
 .settings {
@@ -325,65 +429,49 @@ color: gray;
   /*font-size: 50px;
 //}
 
-/* The switch - the box around the slider */
-.switch {
-  position: relative;
-  display: inline-block;
-  width: 60px;
-  height: 34px;
+
+/* Toggle Button */
+.cm-toggle {
+	-webkit-appearance: none;
+	-webkit-tap-highlight-color: transparent;
+	position: relative;
+	border: 0;
+	outline: 0;
+	cursor: pointer;
+	margin: 10px;
 }
 
-/* Hide default HTML checkbox */
-.switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
+/* To create surface of toggle button */
+.cm-toggle:after {
+	content: '';
+	width: 45px;
+	height: 20px;
+	display: inline-block;
+	background: white;
+	border-radius: 18px;
+	clear: both;
 }
 
-/* The slider */
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  -webkit-transition: .4s;
-  transition: .4s;
+/* Contents before checkbox to create toggle handle */
+.cm-toggle:before {
+	content: '';
+	width: 25px;
+	height: 25px;
+	display: block;
+	position: absolute;
+	left: 0;
+	top: -3px;
+	border-radius: 50%;
+	background: #255F85;
+	box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
 }
 
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 26px;
-  width: 26px;
-  left: 4px;
-  bottom: 4px;
-  background-color: white;
-  -webkit-transition: .4s;
-  transition: .4s;
+/* Shift the handle to left on check event */
+.cm-toggle:checked:before {
+	left: 25px;
+	box-shadow: -1px 1px 3px rgba(0, 0, 0, 0.6);
 }
-
-input:checked + .slider {
-  background-color: #2196F3;
-}
-
-input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
-}
-
-input:checked + .slider:before {
-  -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
-  transform: translateX(26px);
-}
-
-/* Rounded sliders */
-.slider.round {
-  border-radius: 34px;
-}
-
-.slider.round:before {
-  border-radius: 50%;
+/* Background color when toggle button will be active */
+.cm-toggle:checked:after {
+	background: #81B29A;
 }

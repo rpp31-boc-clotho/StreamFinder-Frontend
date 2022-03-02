@@ -85,7 +85,7 @@ class MediaInfoPage extends React.Component {
           </div>
         </div>
         <Services />
-        <Reviews  id={this.state.id} type={this.state.type} email={this.props.email} picture={this.props.picture} />
+        <Reviews  id={this.state.id} type={this.state.type} email={this.props.email} avatar={this.props.avatar} />
       </div>
     )
   }

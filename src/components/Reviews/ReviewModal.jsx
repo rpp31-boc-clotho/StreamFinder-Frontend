@@ -12,7 +12,8 @@ class ReviewModal extends React.Component {
     super(props);
     this.state = {
       recommend: '',
-      message: ''
+      message: '',
+      displayError: false
     }
   }
 
@@ -29,23 +30,32 @@ class ReviewModal extends React.Component {
       contentId: Number(this.props.id),
       recommend: this.state.recommend,
       reviewContent: this.state.message,
-      // picture: this.props.picture
+      userProfilePhoto: this.props.avatar
     }
 
+    if (this.state.recommend !== '' && this.state.message.length > 1) {
     axios({
       method: 'post',
       url: 'https://api.youpostalservice.com/homepage/review/create',
       data: data,
     })
       .then((response) => {
-        console.log('success')
         this.props.getReviews()
       })
       .catch((e) => {
         console.log('Error posting review:', e)
       })
-
-    this.props.close();
+      this.props.close();
+      this.setState({
+        recommend: '',
+        message: '',
+        displayError: false
+      })
+    } else {
+      this.setState({
+        displayError: true
+      })
+    }
   }
 
   setMessage(e) {
@@ -74,6 +84,15 @@ class ReviewModal extends React.Component {
       })
   }
 
+  exit() {
+    this.props.close()
+    this.setState({
+      recommend: '',
+      message: '',
+      displayError: false
+    })
+  }
+
   render() {
     const thumbsUpStyle = this.state.recommend ? { background: 'lightgray' } : { background: 'none' }
     const thumbsDownStyle = this.state.recommend === '' || this.state.recommend ? { background: 'none' } : { background: 'lightgray' }
@@ -81,16 +100,17 @@ class ReviewModal extends React.Component {
       return (
         <div className='reviewModal'>
           <form className='reviewForm' onSubmit={(e) => { this.handleSubmit(e); }}>
-            <section className='closeModal' onClick={this.props.close}>X</section>
+            <section className='closeModal' onClick={this.exit.bind(this)}>X</section>
             <h2 className='modalTitle'>Submit a Review!</h2>
             <Button onClick={this.thumbsUp.bind(this)} style={thumbsUpStyle}><ThumbUpIcon /></Button>
             <Button onClick={this.thumbsDown.bind(this)} style={thumbsDownStyle}><ThumbDownIcon /></Button>
             <section className="addReviewSummary">
               <section>
-                <textarea name='reviewContent' placeholder="type here" onChange={e => this.setMessage(e.target.value)}></textarea>
+                <textarea rows="6" name='reviewContent' placeholder="type here" onChange={e => this.setMessage(e.target.value)} ></textarea>
               </section>
             </section>
             <button >Submit</button>
+            {this.state.displayError ? (<div>please fill all fields</div>) : null}
           </form>
         </div>
       )

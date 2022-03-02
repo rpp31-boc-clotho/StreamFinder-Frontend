@@ -10,7 +10,7 @@ const Update = (props) => {
 
   const updateSubscriptions = () => {
     let changes = {};
-    var checked = document.getElementsByClassName('provider');
+    var checked = document.getElementsByClassName('cm-toggle');
 
     for (let i = 0; i < checked.length; i++) {
       if (checked[i].checked) {
@@ -32,7 +32,7 @@ const Update = (props) => {
       <div className="modal-content">
         <div className="modal-header">
           <div className="close-modal-button" onClick={()=> props.hide()}>X</div>
-          <h3 className="modal-title">Available Providers</h3>
+          <h1 className="modal-title">Available Providers</h1>
         </div>
         <div className="modal-body">
           {providers.map((providers, i) =>
@@ -40,9 +40,9 @@ const Update = (props) => {
           )}
         </div>
         <div className="modal-footer">
-          <div className="submit-button">
+          {/* <div className="submit-button"> */}
             <button className="modal-footer-button" onClick={() => updateSubscriptions()}>Update Subscriptions</button>
-          </div>
+          {/* </div> */}
         </div>
       </div>
     </div>

@@ -244,6 +244,8 @@
 .reviewForm {
   border: solid 2px;
   background-color: #F4F1DE;
+  height:300px;
+  width: 275px;
   padding: 5px;
 }
 
