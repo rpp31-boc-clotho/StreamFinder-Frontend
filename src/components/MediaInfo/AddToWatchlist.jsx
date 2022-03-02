@@ -1,18 +1,34 @@
 import React from 'react';
 
-class AddToWatchlist extends React.Component {
-  constructor(props){
-    super(props);
-    this.state = {}
+const AddToWatchlist = function(props) {
+  let inWatchlist = false;
+  let pluralType = props.type + 's';
+
+  console.log('watchlist:', props.watchList);
+  console.log('just this type?', props.watchList[pluralType]);
+
+  if (props.watchList[pluralType] !== undefined && props.watchList[pluralType].includes(parseInt(props.id))) {
+    let thisButton = document.querySelector('.addToWatchlist');
+    thisButton.classList.add('added');
   }
 
-  render() {
-    return (
-      <div className="addToWatchlist">
-        + Watchlist
-      </div>
-    )
-  }
+  return (
+    <div className="addToWatchlist" onClick={function() {
+      let thisButton = document.querySelector('.addToWatchlist');
+      thisButton.classList.add('added');
+
+      let data = {
+        username: props.email,
+        watchType: pluralType,
+        watchId: parseInt(props.id)
+      };
+      console.log('attempting to add:', data);
+      props.addWatchList(data);
+    }}>
+      <span></span>
+      <p>watchlist</p>
+    </div>
+  )
 }
 
 export default AddToWatchlist;
