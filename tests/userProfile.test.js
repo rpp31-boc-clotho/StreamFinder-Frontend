@@ -33,10 +33,34 @@ describe('Rendering Components', () => {
       render(
         <Subscriptions providersList={testData.userData.userProfile.subscriptions}/>, container)
     });
-
     const component = document.getElementsByClassName('subscribedProviders');
     expect(component.length).toBe(1);
   });
+
+  test('renders Providers Component', () => {
+    act(() => {
+      const providers = Object.keys(testData.userData.userProfile.subscriptions)
+      render(
+        <div>
+            {providers.map((providers, i) =>
+              <Providers key={i} provider={providers} status={testData.userData.userProfile.subscriptions[providers]} />
+            )}
+        </div>
+      , container)
+    })
+    const component = document.getElementsByClassName('providerLabel');
+    expect(component.length).toBe(11);
+  });
+
+  test('renders Update Component', () => {
+    act(() => {
+      render(
+        <Update show={true} providersList={testData.userData.userProfile.subscriptions} />, container)
+    });
+    const component = document.getElementsByClassName('modal');
+    expect(component.length).toBe(1);
+  });
+
 })
 
 const renderWithRouter = (ui, {route = '/'} = {}) => {
