@@ -84,7 +84,7 @@ class MediaInfoPage extends React.Component {
             <div className="ratingDot">{this.state['rating']}</div>
           </div>
         </div>
-        <Services />
+        <Services providersList={this.props.providersList} />
         <Reviews id={this.state.id} type={this.state.type} email={this.props.email} avatar={this.props.avatar} />
       </div>
     )

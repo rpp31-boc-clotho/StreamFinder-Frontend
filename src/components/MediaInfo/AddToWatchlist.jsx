@@ -8,8 +8,8 @@ const AddToWatchlist = function(props) {
     pluralType = 'shows';
   }
 
-  console.log('watchlist:', props.watchList);
-  console.log('just this type?', props.watchList[pluralType]);
+  // console.log('watchlist:', props.watchList);
+  // console.log('just this type?', props.watchList[pluralType]);
 
   if (props.watchList[pluralType] !== undefined && props.watchList[pluralType].includes(parseInt(props.id))) {
     let thisButton = document.querySelector('.addToWatchlist');
@@ -26,7 +26,7 @@ const AddToWatchlist = function(props) {
         watchType: pluralType,
         watchId: parseInt(props.id)
       };
-      console.log('attempting to add:', data);
+      // console.log('attempting to add:', data);
       props.addWatchList(data);
     }}>
       <span></span>

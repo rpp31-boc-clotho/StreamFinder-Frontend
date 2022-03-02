@@ -175,6 +175,10 @@
   box-shadow: 0 3px 5px var(--drop-shadow);
 }
 
+.services h3 a {
+  margin: 0;
+}
+
 .services h3:hover::before {
   content: '';
   position: absolute;
