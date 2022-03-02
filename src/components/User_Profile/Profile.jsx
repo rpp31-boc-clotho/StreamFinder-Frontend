@@ -26,7 +26,7 @@ const profile = (props) => {
 
   //Render
   return (
-    <div className="profileLayer">
+    <div data-testid="profile-test" className="profileLayer">
       <div className="profile">
         <div className="profileUserInfo">
           <img className="profileAvatar" src={props.avatar}></img>
