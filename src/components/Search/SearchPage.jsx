@@ -14,18 +14,19 @@ class SearchPage extends React.Component {
     super(props);
     this.state = {
       mediaType: {
-        movies: true,
-        TVShows: true
+        movie: false,
+        tv: false,
+        both: true,
       },
-      baseData: [],
       results: []
     }
 
     this.handleSearch = this.handleSearch.bind(this);
     this.handleSearch2 = this.handleSearch2.bind(this);
     //this.filterSearch = this.filterSearch.bind(this);
-    //this.handleClickMovie = this.handleClickMovie.bind(this);
-    //this.handleClickTVShow = this.handleClickTVShow.bind(this);
+    this.handleClickMovie = this.handleClickMovie.bind(this);
+    this.handleClickTv = this.handleClickTv.bind(this);
+    this.handleClickBoth = this.handleClickBoth.bind(this);
 
   }
 
@@ -44,7 +45,7 @@ class SearchPage extends React.Component {
     event.preventDefault();
     console.log(term.target.value);
     //for searched we can have a second value that will be dependent on the state of true false toggles. nothing crazy.
-    let searched = await searchFunction('tv', term.target.value)
+    let searched = await searchFunction('movie', term.target.value)
     this.setState (prevState => ({
       results: searched
       //this.filterSearch(this.state.baseData, event.target[0].value)
@@ -57,20 +58,36 @@ class SearchPage extends React.Component {
     this.setState (prevState => ({
       ...prevState,
       mediaType : {
-        ...prevState.mediaType,
-        movies: (!prevState.movies)
+        movie: true,
+        tv: false,
+        both: false
       }
     }))
+    console.log(this.state.mediaType);
   }
 
-  handleClickTVShow(){
+  handleClickTv(){
     this.setState (prevState => ({
       ...prevState,
       mediaType : {
-        ...prevState.mediaType,
-        TVShows: (!prevState.TVShows)
+        movie: false,
+        tv: true,
+        both: false
       }
     }))
+    console.log(this.state.mediaType);
+  }
+
+  handleClickBoth(){
+    this.setState (prevState => ({
+      ...prevState,
+      mediaType : {
+        movie: false,
+        tv: false,
+        both: true
+      }
+    }))
+    console.log(this.state.mediaType);
   }
 
   // filterSearch (films, query) {
@@ -101,8 +118,8 @@ class SearchPage extends React.Component {
       <div>
         <SearchBar filterSearch={this.filterSearch} handleSearch={this.handleSearch}/>
         <button onClick={this.handleClickMovie}>Filter Movies</button>
-        <button onClick={this.handleClickTVShows}> Filter TV Shows</button>
-        <button>Look for both!</button>
+        <button onClick={this.handleClickTv}> Filter TV Shows</button>
+        <button onClick={this.handleClickBoth}>Look for both!</button>
         <SearchResults results={this.state.results} />
       </div>
     )

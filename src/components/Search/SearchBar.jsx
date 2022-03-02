@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 
 //may add back filterSearch
 
+//code cleanup tommorrow
+
 function searchBar({handleSearch}) {
 
   const [searchTerm, changeTerm] = useState('');

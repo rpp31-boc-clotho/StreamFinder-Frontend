@@ -40,6 +40,7 @@ const Reviews = (props) => {
       },
     })
     .then((response) => {
+      console.log("response.data for reviews: " + JSON.stringify(response.data));
       setRecommended(getRecommended(response.data));
       setReviews(response.data)
     })
