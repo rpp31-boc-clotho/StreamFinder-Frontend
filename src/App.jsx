@@ -20,6 +20,7 @@ const App = (props) => {
   const [ recentlyWatched, setRecentlyWatched ] = useState([]);
   const [ email, setEmail ] = useState(null);
   const [ username, setUsername ] = useState(null);
+  const [ profilePic, setProfilePic ] = useState(null);
   const { isAuthenticated } = useAuth0();
   const { user } = useAuth0();
   const [errorMessage, setErrorMessage] = useState('');
@@ -129,6 +130,7 @@ const App = (props) => {
       setIsLoggedIn(true)
       setEmail(user.email);
       setUsername(user.nickname);
+      setProfilePic(user.picture)
     } else {
       setIsLoggedIn(false)
     }
@@ -148,7 +150,7 @@ const App = (props) => {
         <Routes>
           <Route path="/" element={<Landing isLoggedIn={isLoggedIn} recentlyWatched={recentlyWatched} watchList={watchList} username={username} email={email} handleError={handleError}/>} />
           <Route path="/search" element={<SearchPage />} />
-          <Route path="/info/*" element={<MediaInfoPage providersList={providersList} addWatchList={addWatchList} addToWatchHistory={addToWatchHistory} username={username} email={email} isLoggedIn = {isLoggedIn}/>} />
+          <Route path="/info/*" element={<MediaInfoPage providersList={providersList} addWatchList={addWatchList} addToWatchHistory={addToWatchHistory} username={username} email={email} isLoggedIn = {isLoggedIn} picture={profilePic} />} />
           <Route path="/settings" element={<Profile isLoggedIn={isLoggedIn} updateSubscriptions={updateSubscriptions} providersList={providersList} username={username} email={email}/>}/>
         </Routes>
       </BrowserRouter>
