@@ -77,17 +77,26 @@
 /* ======================= */
 
 .addToWatchlist {
+  position: relative;
+  width: fit-content;
+  cursor: pointer;
+}
+
+.addToWatchlist p {
   background-color: var(--button);
   border: 3px solid var(--card-bg);
-  position: relative;
   box-shadow: 0 3px 5px var(--accent-bg);
-  padding: 3px 20px 3px 50px;
+  padding: 3px 20px 3px 35px;
   color: var(--card-bg);
   width: fit-content;
   border-radius: 20px;
   margin: 10px 10px 20px;
   font-size: 16px;
-  cursor: pointer;
+  transition-duration: 300ms;
+}
+
+.addToWatchlist.added p {
+  background-color: var(--accent-bg-high);
 }
 
 .addToWatchlist span {
@@ -100,6 +109,11 @@
   top: -15px;
   left: -15px;
   box-shadow: 0 3px 3px var(--accent-bg);
+  transition-duration: 300ms;
+}
+
+.addToWatchlist.added span {
+  background-color: var(--accent-bg-high);
 }
 
 .addToWatchlist span::before {
@@ -110,6 +124,7 @@
   position: absolute;
   left: calc(50% - 3px);
   top: 12.5px;
+  transition-duration: 300ms;
 }
 
 .addToWatchlist span::after {
@@ -120,6 +135,18 @@
   position: absolute;
   left: 12.5px;
   top: calc(50% - 3px);
+  transition-duration: 300ms;
+}
+
+.addToWatchlist.added span::before {
+  left: calc(50%);
+  transform: rotate(45deg);
+}
+
+.addToWatchlist.added span::after {
+  top: calc(50%);
+  width: 13px;
+  transform: rotate(45deg);
 }
 
 /* ================== */
