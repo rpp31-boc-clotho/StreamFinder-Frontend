@@ -18,13 +18,18 @@ class ReviewModal extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+// need to add picture prop to send
+//need to ensure user fills all forms.
+//display log in to submit a review?
+
 
     let data = {
       username: this.props.email,
       contentType: this.props.type,
       contentId: Number(this.props.id),
       recommend: this.state.recommend,
-      reviewContent: this.state.message
+      reviewContent: this.state.message,
+      // picture: this.props.picture
     }
 
     axios({

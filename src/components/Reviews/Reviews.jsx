@@ -112,7 +112,7 @@ const Reviews = (props) => {
         })}
       </div>
       {displayButton()}
-      <ReviewModal close={closeModal.bind(this)} open={modal} id={props.id} type={props.type} email={props.email} getReviews={getReviews.bind(this)} />
+      <ReviewModal close={closeModal.bind(this)} open={modal} id={props.id} type={props.type} email={props.email} getReviews={getReviews.bind(this)} picture={props.picture}/>
     </div>
   );
 };
