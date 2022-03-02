@@ -4,11 +4,6 @@ import { Link } from 'react-router-dom';
 
 
 var Header = (props) => {
-  // let settings = null;
-
-  // if (props.isLoggedIn) {
-  //   settings = <Link to="/settings">Settings</Link>
-  // }
 
     return (
       <div className="header">
@@ -16,7 +11,7 @@ var Header = (props) => {
         <h1 className="title"><Link to="/">StreamFinder</Link></h1>
         <span className="login"><LoginButton /></span>
         <Link to="/search">Search</Link>
-        {/* {settings} */}
+
       </div>
     );
 
