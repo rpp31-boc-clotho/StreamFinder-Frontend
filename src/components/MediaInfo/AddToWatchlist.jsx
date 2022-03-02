@@ -9,7 +9,7 @@ class AddToWatchlist extends React.Component {
   render() {
     return (
       <div className="addToWatchlist">
-        + Watchlist
+        <span></span>watchlist
       </div>
     )
   }

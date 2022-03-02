@@ -1,3 +1,7 @@
+/* ==================== */
+/* Media Info Component */
+/* ==================== */
+
 .mediaInfoPage {
   background-color: var(--component-bg);
   width: 80%;
@@ -18,13 +22,13 @@
 
 .posterImage {
   background: var(--accent-bg);
-  height: 250px;
+  height: fit-content;
 }
 
 .mediaHeader img {
   min-width: 200px;
   max-width: 220px;
-  height: 100%;
+  height: auto;
   border-radius: 20px 0 0 20px;
 }
 
@@ -68,7 +72,59 @@
   bottom: 10px;
 }
 
-/* Sub-Components */
+/* ======================= */
+/* Add to Watchlist Button */
+/* ======================= */
+
+.addToWatchlist {
+  background-color: var(--button);
+  border: 3px solid var(--card-bg);
+  position: relative;
+  box-shadow: 0 3px 5px var(--accent-bg);
+  padding: 3px 20px 3px 50px;
+  color: var(--card-bg);
+  width: fit-content;
+  border-radius: 20px;
+  margin: 10px 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.addToWatchlist span {
+  background-color: var(--button);
+  border: 3px solid var(--card-bg);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: -15px;
+  left: -15px;
+  box-shadow: 0 3px 3px var(--accent-bg);
+}
+
+.addToWatchlist span::before {
+  content: '';
+  width: 6px;
+  height: 24px;
+  background-color: var(--card-bg);
+  position: absolute;
+  left: calc(50% - 3px);
+  top: 12.5px;
+}
+
+.addToWatchlist span::after {
+  content: '';
+  width: 24px;
+  height: 6px;
+  background-color: var(--card-bg);
+  position: absolute;
+  left: 12.5px;
+  top: calc(50% - 3px);
+}
+
+/* ================== */
+/* Services Component */
+/* ================== */
 
 .services {
   display: flex;
@@ -107,6 +163,10 @@
   height: 100%;
   background-color: rgba(255,255,255,0.25);
 }
+
+/* ================= */
+/* Reviews Component */
+/* ================= */
 
 .reviewHeader {
   display: flex;
