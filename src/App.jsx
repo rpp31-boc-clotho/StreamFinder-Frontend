@@ -16,8 +16,8 @@ import axios from 'axios';
 const App = (props) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [ providersList, setProvidersList] = useState({});
-  const [ watchList, setWatchList ] = useState([]);
-  const [ recentlyWatched, setRecentlyWatched ] = useState([]);
+  const [ watchList, setWatchList ] = useState({});
+  const [ recentlyWatched, setRecentlyWatched ] = useState({});
   const [ email, setEmail ] = useState(null);
   const [ username, setUsername ] = useState(null);
   const [ avatar, setAvatar ] = useState(null);
@@ -90,7 +90,7 @@ const App = (props) => {
       data: changes
     })
     .then((response) => {
-      setRecentlyWatched(response.data.watchHistory)
+      //setRecentlyWatched(response.data.watchHistory)
     })
     .catch((e) => {
       console.log('Error Adding to Recently Watched:', e)
@@ -134,7 +134,7 @@ const App = (props) => {
           {/* <Error message={errorMessage} /> */}
         </nav>
         <Routes>
-          <Route path="/" element={<Landing isLoggedIn={isLoggedIn} recentlyWatched={recentlyWatched} watchList={watchList} username={username} email={email} handleError={handleError}/>} />
+          <Route path="/" element={<Landing isLoggedIn={isLoggedIn} watchList={watchList} recentlyWatched={recentlyWatched} username={username} email={email} handleError={handleError}/>} />
           <Route path="/search" element={<SearchPage />} />
           <Route path="/info/*" element={<MediaInfoPage providersList={providersList} addWatchList={addWatchList} addToWatchHistory={addToWatchHistory} username={username} email={email} isLoggedIn = {isLoggedIn} avatar={avatar} />}  />
           <Route path="/settings" element={<Profile isLoggedIn={isLoggedIn} updateSubscriptions={updateSubscriptions} providersList={providersList} recentlyWatched={recentlyWatched} username={username} email={email} avatar={avatar}/>}/>
