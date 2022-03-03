@@ -79,13 +79,13 @@ class MediaInfoPage extends React.Component {
           <div className="mediaDetails" style={{ backgroundImage: `url(${posterUrl})` }}>
             <h1>{this.state['title']}</h1>
             <h2>{this.state['release']}</h2>
-            <AddToWatchlist />
+            <AddToWatchlist addWatchList={this.props.addWatchList} email={this.props.email} type={this.state.type} id={this.state.id} watchList={this.props.watchList} />
             <p>{this.state['description']}</p>
             <div className="ratingDot">{this.state['rating']}</div>
           </div>
         </div>
         <Services />
-        <Reviews  id={this.state.id} type={this.state.type} email={this.props.email}/>
+        <Reviews id={this.state.id} type={this.state.type} email={this.props.email} avatar={this.props.avatar} />
       </div>
     )
   }
