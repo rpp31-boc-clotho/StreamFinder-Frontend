@@ -90,7 +90,7 @@ const App = (props) => {
       data: changes
     })
     .then((response) => {
-      //setRecentlyWatched(response.data.watchHistory)
+      setRecentlyWatched(response.data.watchHistory)
     })
     .catch((e) => {
       console.log('Error Adding to Recently Watched:', e)
