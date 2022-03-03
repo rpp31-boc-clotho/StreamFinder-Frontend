@@ -1,13 +1,7 @@
 import React from 'react';
 import SearchBar from './SearchBar.jsx';
 import SearchResults from'./SearchResults.jsx';
-import exampleData from '../../../exampleData.js';
 import {searchFunction} from './SearchFunction.js';
-//import search results list
-
-//just createing a place holder for the page sepreate from the search component, still debating the design.
-
-//so if we create a search bar, we need to decide what it is going to search by. so the basic search bar searches by...nothing. so we need to fix that.
 
 class SearchPage extends React.Component {
   constructor(props){
@@ -23,68 +17,30 @@ class SearchPage extends React.Component {
 
     this.handleSearch = this.handleSearch.bind(this);
     this.handleSearch2 = this.handleSearch2.bind(this);
-    //this.filterSearch = this.filterSearch.bind(this);
+    this.handleArrayMerge = this.handleArrayMerge.bind(this);
     this.handleClickMovie = this.handleClickMovie.bind(this);
     this.handleClickTv = this.handleClickTv.bind(this);
     this.handleClickBoth = this.handleClickBoth.bind(this);
-    this.handleArrayMerge = this.handleArrayMerge.bind(this);
-
   }
 
-  handleArrayMerge(array1, array2, res, array1Length, array2Length) {
-    // array1.sort((obj1, obj2)=> obj2.rating-obj1.rating)
-    // array2.sort((obj1, obj2)=> obj2.rating-obj1.rating)
-
-  //   let i=0, j=0, k=0;
-  //   while (i < array1Length && j < array2Length) {
-  //     if (array2[j] <= array1[i]) {
-  //         res[k] = array1[i];
-  //         i += 1;
-  //         k += 1;
-  //     } else {
-  //         res[k] = array2[j];
-  //         j += 1;
-  //         k += 1;
-  //     }
-  // }
-  // while (i < array1Length) {
-  //     res[k] = array1[i];
-  //     i += 1;
-  //     k += 1;
-  // }
-  // while (j < array2Length) {
-  //     res[k] = array2[j];
-  //     j += 1;
-  //     k += 1;
-  // }
-
-  //   res.sort((obj1, obj2) => obj2.rating-obj1.rating);
-  //   return res;
-
-    //attempted to make this code
+  handleArrayMerge(array1, array2) {
     let results = [...array1, ...array2];
-    console.log("results: " + JSON.stringify(results));
     results.sort((obj1, obj2) => obj2.rating-obj1.rating);
     return results;
   }
 
 
   async handleSearch2(term) {
-    console.log(term);
-    //for searched we can have a second value that will be dependent on the state of true false toggles. nothing crazy.
     let mediaObj = await searchFunction('both', term)
     let mergedResults = this.handleArrayMerge(mediaObj.movies, mediaObj.shows, [], mediaObj.movies.length, mediaObj.shows.length)
     this.setState (prevState => ({
       results: mergedResults
-      //this.filterSearch(this.state.baseData, event.target[0].value)
     }));
   }
 
   async handleSearch(term) {
     event.preventDefault();
-    console.log(term.target.value);
     let searched;
-    //for searched we can have a second value that will be dependent on the state of true false toggles. nothing crazy.
     if (this.state.mediaType.movie === true){
       searched = await searchFunction('movie', term.target.value)
       searched.sort((obj1, obj2) => obj2.rating-obj1.rating);
@@ -94,15 +50,11 @@ class SearchPage extends React.Component {
     } else if (this.state.mediaType.both === true) {
       let mediaObj = await searchFunction('both', term.target.value);
       searched = this.handleArrayMerge(mediaObj.movies, mediaObj.shows, [], mediaObj.movies.length, mediaObj.shows.length);
-      console.log('searched: '+JSON.stringify(searched));
     }
     this.setState (prevState => ({
       results: searched
-      //this.filterSearch(this.state.baseData, event.target[0].value)
     }));
   }
-
-  //maybe we could do an if statement here. lets build a handle click function.
 
   handleClickMovie(){
     this.setState (prevState => ({
@@ -113,7 +65,6 @@ class SearchPage extends React.Component {
         both: false
       }
     }))
-    console.log(this.state.mediaType);
   }
 
   handleClickTv(){
@@ -125,7 +76,6 @@ class SearchPage extends React.Component {
         both: false
       }
     }))
-    console.log(this.state.mediaType);
   }
 
   handleClickBoth(){
@@ -137,25 +87,10 @@ class SearchPage extends React.Component {
         both: true
       }
     }))
-    console.log(this.state.mediaType);
   }
-
-  // filterSearch (films, query) {
-  //   if(!query) {
-  //     return films;
-  //   }
-  //   return films.filter((film) => {
-  //     const filmName = film.title.toLowerCase();
-  //     return filmName.includes(query.toLowerCase());
-  //   })
-  // }
 
   componentDidMount(){
     let splitPath = window.location.pathname.split('/')
-    // console.log("splitpath: "+ splitPath);
-    // console.log("window loc: "+ window.location);
-    // console.log("window loc: "+ JSON.stringify(window.location));
-    // console.log("window loc: "+ window.location.href.split('=')[1]);
     if (window.location.href.split('=').length > 1) {
       this.handleSearch2(window.location.href.split('=')[1]);
     }
@@ -164,12 +99,11 @@ class SearchPage extends React.Component {
 
   render() {
     return (
-      //gonna have to send the data through here, I think? need to decide where we are searching through the data.
       <div>
         <SearchBar filterSearch={this.filterSearch} handleSearch={this.handleSearch}/>
-        <button onClick={this.handleClickMovie}>Filter Movies</button>
-        <button onClick={this.handleClickTv}> Filter TV Shows</button>
-        <button onClick={this.handleClickBoth}>Look for both!</button>
+        {this.state.mediaType.movie ? <button onClick={this.handleClickMovie}>Only Searching Movies!</button>:<button onClick={this.handleClickMovie}>Search Movies!</button>}
+        {this.state.mediaType.tv ? <button onClick={this.handleClickTv}>Only Searching TV Shows!</button>:<button onClick={this.handleClickTv}> Search TV Shows</button>}
+        {this.state.mediaType.both ? <button onClick={this.handleClickBoth}>Searching Both Moives and TV shows!</button>:<button onClick={this.handleClickBoth}>Look for both!</button>}
         <SearchResults results={this.state.results} />
       </div>
     )
