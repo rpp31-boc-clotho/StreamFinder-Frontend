@@ -35,31 +35,37 @@ class SearchPage extends React.Component {
     // array1.sort((obj1, obj2)=> obj2.rating-obj1.rating)
     // array2.sort((obj1, obj2)=> obj2.rating-obj1.rating)
 
-    let i=0, j=0, k=0;
-    while (i < array1Length && j < array2Length) {
-      if (array2[j] <= array1[i]) {
-          res[k] = array1[i];
-          i += 1;
-          k += 1;
-      } else {
-          res[k] = array2[j];
-          j += 1;
-          k += 1;
-      }
-  }
-  while (i < array1Length) {
-      res[k] = array1[i];
-      i += 1;
-      k += 1;
-  }
-  while (j < array2Length) {
-      res[k] = array2[j];
-      j += 1;
-      k += 1;
-  }
-    res.sort((obj1, obj2) => obj2.rating-obj1.rating);
-    return res;
+  //   let i=0, j=0, k=0;
+  //   while (i < array1Length && j < array2Length) {
+  //     if (array2[j] <= array1[i]) {
+  //         res[k] = array1[i];
+  //         i += 1;
+  //         k += 1;
+  //     } else {
+  //         res[k] = array2[j];
+  //         j += 1;
+  //         k += 1;
+  //     }
+  // }
+  // while (i < array1Length) {
+  //     res[k] = array1[i];
+  //     i += 1;
+  //     k += 1;
+  // }
+  // while (j < array2Length) {
+  //     res[k] = array2[j];
+  //     j += 1;
+  //     k += 1;
+  // }
 
+  //   res.sort((obj1, obj2) => obj2.rating-obj1.rating);
+  //   return res;
+
+    //attempted to make this code
+    let results = [...array1, ...array2];
+    console.log("results: " + JSON.stringify(results));
+    results.sort((obj1, obj2) => obj2.rating-obj1.rating);
+    return results;
   }
 
 
