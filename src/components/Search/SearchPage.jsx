@@ -27,16 +27,48 @@ class SearchPage extends React.Component {
     this.handleClickMovie = this.handleClickMovie.bind(this);
     this.handleClickTv = this.handleClickTv.bind(this);
     this.handleClickBoth = this.handleClickBoth.bind(this);
+    this.handleArrayMerge = this.handleArrayMerge.bind(this);
 
+  }
+
+  handleArrayMerge(array1, array2, res, array1Length, array2Length) {
+    array1.sort((obj1, obj2)=> obj2.rating-obj1.rating)
+    array2.sort((obj1, obj2)=> obj2.rating-obj1.rating)
+
+    let i=0, j=0, k=0;
+    while (i < array1Length && j < array2Length) {
+      if (array2[j] <= array1[i]) {
+          res[k] = array1[i];
+          i += 1;
+          k += 1;
+      } else {
+          res[k] = array2[j];
+          j += 1;
+          k += 1;
+      }
+  }
+  while (i < array1Length) {
+      res[k] = array1[i];
+      i += 1;
+      k += 1;
+  }
+  while (j < array2Length) {
+      res[k] = array2[j];
+      j += 1;
+      k += 1;
+  }
+    res.sort((obj1, obj2) => obj2.rating-obj1.rating);
+    return res;
   }
 
 
   async handleSearch2(term) {
     console.log(term);
     //for searched we can have a second value that will be dependent on the state of true false toggles. nothing crazy.
-    let searched = await searchFunction('movie', term)
+    let mediaObj = await searchFunction('both', term)
+    let mergedResults = this.handleArrayMerge(mediaObj.movies, mediaObj.shows, [], mediaObj.movies.length, mediaObj.shows.length)
     this.setState (prevState => ({
-      results: searched
+      results: mergedResults
       //this.filterSearch(this.state.baseData, event.target[0].value)
     }));
   }
