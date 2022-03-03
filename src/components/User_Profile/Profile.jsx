@@ -95,12 +95,11 @@ const profile = (props) => {
             </div>
           </div>
           <div className="profileActivity">
-            <h2>Your Activity</h2>
-            <h4>Recently Watched Movies</h4>
+            <h2>Recently Watched Movies</h2>
             { movies.map(({title, imgUrl, id, i}) =>
               <Activity title={title} key={i} image={imgUrl} id={id} type="movie"/>
             )}
-            <h4>Recently Watched Shows</h4>
+            <h2>Recently Watched Shows</h2>
             { shows.map(({title, imgUrl, id, i}) =>
               <Activity title={title} key={i} image={imgUrl} id={id} type="tv"/>
             )}
