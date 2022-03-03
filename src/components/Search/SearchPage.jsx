@@ -32,8 +32,8 @@ class SearchPage extends React.Component {
   }
 
   handleArrayMerge(array1, array2, res, array1Length, array2Length) {
-    array1.sort((obj1, obj2)=> obj2.rating-obj1.rating)
-    array2.sort((obj1, obj2)=> obj2.rating-obj1.rating)
+    // array1.sort((obj1, obj2)=> obj2.rating-obj1.rating)
+    // array2.sort((obj1, obj2)=> obj2.rating-obj1.rating)
 
     let i=0, j=0, k=0;
     while (i < array1Length && j < array2Length) {
@@ -59,6 +59,7 @@ class SearchPage extends React.Component {
   }
     res.sort((obj1, obj2) => obj2.rating-obj1.rating);
     return res;
+
   }
 
 
@@ -76,8 +77,19 @@ class SearchPage extends React.Component {
   async handleSearch(term) {
     event.preventDefault();
     console.log(term.target.value);
+    let searched;
     //for searched we can have a second value that will be dependent on the state of true false toggles. nothing crazy.
-    let searched = await searchFunction('movie', term.target.value)
+    if (this.state.mediaType.movie === true){
+      searched = await searchFunction('movie', term.target.value)
+      searched.sort((obj1, obj2) => obj2.rating-obj1.rating);
+    } else if (this.state.mediaType.tv === true) {
+      searched = await searchFunction('tv', term.target.value)
+      searched.sort((obj1, obj2) => obj2.rating-obj1.rating);
+    } else if (this.state.mediaType.both === true) {
+      let mediaObj = await searchFunction('both', term.target.value);
+      searched = this.handleArrayMerge(mediaObj.movies, mediaObj.shows, [], mediaObj.movies.length, mediaObj.shows.length);
+      console.log('searched: '+JSON.stringify(searched));
+    }
     this.setState (prevState => ({
       results: searched
       //this.filterSearch(this.state.baseData, event.target[0].value)
