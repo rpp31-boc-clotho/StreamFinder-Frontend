@@ -13,42 +13,41 @@ class Landing extends React.Component {
       popularMovies: exampleData.movies,
       popularTV: exampleData.tv,
       isLoggedIn: false,
-      recommended:exampleData.movies,
+      recommended:[],
       recentlyWatched: [],
       watchList:[]
     }
   }
+  fetchUserDetails(){
+    let email = this.props.email;
+    //let email = "chris.lazzarini+5@gmail.com";
+    axios.get(server+'/homepage/user?username='+email)
+      .then((response) => {
+        console.log("RESPONSE DATA FROM USER ", response.data);
+        this.setState({
+          watchList:response.data.watchList.movies.concat(response.data.watchList.shows),
+          recentlyWatched:response.data.watchHistory.movies.concat(response.data.watchHistory.shows),
+          recommended:response.data.recommendations.movies.concat(response.data.recommendations.shows)
+        })
+      })
+      .catch((error) => {
+        console.log(error);
+        this.props.handleError(error);
+      });
+  }
+
   componentDidUpdate(prevProps){
     if(this.props.isLoggedIn !== prevProps.isLoggedIn) {
       this.setState({
-        isLoggedIn:true
+        isLoggedIn:this.props.isLoggedIn
       })
     }
-    if( prevProps.recentlyWatched !== this.props.recentlyWatched) {
-      if(this.props.recentlyWatched.length > 0) {
-        this.setState({
-          recentlyWatched:this.props.recentlyWatched
-        })
-      }else {
-        this.setState({
-          recentlyWatched:exampleData.movies
-        })
-      }
+    if((JSON.stringify(prevProps.recentlyWatched) !== JSON.stringify(this.props.recentlyWatched)) || (JSON.stringify(prevProps.watchList) !== JSON.stringify(this.props.watchList))) {
+      this.fetchUserDetails();
+    }
 
-    }
-    if( prevProps.watchList !== this.props.watchList) {
-     if(this.props.watchList.length > 0) {
-      this.setState({
-        watchList:this.props.watchList
-      })
-     }else {
-      this.setState({
-        watchList:exampleData.movies
-      })
-     }
-
-    }
   }
+
 
 
   componentDidMount(){
@@ -61,26 +60,28 @@ class Landing extends React.Component {
         popularTV: response.data.shows
 
       })
-      //this.props.handleError("An error occurred while fetching data for popular movies");
+
     })
     .catch((error) => {
       console.log(error);
       this.props.handleError(error);
     })
     if(this.props.isLoggedIn) {
+      this.fetchUserDetails();
       this.setState({
         isLoggedIn:true,
 
       })
+
     }
     /*this.setState({
       recentlyWatched:this.props.recentlyWatched,
       watchList:this.props.watchList
     })*/
-    this.setState({
+    /*this.setState({
       recentlyWatched:exampleData.movies,
       watchList:exampleData.movies
-    })
+    })*/
   }
   render(){
     return(
