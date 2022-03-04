@@ -40,7 +40,6 @@ const profile = (props) => {
     }
   }, [])
 
-  console.log('watch history', watchHistory)
 
   // States
   const [ modal, setModal ] = useState(false);
