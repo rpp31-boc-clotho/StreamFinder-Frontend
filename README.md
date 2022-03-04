@@ -49,7 +49,7 @@ Our own API hosted on AWS provides the data we need to display and we use these 
 *Login Methods*
 The user can create an account and login using their email, Google account, or Facebook account.
 
-![](loginExample.gif)
+![loginExample](https://user-images.githubusercontent.com/82406930/156829558-43c2a0df-3a82-4e80-879e-5367c1d24eb4.gif)
 
 *Manage Subscriptions*
 The user can specify which streaming services they subscribe to help identify the best viewing options of selected titles.
