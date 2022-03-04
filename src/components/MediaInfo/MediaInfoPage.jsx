@@ -89,9 +89,9 @@ class MediaInfoPage extends React.Component {
       <div className="services">
         { providerNames.map(service => {
           if (this.props.isLoggedIn && this.props.providersList[service]) {
-            return ( <Service name={service} link={serviceLinks[service]} subscribed="true" /> )
+            return ( <Service email={this.props.email} type={this.state.type} id={this.state.id} name={service} link={serviceLinks[service]} addToWatchHistory={this.props.addToWatchHistory} subscribed="true" /> )
           }
-          return ( <Service name={service} link={serviceLinks[service]} subscribed="false" /> )
+          return ( <Service email={this.props.email} type={this.state.type} id={this.state.id} name={service} link={serviceLinks[service]} subscribed="false" /> )
           }) }
       </div>
     )

@@ -1,10 +1,26 @@
 import React from 'react';
 
 const Service = function(props) {
-  if (props.subscribed === 'true') {
-    return ( <a class="subscribed" href={props.link} target="_blank"><h3>{props.name}</h3></a> )
+  let pluralType = props.type + 's';
+
+  if (pluralType === 'tvs') {
+    pluralType = 'shows';
   }
-  return ( <a href={props.link} target="_blank"><h3>{props.name}</h3></a> )
+
+  let data = {
+    username: props.email,
+    watchedType: pluralType,
+    watchedId: parseInt(props.id)
+  };
+
+  if (props.subscribed === 'true') {
+    return ( <a onClick={function() {
+      // console.log('attempting to add:', data);
+      props.addToWatchHistory(data) }} class="subscribed" href={props.link} target="_blank"><h3>{props.name}</h3></a> )
+  }
+  return ( <a onClick={function() {
+    // console.log('attempting to add:', data);
+    props.addToWatchHistory(data) }} href={props.link} target="_blank"><h3>{props.name}</h3></a> )
 }
 
 export default Service;
