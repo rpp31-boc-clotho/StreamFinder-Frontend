@@ -21,7 +21,7 @@ class Landing extends React.Component {
   fetchUserDetails(){
     let email = this.props.email;
     //let email = "chris.lazzarini+5@gmail.com";
-    axios.get(server+'/homepage/user?username='+email)
+    axios.get(server+'/homepage/user?username='+email+'&recommendation=true')
       .then((response) => {
         console.log("RESPONSE DATA FROM USER ", response.data);
         this.setState({
