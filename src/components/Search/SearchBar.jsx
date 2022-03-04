@@ -8,20 +8,19 @@ function searchBar({handleSearch}) {
   const onSearch = () => {
     handleSearch(searchTerm)
   }
-
-  return (
-    <div>
+ return (
+    <div className="searchDiv">
       <form action="/search" onSubmit={onSearch} onChange={changeTerm}>
-        <label htmlFor="Search_Bar">
+      <label htmlFor="Search_Bar">
           <span className="Search_Bar_Title">Search for Movies or Shows!</span>
-        </label>
+      </label>
         <input
           type="text"
           id="Search_Bar"
           placeholder="Search for Movies or Shows!"
           name="SB"
         />
-        <button type="submit" >Search</button>
+        <button type="submit" id="searchSubmit">Search</button>
       </form>
     </div>
   )

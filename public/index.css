@@ -26,7 +26,31 @@ html, body, #app {
   /* display: flex;
   justify-content: center; */
 }
+#searchSubmit{
+  width:5%;
+  border-radius:25px;
+  height:30px;
+}
 
+.searchDiv{
+  width:auto;
+  height:auto;
+  padding:1em;
+
+
+}
+#Search_Bar{
+
+  border: 1px solid grey;
+  border-radius:25px;
+  border-left:500px;
+  width:50%;
+  height: 30px;
+  padding: 2px 40px 2px 30px;
+  outline: 0;
+
+
+}
 .header {
   display: flex;
   flex-direction: row;
