@@ -8,7 +8,7 @@ import axios from 'axios';
 
 const profile = (props) => {
 
-  const [ watchHistory, setWatchHistory ] = useState([]);
+  const [ watchHistory, setWatchHistory ] = useState({});
 
   let navigate = useNavigate();
   const isAuthenticated = useAuth0();
@@ -40,7 +40,6 @@ const profile = (props) => {
     }
   }, [])
 
-  console.log('watch history', watchHistory)
 
   // States
   const [ modal, setModal ] = useState(false);
@@ -48,30 +47,6 @@ const profile = (props) => {
   // Functions
   const hideModal = () => {
     setModal(false);
-  }
-
-  if (watchHistory.movies) {
-    for (let i = 0; i < 5; i ++) {
-      if (!watchHistory.movies[i]) {
-        return;
-      } else {
-        movies.push(watchHistory.movies[i])
-      }
-    }
-  } else {
-    movies.push('No movies watched')
-  }
-
-  if (watchHistory.shows) {
-    for (let i = 0; i < 5; i ++) {
-      if (!watchHistory.shows[i]) {
-        return;
-      } else {
-        shows.push(watchHistory.shows[i])
-      }
-    }
-  } else {
-    shows.push('No shows watched')
   }
 
 
@@ -96,13 +71,15 @@ const profile = (props) => {
           </div>
           <div className="profileActivity">
             <h2>Recently Watched Movies</h2>
-            { movies.map(({title, imgUrl, id, i}) =>
-              <Activity title={title} key={i} image={imgUrl} id={id} type="movie"/>
-            )}
+            { watchHistory.movies && watchHistory.movies.length > 0 ? watchHistory.movies.slice(0, 5).map(({title, imgUrl, id}) =>
+              <Activity title={title} key={id} image={imgUrl} id={id} type="movie"/> )
+              : <div> No Movies Watched </div>
+            }
             <h2>Recently Watched Shows</h2>
-            { shows.map(({title, imgUrl, id, i}) =>
-              <Activity title={title} key={i} image={imgUrl} id={id} type="tv"/>
-            )}
+            { watchHistory.shows && watchHistory.shows.length > 0 ? watchHistory.shows.slice(0,5).map(({title, imgUrl, id}) =>
+              <Activity title={title} key={id} image={imgUrl} id={id} type="tv"/> )
+              : <div> No Shows Watched </div>
+            }
           </div>
         </div>
         <div className="profileFooter">

@@ -4,6 +4,7 @@ import AddToWatchlist from './AddToWatchlist.jsx';
 import Reviews from '../Reviews/Reviews.jsx';
 import Services from './Services.jsx';
 import MediaDetails from './MediaDetails.jsx';
+import Service from './Service.jsx';
 
 import axios from 'axios';
 // const https = require('https');
@@ -23,10 +24,13 @@ class MediaInfoPage extends React.Component {
       description: '',
       rating: '',
       img: '',
-      id: ''
+      id: '',
+      availability: {}
     }
 
     this.getMediaInfo = this.getMediaInfo.bind(this);
+    this.renderWatchListBtn = this.renderWatchListBtn.bind(this);
+    this.renderServices = this.renderServices.bind(this);
   }
 
   getMediaInfo() {
@@ -44,7 +48,7 @@ class MediaInfoPage extends React.Component {
       .then(data => {
         mediaInfo = data.data.mediaDetails;
         availability = data.data.providers;
-        console.log(mediaInfo);
+        console.log('availability:', availability);
 
         this.setState({
           title: mediaInfo['title'],
@@ -53,7 +57,8 @@ class MediaInfoPage extends React.Component {
           rating: mediaInfo['rating'],
           img: mediaInfo['imgUrl'],
           type: url[2],
-          id: url[3]
+          id: url[3],
+          availability: availability
         });
 
         // TODO: condition => path is to any other subdirectory in '/info' => redirect to search page
@@ -62,6 +67,34 @@ class MediaInfoPage extends React.Component {
       .catch(err => {
         console.log('error fetching data:', err);
       })
+  }
+
+  renderWatchListBtn() {
+    if (this.props.isLoggedIn) {
+      return (
+        <AddToWatchlist addWatchList={this.props.addWatchList} email={this.props.email} type={this.state.type} id={this.state.id} watchList={this.props.watchList} />
+      )
+    }
+    return(<div className="addToWatchlist"></div>)
+  }
+
+  renderServices(providerNames, serviceLinks) {
+    // console.log('attempting to render services:', providerNames, serviceLinks);
+
+    if (providerNames.length === 0) {
+      return (<p classList="no-service">this title is not currently available to stream 😞</p>);
+    }
+
+    return (
+      <div className="services">
+        { providerNames.map(service => {
+          if (this.props.isLoggedIn && this.props.providersList[service]) {
+            return ( <Service email={this.props.email} type={this.state.type} id={this.state.id} name={service} link={serviceLinks[service]} addToWatchHistory={this.props.addToWatchHistory} subscribed="true" /> )
+          }
+          return ( <Service email={this.props.email} type={this.state.type} id={this.state.id} name={service} link={serviceLinks[service]} subscribed="false" /> )
+          }) }
+      </div>
+    )
   }
 
   render() {
@@ -79,12 +112,12 @@ class MediaInfoPage extends React.Component {
           <div className="mediaDetails" style={{ backgroundImage: `url(${posterUrl})` }}>
             <h1>{this.state['title']}</h1>
             <h2>{this.state['release']}</h2>
-            <AddToWatchlist addWatchList={this.props.addWatchList} email={this.props.email} type={this.state.type} id={this.state.id} watchList={this.props.watchList} />
+            {this.renderWatchListBtn()}
             <p>{this.state['description']}</p>
             <div className="ratingDot">{this.state['rating']}</div>
           </div>
         </div>
-        <Services />
+        <Services availability={this.state.availability} renderServices={this.renderServices} />
         <Reviews id={this.state.id} type={this.state.type} email={this.props.email} avatar={this.props.avatar} />
       </div>
     )

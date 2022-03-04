@@ -1,22 +1,26 @@
 import React from 'react';
 
-class Service extends React.Component {
-  constructor(props){
-    super(props);
-    this.state = {}
+const Service = function(props) {
+  let pluralType = props.type + 's';
+
+  if (pluralType === 'tvs') {
+    pluralType = 'shows';
   }
 
-  render() {
-    return (
-      <div className="services">
-        <h3>Netflix</h3>
-        <h3>Amazon</h3>
-        <h3>Hulu</h3>
-        <h3>Disney+</h3>
-        <h3>HBOMax</h3>
-      </div>
-    )
+  let data = {
+    username: props.email,
+    watchedType: pluralType,
+    watchedId: parseInt(props.id)
+  };
+
+  if (props.subscribed === 'true') {
+    return ( <a onClick={function() {
+      // console.log('attempting to add:', data);
+      props.addToWatchHistory(data) }} class="subscribed" href={props.link} target="_blank"><h3>{props.name}</h3></a> )
   }
+  return ( <a onClick={function() {
+    // console.log('attempting to add:', data);
+    props.addToWatchHistory(data) }} href={props.link} target="_blank"><h3>{props.name}</h3></a> )
 }
 
 export default Service;
