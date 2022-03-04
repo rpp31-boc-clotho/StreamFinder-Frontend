@@ -52,6 +52,7 @@ class MovieCard extends React.Component {
   }
 
   render() {
+    //console.log("film", this.props.film);
     return (
       <div className="filmCard">
         <Link className="cardLink" to={this.makeURL(this.props.film)}>
