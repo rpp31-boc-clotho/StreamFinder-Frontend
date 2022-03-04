@@ -7,7 +7,7 @@ const testData = {
         "subscriptions": {
             "Apple iTunes": false,
             "Apple TV Plus": false,
-            "Amazon Prime Video": false,
+            "Amazon Prime Video": true,
             "Disney Plus": false,
             "Google Play Movies": false,
             "HBO Max": false,
