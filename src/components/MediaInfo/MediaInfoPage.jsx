@@ -27,6 +27,7 @@ class MediaInfoPage extends React.Component {
     }
 
     this.getMediaInfo = this.getMediaInfo.bind(this);
+    this.renderWatchListBtn = this.renderWatchListBtn.bind(this);
   }
 
   getMediaInfo() {
@@ -64,6 +65,15 @@ class MediaInfoPage extends React.Component {
       })
   }
 
+  renderWatchListBtn() {
+    if (this.props.isLoggedIn) {
+      return (
+        <AddToWatchlist addWatchList={this.props.addWatchList} email={this.props.email} type={this.state.type} id={this.state.id} watchList={this.props.watchList} />
+      )
+    }
+    return(<div></div>)
+  }
+
   render() {
     let testData = this.state.allData.movies[0];
     // console.log('dummy data:', testData);
@@ -79,7 +89,7 @@ class MediaInfoPage extends React.Component {
           <div className="mediaDetails" style={{ backgroundImage: `url(${posterUrl})` }}>
             <h1>{this.state['title']}</h1>
             <h2>{this.state['release']}</h2>
-            <AddToWatchlist addWatchList={this.props.addWatchList} email={this.props.email} type={this.state.type} id={this.state.id} watchList={this.props.watchList} />
+            {this.renderWatchListBtn()}
             <p>{this.state['description']}</p>
             <div className="ratingDot">{this.state['rating']}</div>
           </div>
