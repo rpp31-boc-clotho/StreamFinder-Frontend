@@ -10,7 +10,7 @@ function searchBar({handleSearch}) {
   }
 
   return (
-    <div>
+    <div className= "search-bar">
       <form action="/search" onSubmit={onSearch} onChange={changeTerm}>
         <label htmlFor="Search_Bar">
           <span className="Search_Bar_Title">Search for Movies or Shows!</span>
