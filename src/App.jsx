@@ -86,7 +86,7 @@ const App = (props) => {
   const addToWatchHistory = (changes) => {
     axios({
       method: 'post',
-      url:server+'/homepage/user/watched',
+      url: server+'/homepage/user/watched',
       data: changes
     })
     .then((response) => {
@@ -100,11 +100,15 @@ const App = (props) => {
   const addWatchList = (changes) => {
     axios({
       method: 'post',
-      url:server+'/homepage/user/watchlist',
+      url:server +'/homepage/user/watchlist',
       data: changes
     })
     .then((response) => {
-      setWatchList(response.data.watchList)
+      if (typeof response.data !== 'string') {
+        setWatchList(response.data.watchList);
+      } else {
+        console.log(response.data);
+      }
     })
     .catch((e) => {
       console.log('Error Adding to Recently Watched:', e)
@@ -136,7 +140,7 @@ const App = (props) => {
         <Routes>
           <Route path="/" element={<Landing isLoggedIn={isLoggedIn} watchList={watchList} recentlyWatched={recentlyWatched} username={username} email={email} handleError={handleError}/>} />
           <Route path="/search" element={<SearchPage />} />
-          <Route path="/info/*" element={<MediaInfoPage providersList={providersList} addWatchList={addWatchList} addToWatchHistory={addToWatchHistory} username={username} email={email} isLoggedIn = {isLoggedIn} avatar={avatar} />}  />
+          <Route path="/info/*" element={<MediaInfoPage providersList={providersList} addWatchList={addWatchList} addToWatchHistory={addToWatchHistory} username={username} email={email} isLoggedIn={isLoggedIn} watchList={watchList} avatar={avatar}/>} />
           <Route path="/settings" element={<Profile isLoggedIn={isLoggedIn} updateSubscriptions={updateSubscriptions} providersList={providersList} recentlyWatched={recentlyWatched} username={username} email={email} avatar={avatar}/>}/>
         </Routes>
       </BrowserRouter>

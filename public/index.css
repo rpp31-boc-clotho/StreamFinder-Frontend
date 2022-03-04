@@ -15,6 +15,7 @@
   --text: #000000;
   --h-text: #FFC857;
   --sub-text: #8D8E92;
+  --button: #255F85;
   --drop-shadow: rgba(0, 0, 0, 0.25);
 }
 
@@ -154,6 +155,7 @@ a {
   border-radius: 25px;
   padding-top: 25px;
   padding-left: 25px;
+  padding-bottom: 25px;
   width: 75%;
   height: 90%;
   background-color: #F2CC84;
@@ -188,13 +190,38 @@ a {
 
 .profileSubscriptions {
   padding: 20px;
-  width: 45%;
+  width: 35%;
 }
 
 .profileActivity {
   padding: 20px;
   width: 50%;
   border-left: 2px solid;
+}
+
+.profileWatchHistory {
+  display: flex;
+  padding-bottom: 10px;
+}
+
+.profileWatchHistoryPoster {
+  margin: 0px;
+  width: 80px;
+  height: 80px;
+}
+
+.profileWatchHistoryPoster:hover {
+  transform: scale(2);
+}
+
+.profileWatchHistoryTitle {
+  padding-left: 15px;
+  padding-top: 23px;
+  font-size: 25px;
+}
+
+.profileWatchHistoryTitle:hover {
+  cursor: pointer;
 }
 
 .providerLabel {
@@ -216,18 +243,18 @@ a {
 .subscribedProviders {
   display: flex;
   padding-bottom: 10px;
-  padding-left: 20px;
 }
 
 .userSubscribed {
-  padding-top: 2px;
+  padding-top: 23px;
+  font-size: 25px;
 }
 
 
 
 .providerLogo {
-  width: 30px;
-  height: 30px;
+  width: 70px;
+  height: 70px;
   padding-right: 15px;
 }
 

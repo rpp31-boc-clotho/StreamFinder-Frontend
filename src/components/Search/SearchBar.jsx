@@ -2,23 +2,10 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
 
-//may add back filterSearch
-
 function searchBar({handleSearch}) {
 
   const [searchTerm, changeTerm] = useState('');
   const onSearch = () => {
-    if (window.location.href.includes("/search")) {
-    //   <Link to={{
-    //     pathname: "/search",
-    //     state: searchTerm
-    //   }}/>
-      }
-    //  debugger
-     console.log("this is searchTerm: " + searchTerm)
-     //debugger
-    // console.log("href: " + JSON.stringify(window.location.href))
-    console.log('onSearch reached!')
     handleSearch(searchTerm)
   }
 

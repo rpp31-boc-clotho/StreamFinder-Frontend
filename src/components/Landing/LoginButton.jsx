@@ -38,13 +38,14 @@ const LoginButton = () => {
   };
 
   if (currentUser === 'Log In') {
-    return <button className="login-button" onClick={() => loginWithRedirect()}>Log In</button>
+    return <button data-testid="login-button-test" className="login-button" onClick={() => loginWithRedirect()}>Log In</button>
   } else {
     return (
       <React.Fragment>
         <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
           <Tooltip title="Account settings">
             <IconButton
+              data-testid="login-test"
               onClick={handleClick}
               size="small"
               sx={{ ml: 2 }}
