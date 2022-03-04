@@ -1,6 +1,56 @@
 # StreamFinder - Client Site
 ## A Clotho WebApp 2022
 ### HackReactor - RPP31
+
+## Description
+
+Stream Finder is project developed by Hack Reactor, a software engineering boot-camp, that pushed the boundaries of our full stack knowledge.
+
+Throughout this endeavor, we as a team of eight, increased our proficiency with CI/CD, React, CSS, testing, express, MongoDB, and other concepts/tools.
+
+Our own API hosted on AWS provides the data we need to display and we use these resources to build the features and content for a robust, familiar, and enjoyable user experience.
+
+## Features
+
+### 1. Landing Page
+
+**Purpose:**
+
+*Popular Movies and TV Shows*
+
+*Recommended Titles*
+
+*Recently Watched*
+
+*Watch List*
+
+### 2. Media Info
+
+**Purpose:**
+
+*Media Info*
+
+*Available Service Providers*
+
+*Reviews*
+
+### 3. Search
+
+**Purpose:**
+
+*Search Results*
+
+*Filters*
+
+### 4. Login and User Settings
+
+**Purpose:**
+
+*Login Methods*
+
+*Manage Subscriptions*
+
+*Display Activity*
 ---
 **Contributors:**
 - *Chris Lazzarini - Product Manager*

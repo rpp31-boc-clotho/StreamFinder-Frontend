@@ -50,32 +50,6 @@ const profile = (props) => {
     setModal(false);
   }
 
-  // if (watchHistory.movies) {
-  //   if (watchHistory.movies.length > 0) {
-  //     for (let i = 0; i < 5; i ++) {
-  //       if (!watchHistory.movies[i]) {
-  //         return;
-  //       } else {
-  //         movies.push(watchHistory.movies[i])
-  //       }
-  //     }
-  //   }
-  // }
-
-  // if(watchHistory.shows) {
-  //   if (watchHistory.shows.length > 0) {
-  //     for (let i = 0; i < 5; i ++) {
-  //       if (!watchHistory.shows[i]) {
-  //         return;
-  //       } else {
-  //         shows.push(watchHistory.shows[i])
-  //       }
-  //     }
-  //   }
-  // }
-
-
-
 
   //Render
   return (
@@ -98,12 +72,12 @@ const profile = (props) => {
           </div>
           <div className="profileActivity">
             <h2>Recently Watched Movies</h2>
-            { watchHistory.movies && watchHistory.movies.length > 0 ? watchHistory.movies.map(({title, imgUrl, id}) =>
+            { watchHistory.movies && watchHistory.movies.length > 0 ? watchHistory.movies.slice(0, 5).map(({title, imgUrl, id}) =>
               <Activity title={title} key={id} image={imgUrl} id={id} type="movie"/> )
               : <div> No Movies Watched </div>
             }
             <h2>Recently Watched Shows</h2>
-            { watchHistory.shows && watchHistory.shows.length > 0 ? watchHistory.shows.map(({title, imgUrl, id}) =>
+            { watchHistory.shows && watchHistory.shows.length > 0 ? watchHistory.shows.slice(0,5).map(({title, imgUrl, id}) =>
               <Activity title={title} key={id} image={imgUrl} id={id} type="tv"/> )
               : <div> No Shows Watched </div>
             }
