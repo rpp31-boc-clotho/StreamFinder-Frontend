@@ -175,7 +175,7 @@
   box-shadow: 0 3px 5px var(--drop-shadow);
 }
 
-.services h3 a {
+.services a h3 {
   margin: 0;
 }
 
@@ -193,6 +193,10 @@
   width: 100%;
   height: 100%;
   background-color: rgba(255,255,255,0.25);
+}
+
+.services .subscribed h3 {
+  border: 3px solid var(--accent-bg-high);
 }
 
 /* ================= */

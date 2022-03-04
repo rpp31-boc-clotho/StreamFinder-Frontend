@@ -88,7 +88,10 @@ class MediaInfoPage extends React.Component {
     return (
       <div className="services">
         { providerNames.map(service => {
-          return ( <Service name={service} link={serviceLinks[service]} /> )
+          if (this.props.providersList[service]) {
+            return ( <Service name={service} link={serviceLinks[service]} subscribed="true" /> )
+          }
+          return ( <Service name={service} link={serviceLinks[service]} subscribed="false" /> )
           }) }
       </div>
     )
@@ -114,7 +117,7 @@ class MediaInfoPage extends React.Component {
             <div className="ratingDot">{this.state['rating']}</div>
           </div>
         </div>
-        <Services providersList={this.props.providersList} availability={this.state.availability} renderServices={this.renderServices} />
+        <Services availability={this.state.availability} renderServices={this.renderServices} />
         <Reviews id={this.state.id} type={this.state.type} email={this.props.email} avatar={this.props.avatar} />
       </div>
     )

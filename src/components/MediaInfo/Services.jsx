@@ -4,7 +4,7 @@ import Service from './Service.jsx';
 const Services = function(props) {
   let providerNames = [];
   let availableServices = {};
-  // console.log('providers:', props.providersList);
+  // console.log('subscribed services:', props.providersList);
 
   let serviceLinks = {
     "Apple iTunes": 'https://itunes.apple.com/us/genre/movies/id33',

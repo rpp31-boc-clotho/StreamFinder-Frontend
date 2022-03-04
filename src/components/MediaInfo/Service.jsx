@@ -1,7 +1,9 @@
 import React from 'react';
 
 const Service = function(props) {
-  // console.log('service available!', props.name);
+  if (props.subscribed === 'true') {
+    return ( <a class="subscribed" href={props.link} target="_blank"><h3>{props.name}</h3></a> )
+  }
   return ( <a href={props.link} target="_blank"><h3>{props.name}</h3></a> )
 }
 
