@@ -4,6 +4,7 @@ import AddToWatchlist from './AddToWatchlist.jsx';
 import Reviews from '../Reviews/Reviews.jsx';
 import Services from './Services.jsx';
 import MediaDetails from './MediaDetails.jsx';
+import Service from './Service.jsx';
 
 import axios from 'axios';
 // const https = require('https');
@@ -29,6 +30,7 @@ class MediaInfoPage extends React.Component {
 
     this.getMediaInfo = this.getMediaInfo.bind(this);
     this.renderWatchListBtn = this.renderWatchListBtn.bind(this);
+    this.renderServices = this.renderServices.bind(this);
   }
 
   getMediaInfo() {
@@ -76,6 +78,22 @@ class MediaInfoPage extends React.Component {
     return(<div className="addToWatchlist"></div>)
   }
 
+  renderServices(providerNames, serviceLinks) {
+    // console.log('attempting to render services:', providerNames, serviceLinks);
+
+    if (providerNames.length === 0) {
+      return (<p classList="no-service">this title is not currently available to stream 😞</p>);
+    }
+
+    return (
+      <div className="services">
+        { providerNames.map(service => {
+          return ( <Service name={service} link={serviceLinks[service]} /> )
+          }) }
+      </div>
+    )
+  }
+
   render() {
     let testData = this.state.allData.movies[0];
     // console.log('dummy data:', testData);
@@ -96,7 +114,7 @@ class MediaInfoPage extends React.Component {
             <div className="ratingDot">{this.state['rating']}</div>
           </div>
         </div>
-        <Services providersList={this.props.providersList} availability={this.state.availability} />
+        <Services providersList={this.props.providersList} availability={this.state.availability} renderServices={this.renderServices} />
         <Reviews id={this.state.id} type={this.state.type} email={this.props.email} avatar={this.props.avatar} />
       </div>
     )

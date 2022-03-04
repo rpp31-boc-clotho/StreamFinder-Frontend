@@ -1,10 +1,6 @@
 import React from 'react';
 import Service from './Service.jsx';
 
-const displayServices = function() {
-
-};
-
 const Services = function(props) {
   let providerNames = [];
   let availableServices = {};
@@ -41,14 +37,10 @@ const Services = function(props) {
     }
   }
 
-  // console.log('==========services:', availableServices);
-
   return (
     <div>
       <h3>Available on...</h3>
-      <div className="services">
-        {providerNames.map((service) => ( <Service name={service} link={serviceLinks[service]} /> ))}
-      </div>
+      {props.renderServices(providerNames, serviceLinks)}
     </div>
   )
 }
