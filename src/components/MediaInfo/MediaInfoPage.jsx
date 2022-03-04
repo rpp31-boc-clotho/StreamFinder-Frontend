@@ -23,7 +23,8 @@ class MediaInfoPage extends React.Component {
       description: '',
       rating: '',
       img: '',
-      id: ''
+      id: '',
+      availability: {}
     }
 
     this.getMediaInfo = this.getMediaInfo.bind(this);
@@ -45,7 +46,7 @@ class MediaInfoPage extends React.Component {
       .then(data => {
         mediaInfo = data.data.mediaDetails;
         availability = data.data.providers;
-        console.log(mediaInfo);
+        console.log('availability:', availability);
 
         this.setState({
           title: mediaInfo['title'],
@@ -54,7 +55,8 @@ class MediaInfoPage extends React.Component {
           rating: mediaInfo['rating'],
           img: mediaInfo['imgUrl'],
           type: url[2],
-          id: url[3]
+          id: url[3],
+          availability: availability
         });
 
         // TODO: condition => path is to any other subdirectory in '/info' => redirect to search page
@@ -71,7 +73,7 @@ class MediaInfoPage extends React.Component {
         <AddToWatchlist addWatchList={this.props.addWatchList} email={this.props.email} type={this.state.type} id={this.state.id} watchList={this.props.watchList} />
       )
     }
-    return(<div></div>)
+    return(<div className="addToWatchlist"></div>)
   }
 
   render() {
@@ -94,7 +96,7 @@ class MediaInfoPage extends React.Component {
             <div className="ratingDot">{this.state['rating']}</div>
           </div>
         </div>
-        <Services providersList={this.props.providersList} />
+        <Services providersList={this.props.providersList} availability={this.state.availability} />
         <Reviews id={this.state.id} type={this.state.type} email={this.props.email} avatar={this.props.avatar} />
       </div>
     )
