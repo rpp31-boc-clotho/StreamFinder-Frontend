@@ -5,6 +5,15 @@ const Activity = (props) => {
 
   const navigate = useNavigate();
 
+  console.log('prop title', props.title)
+  if (!props.title) {
+    return (
+      <div>
+        Nothing watched
+      </div>
+    )
+  }
+
     return (
       <div className="profileWatchHistory">
         <Link className="profileWatchHistoryPoster" to={`/info/${props.type}/${props.id}`}>

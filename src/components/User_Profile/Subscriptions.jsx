@@ -18,19 +18,23 @@ const Subscriptions = (props) => {
   }
 
   if (subs.length === 0) {
-    subs.push('Add Your Current Subscriptions')
+    return (
+      <div>
+        Add Your Current Subscriptions
+      </div>
+    )
+  } else {
+    return (
+      <div>
+        {subs.map((sub, i) =>
+          <div className="subscribedProviders" key={i}>
+            <img className="providerLogo" src={`/providers/${sub}.jpeg`}></img>
+            <div className="userSubscribed">{sub}</div>
+          </div>
+        )}
+      </div>
+    )
   }
-
-  return (
-    <div>
-      {subs.map((sub, i) =>
-        <div className="subscribedProviders" key={i}>
-          <img className="providerLogo" src={`/providers/${sub}.jpeg`}></img>
-          <div className="userSubscribed">{sub}</div>
-        </div>
-      )}
-    </div>
-  )
 
 }
 

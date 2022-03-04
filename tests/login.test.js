@@ -9,34 +9,6 @@ import {BrowserRouter, Router} from 'react-router-dom';
 
 import LoginButton from '../src/components/Landing/LoginButton.jsx';
 
-// let container = null;
-// beforeEach(() => {
-//   // setup a DOM element as a render target
-//   container = document.createElement('div');
-//   document.body.appendChild(container);
-// });
-
-// afterEach(() => {
-//   // cleanup on exiting
-//   unmountComponentAtNode(container);
-//   container.remove();
-//   container = null;
-// });
-
-// describe('Rendering Components', () => {
-//   test('renders Login Button Component', () => {
-//     // act(() => {
-//       render(
-//         <Router>
-//           <LoginButton/>
-//         </Router>)
-//     // });
-//     // const component = document.getElementsByClassName('login-button');
-//     // expect(component.length).toBe(1);
-//     expect(screen.getByTestId('profile-test')).toBeTruthy()
-//   });
-// })
-
 const renderWithRouter = (ui, {route = '/'} = {}) => {
   window.history.pushState({}, 'Test page', route)
 
