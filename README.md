@@ -59,7 +59,7 @@ The user can specify which streaming services they subscribe to help identify th
 *Display Activity*
 The users most recently watched movies and/or shows are displayed. This feature will be better utilized when the social aspect is added.
 
-![](activityExample.gif)
+![activityExample](https://user-images.githubusercontent.com/82406930/156829829-25d8dbac-8a58-44fe-9639-26a6122f35d6.gif)
 
 ---
 **Contributors:**
