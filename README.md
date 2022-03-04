@@ -49,11 +49,17 @@ Our own API hosted on AWS provides the data we need to display and we use these 
 *Login Methods*
 The user can create an account and login using their email, Google account, or Facebook account.
 
+![](loginExample.gif)
+
 *Manage Subscriptions*
 The user can specify which streaming services they subscribe to help identify the best viewing options of selected titles.
 
+![](subscriptionsExample.gif)
+
 *Display Activity*
 The users most recently watched movies and/or shows are displayed. This feature will be better utilized when the social aspect is added.
+
+![](activityExample.gif)
 
 ---
 **Contributors:**
