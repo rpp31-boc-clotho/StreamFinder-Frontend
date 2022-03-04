@@ -8,7 +8,7 @@ class MovieCard extends React.Component {
 
   displayRating(rating) {
     //accounted for ratings of 0 in the render function
-    let ratingPercent = (rating * 10)
+    let ratingPercent = parseInt(rating * 10)
     if (ratingPercent >= 75) {
       return  <section className="filmRating" style={{ background: 'rgb(14, 179, 14)' }}>{ratingPercent + '%'}</section>
     } else if (ratingPercent <= 74 && ratingPercent >= 50) {
