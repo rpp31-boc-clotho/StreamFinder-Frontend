@@ -54,7 +54,7 @@ The user can create an account and login using their email, Google account, or F
 *Manage Subscriptions*
 The user can specify which streaming services they subscribe to help identify the best viewing options of selected titles.
 
-![](subscriptionsExample.gif)
+![subscriptionsExample](https://user-images.githubusercontent.com/82406930/156829791-72e2d027-d445-4a9d-b42e-01c9864db18c.gif)
 
 *Display Activity*
 The users most recently watched movies and/or shows are displayed. This feature will be better utilized when the social aspect is added.
