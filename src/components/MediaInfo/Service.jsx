@@ -1,22 +1,10 @@
 import React from 'react';
 
-class Service extends React.Component {
-  constructor(props){
-    super(props);
-    this.state = {}
+const Service = function(props) {
+  if (props.subscribed === 'true') {
+    return ( <a class="subscribed" href={props.link} target="_blank"><h3>{props.name}</h3></a> )
   }
-
-  render() {
-    return (
-      <div className="services">
-        <h3>Netflix</h3>
-        <h3>Amazon</h3>
-        <h3>Hulu</h3>
-        <h3>Disney+</h3>
-        <h3>HBOMax</h3>
-      </div>
-    )
-  }
+  return ( <a href={props.link} target="_blank"><h3>{props.name}</h3></a> )
 }
 
 export default Service;
