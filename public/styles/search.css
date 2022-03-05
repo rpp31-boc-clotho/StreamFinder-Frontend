@@ -84,3 +84,44 @@
 .info-page #searchSubmit {
   right: 65px;
 }
+
+/* ===================== */
+/* Search Page / Results */
+/* ===================== */
+
+.results-display {
+  display: flex;
+  flex-direction: row;
+}
+
+.search-filters {
+  display: flex;
+  flex-direction: column;
+}
+
+.result-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.searchResults .filmCard {
+  height: 360px;
+  width: 250px;
+  margin: 0;
+  padding: 0;
+  background-color: var(--component-bg);
+  box-shadow: 0 5px 5px var(--drop-shadow);
+}
+
+.searchResults .filmCard .cardImgWrapper {
+  text-align: center;
+  padding-top: 10px;
+}
+
+.searchResults .filmCard img {
+  width: 75%;
+  height: auto;
+  box-shadow: 0 5px 5px var(--drop-shadow);
+}

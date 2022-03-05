@@ -6,13 +6,15 @@ const searchResults = (props) => {
   return (
     <div className="searchResults">
       <div className="searchResultsHeader">
-      Search Results
+        Search Results
       </div>
-      {props.results.map((film, i) => {
-        return (
-          <MovieCard film={film} key={i} />
-        )
-      })}
+      <div className="result-cards">
+        {props.results.map((film, i) => {
+          return (
+            <MovieCard film={film} key={i} />
+          )
+        })}
+      </div>
     </div>
   )
 }
