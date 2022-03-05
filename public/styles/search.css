@@ -1,3 +1,7 @@
+.searchDiv {
+  margin: 30px auto;
+}
+
 .searchDiv form {
   display: flex;
   justify-content: center;
@@ -32,8 +36,8 @@
   background: none;
   border: none;
   position: absolute;
-  right: 15px;
-  top: 25px;
+  right: 25px;
+  top: 27px;
   cursor: pointer;
   filter: drop-shadow(0px 3px 2px var(--drop-shadow));
 }
@@ -46,7 +50,7 @@
 .profile-page .searchDiv,
 .info-page .searchDiv {
   padding: 0;
-  margin-bottom: 20px;
+  margin: 0 0 20px 0;
 }
 
 .search-page .searchDiv form,
@@ -73,4 +77,10 @@
 .info-page #Search_Bar {
   width: -webkit-fill-available;
   margin: 15px 5%;
+}
+
+.search-page #searchSubmit,
+.profile-page #searchSubmit,
+.info-page #searchSubmit {
+  right: 65px;
 }

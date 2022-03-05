@@ -7,11 +7,11 @@ var Header = (props) => {
 
     return (
       <div className="header">
-      <img src="/sflogo2.png" alt="image" width="50" height="100"/>
-        <h1 className="title"><Link to="/">StreamFinder</Link></h1>
+        <div className="branding">
+          <img src="/sflogo2.png" alt="stream-finder-logo"/>
+          <h1 className="title"><Link to="/">StreamFinder</Link></h1>
+        </div>
         <span className="login"><LoginButton /></span>
-
-
       </div>
     );
 

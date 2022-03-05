@@ -26,21 +26,20 @@ html, body, #app {
   /* display: flex;
   justify-content: center; */
 }
-#searchSubmit{
+
+/* #searchSubmit {
   width:5%;
   border-radius:25px;
   height:30px;
 }
 
-.searchDiv{
+.searchDiv {
   width:auto;
   height:auto;
   padding:1em;
+} */
 
-
-}
-#Search_Bar{
-
+#Search_Bar {
   border: 1px solid grey;
   border-radius:25px;
   border-left:500px;
@@ -51,12 +50,25 @@ html, body, #app {
 
 
 }
+
 .header {
   display: flex;
+  align-items: center;
+  justify-content: space-between;
   flex-direction: row;
   font-weight: lighter;
   border: solid;
   background-color:#343c44f8;
+}
+
+.header .branding {
+  display: flex;
+}
+
+.header img {
+  max-height: 55px;
+  margin: auto 0px auto 30px;
+  cursor: pointer;
 }
 
 .title {
@@ -64,14 +76,12 @@ html, body, #app {
   font-weight: lighter;
 }
 
-
 a {
   color: white;
   text-decoration: none;
   margin: 25px;
   margin-top: 30px;
 }
-
 
 /* MODAL */
 .modal {
@@ -290,12 +300,8 @@ a {
 }
 
 .login {
-  position: absolute;
-  top: 0;
-  right: 0;
-  font-size: 20px;
-  margin-top: 10px;
-  margin-right: 10px;
+  display: flex;
+  padding-right: 20px;
 }
 
 .login-button {
