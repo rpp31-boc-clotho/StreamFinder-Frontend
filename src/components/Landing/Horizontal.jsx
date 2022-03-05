@@ -27,7 +27,7 @@ var Horizontal = function(props) {
 
   let chooseStyle = (inputList) => {
     //console.log('inputList',inputList);
-    if(inputList.length <= 6) {
+    if(inputList.length <= 5) {
      // console.log('inputList length',inputList.length);
       setRightScrollStyle(hideStyle, [list]);
     }else {
