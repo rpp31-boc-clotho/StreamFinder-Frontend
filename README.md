@@ -73,6 +73,8 @@ The search page is were results from any search are displayed. Any time the sear
 
 The search bar is how the user will search of any specific media. It searches all media through the API, and can be filtered via media type. The search bar component is placed throughout the website in the navigation bar, available on the landing page and at the top of the search page. Anything that is searched in the search bar will redirect to the search page, displaying all the results that relate to the searched within the title of the media.
 
+![searchbarExample](https://user-images.githubusercontent.com/82406930/156896929-ab6b9750-4fbe-45d9-b68c-6a527d77ce97.gif)
+
 *Filter Buttons*
 
 The filter buttons allow the user to customize their search between Movies, Shows, or both forms of media. When each button is clicked the text changes to reflect which filter is currently active. By default all searches made outside of the search page search through both Movies and Shows.
