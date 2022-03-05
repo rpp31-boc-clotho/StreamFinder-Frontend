@@ -103,9 +103,9 @@ class SearchPage extends React.Component {
         <SearchBar filterSearch={this.filterSearch} handleSearch={this.handleSearch}/>
         <div className="results-display">
           <div className="search-filters">
-            {this.state.mediaType.movie ? <button onClick={this.handleClickMovie}>Only Searching Movies!</button>:<button onClick={this.handleClickMovie}>Search Movies!</button>}
-            {this.state.mediaType.tv ? <button onClick={this.handleClickTv}>Only Searching TV Shows!</button>:<button onClick={this.handleClickTv}> Search TV Shows</button>}
-            {this.state.mediaType.both ? <button onClick={this.handleClickBoth}>Searching Both Moives and TV shows!</button>:<button onClick={this.handleClickBoth}>Look for both!</button>}
+            {this.state.mediaType.movie ? <button className="active-filter" onClick={this.handleClickMovie}>Only Searching Movies!</button>:<button onClick={this.handleClickMovie}>Search Movies!</button>}
+            {this.state.mediaType.tv ? <button className="active-filter" onClick={this.handleClickTv}>Only Searching TV Shows!</button>:<button onClick={this.handleClickTv}> Search TV Shows</button>}
+            {this.state.mediaType.both ? <button className="active-filter" onClick={this.handleClickBoth}>Searching Both Movies and TV shows!</button>:<button onClick={this.handleClickBoth}>Look for both!</button>}
           </div>
           <SearchResults results={this.state.results} />
         </div>
