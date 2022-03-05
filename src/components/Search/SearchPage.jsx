@@ -99,7 +99,7 @@ class SearchPage extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="search-page">
         <SearchBar filterSearch={this.filterSearch} handleSearch={this.handleSearch}/>
         {this.state.mediaType.movie ? <button onClick={this.handleClickMovie}>Only Searching Movies!</button>:<button onClick={this.handleClickMovie}>Search Movies!</button>}
         {this.state.mediaType.tv ? <button onClick={this.handleClickTv}>Only Searching TV Shows!</button>:<button onClick={this.handleClickTv}> Search TV Shows</button>}

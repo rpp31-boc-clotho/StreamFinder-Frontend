@@ -37,3 +37,35 @@
   cursor: pointer;
   filter: drop-shadow(0px 3px 2px var(--drop-shadow));
 }
+
+/* ==================================================== */
+/* Search Bar => Search Page, User Settings, Media Info */
+/* ==================================================== */
+
+.search-page .searchDiv,
+.info-page .searchDiv {
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+.search-page .searchDiv form,
+.info-page .searchDiv form {
+  gap: 0;
+}
+
+.search-page .searchDiv label,
+.info-page .searchDiv label {
+  display: none;
+}
+
+.search-page .search-container,
+.info-page .search-container {
+  width: 100%;
+  border-radius: 0;
+}
+
+.search-page #Search_Bar,
+.info-page #Search_Bar {
+  width: -webkit-fill-available;
+  margin: 15px 5%;
+}

@@ -18,7 +18,7 @@ function searchBar({handleSearch}) {
           <input
             type="text"
             id="Search_Bar"
-            placeholder="Search for Movies or Shows!"
+            placeholder="Search for movies or shows!"
             name="SB"
           />
           <button type="submit" id="searchSubmit">
