@@ -155,8 +155,14 @@
 
 .services {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: flex-start;
   align-items: center;
+  flex-wrap: wrap;
+}
+
+.services a {
+  margin: 7px;
+  order: 2;
 }
 
 .services h3 {
@@ -173,10 +179,11 @@
   position: relative;
   transition-duration: 300ms;
   box-shadow: 0 3px 5px var(--drop-shadow);
-}
-
-.services a h3 {
   margin: 0;
+  padding: 10px;
+  text-align: center;
+  border-radius: 7px;
+  border: 3px solid var(--card-bg);
 }
 
 .services h3:hover::before {
@@ -193,6 +200,10 @@
   width: 100%;
   height: 100%;
   background-color: rgba(255,255,255,0.25);
+}
+
+.services .subscribed {
+  order: 1;
 }
 
 .services .subscribed h3 {
