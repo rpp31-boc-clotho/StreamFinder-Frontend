@@ -22,6 +22,10 @@ The Landing Page is the front page of Stream Finder, providing both users and gu
 
 Utilizing our API we recommend to both guests and users popular media, with Films and Series having their own respective horizontal bar. Entertainment that is currently trending is displayed in order of rating.
 
+![popularMoviesExample](https://user-images.githubusercontent.com/82406930/156897090-2da0d893-19a1-4b4b-94ea-d98f39061d06.gif)
+
+![popularShowsExample](https://user-images.githubusercontent.com/82406930/156897094-349562e6-0be9-4dcb-a38b-c20bc4ee146e.gif)
+
 *Recommended Titles*
 
 The recommended Titles bar returns a list of movies and shows the user would most likely enjoy based on their previously viewed/added films and passed through an algorithm provided by the API.
@@ -33,6 +37,8 @@ Any media that the user has clicked through to a respective streaming website is
 *Watch List*
 
 This section is a list of media the user can add to. On each Media Info page is an option to add  Film or Show to watch list, when clicked it is added to this list. The button nest to the watch list link directly to the search page, giving users an opportunity to find Movies or series to add to their watch list.
+
+![remainderExample](https://user-images.githubusercontent.com/82406930/156897095-0e2aef56-381c-46e5-be81-ff1c1df96f87.gif)
 
 ### 2. Media Info Page
 
@@ -79,9 +85,14 @@ The search bar is how the user will search of any specific media. It searches al
 
 The filter buttons allow the user to customize their search between Movies, Shows, or both forms of media. When each button is clicked the text changes to reflect which filter is currently active. By default all searches made outside of the search page search through both Movies and Shows.
 
+![filterMoviesExample](https://user-images.githubusercontent.com/82406930/156897103-ffaff092-ec39-464e-af34-d5b189d7b868.gif)
+
 *Search Results*
 
 The results contain the top 20 (if available) media cards that best relate to the search term used. If searching through both Movies and Show, it instead displays up to 40 media cards, 20 from each type of media. They are always ordered by rating, from highest rated to lowest rated. These media cards show a title card image (if available), the title and the rating.
+
+![filterShowsExample](https://user-images.githubusercontent.com/82406930/156897111-8b214a11-c424-48ad-8f06-c393d532a0c7.gif)
+
 
 ### 4. Login and User Settings
 
