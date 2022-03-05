@@ -99,7 +99,7 @@ class SearchPage extends React.Component {
 
   render() {
     return (
-      <div className="search-page">
+      <div className="search-page" data-testid='searchPage-test'>
         <SearchBar filterSearch={this.filterSearch} handleSearch={this.handleSearch}/>
         <div className="results-display">
           <div className="search-filters">

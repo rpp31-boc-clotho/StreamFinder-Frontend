@@ -4,7 +4,7 @@ import MovieCard from '../Landing/MovieCard.jsx';
 const searchResults = (props) => {
 
   return (
-    <div className="searchResults">
+    <div className="searchResults" data-testid="searchResults-test">
       <div className="searchResultsHeader">
         Search Results
       </div>

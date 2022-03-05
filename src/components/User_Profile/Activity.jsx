@@ -6,7 +6,7 @@ const Activity = (props) => {
   const navigate = useNavigate();
 
     return (
-      <div className="profileWatchHistory">
+      <div className="profileWatchHistory" data-testid="activity-test">
         <Link className="profileWatchHistoryPoster" to={`/info/${props.type}/${props.id}`}>
           <img className="profileWatchHistoryPoster" src={props.image} />
         </Link>

@@ -13,8 +13,6 @@ const profile = (props) => {
 
   let navigate = useNavigate();
   const isAuthenticated = useAuth0();
-  const movies = [];
-  const shows = [];
 
   useEffect(() => {
     if (!isAuthenticated.isLoading && !isAuthenticated.isAuthenticated) {
@@ -23,7 +21,8 @@ const profile = (props) => {
   })
 
   useEffect(() => {
-    if (props.email) {
+
+    const fetchUserData = (email) => {
       axios({
         method: 'get',
         url: 'https://api.youpostalservice.com/homepage/user',
@@ -39,7 +38,11 @@ const profile = (props) => {
         console.log('Error Adding to Recently Watched:', e)
       })
     }
-  }, [])
+
+    if (props.email) {
+      fetchUserData(props.email)
+    }
+  }, [props.email])
 
 
   // States
@@ -49,7 +52,6 @@ const profile = (props) => {
   const hideModal = () => {
     setModal(false);
   }
-
 
   //Render
   return (
@@ -93,7 +95,6 @@ const profile = (props) => {
         </div>
       </div>
     </div>
-
   )
 
 }

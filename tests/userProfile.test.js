@@ -11,6 +11,7 @@ import Profile from '../src/components/User_Profile/Profile.jsx';
 import Providers from '../src/components/User_Profile/Providers.jsx';
 import Subscriptions from '../src/components/User_Profile/Subscriptions.jsx';
 import Update from '../src/components/User_Profile/Update.jsx';
+import Activity from '../src/components/User_Profile/Activity.jsx';
 import testData from './testData.js';
 
 let container = null;
@@ -74,5 +75,12 @@ test('rendering Profile Component', () => {
   renderWithRouter(<Profile />, {route})
 
   expect(screen.getByTestId('profile-test')).toBeTruthy()
+})
+
+test('rendering Activity Component', () => {
+  const route = '/settings'
+  renderWithRouter(<Activity title={'Testing'} id={1} type={'movie'} />, {route})
+
+  expect(screen.getByTestId('activity-test')).toBeTruthy()
 })
 
