@@ -104,6 +104,9 @@ class MediaInfoPage extends React.Component {
     // console.log('dummy data:', testData);
     let posterUrl = 'https://image.tmdb.org/t/p/w185' + this.state['img'];
 
+    let ratingPercent = Math.round(this.state['rating'] * 10) + '%';
+    console.log('Rated:', ratingPercent);
+
     return (
       <div className="info-page">
         <SearchBar />
@@ -118,7 +121,7 @@ class MediaInfoPage extends React.Component {
               <h2>{this.state['release']}</h2>
               {this.renderWatchListBtn()}
               <p>{this.state['description']}</p>
-              <div className="ratingDot">{this.state['rating']}</div>
+              <div className="ratingDot">{ratingPercent}</div>
             </div>
           </div>
           <Services availability={this.state.availability} renderServices={this.renderServices} />
