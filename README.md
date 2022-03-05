@@ -61,6 +61,8 @@ The review component itself contains five parts, the user name, the users image,
 
 When logged in the Add A Review button is displayed, which when clicked creates a pop up modal for the user. It includes a thumbs up or thumbs down button to select, as well as a text box to enter the review in. All other information is added automatically.
 
+![reviewExample](https://user-images.githubusercontent.com/82406930/156896491-9462ee79-f615-457a-b502-4429ba86bca0.gif)
+
 ### 3. Search Page
 
 **Purpose**
