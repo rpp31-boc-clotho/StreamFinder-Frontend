@@ -357,4 +357,5 @@
 
 .closeModal {
   float: right;
+  cursor: pointer;
 }

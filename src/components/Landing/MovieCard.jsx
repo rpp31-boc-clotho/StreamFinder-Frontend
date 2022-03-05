@@ -21,9 +21,7 @@ class MovieCard extends React.Component {
   displayDate () {
     //added one more condition to make it work for data from backend, as well as check to see if the property was present in the data
     if (this.props.film.release_date){
-      if (this.props.film.media_type === 'movie' || this.props.film.mediaType === 'movie') {
-        return (this.props.film.release_date.substring(0,4))
-      }
+      return (this.props.film.release_date.substring(0,4))
     }
   }
 
