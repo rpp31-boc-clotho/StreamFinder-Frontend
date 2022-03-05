@@ -44,6 +44,9 @@ The Media info page provides a detailed view of a Movie or Series.  All details 
 
 The top component contains all the specific details related to the film or series available to us through the API. It includes a picture of the title card (if provided), the title, the date released, a brief description of the media, and the current rating provided by the API.
 
+![detailsExample](https://user-images.githubusercontent.com/82406930/156896464-f46c3348-bb83-4489-bce8-5ab0c90f3d20.gif)
+
+
 *Available Service Providers*
 
 This section shows all platforms the media can be found on. It lists them by name, as well as the pricing it would cost to subscribe or purchase the service it is available on. Each service is a link to the home page of that service. If the media is not available to stream, a message appears stating it is not currently available.
