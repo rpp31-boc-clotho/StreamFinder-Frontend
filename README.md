@@ -51,6 +51,8 @@ The top component contains all the specific details related to the film or serie
 
 This section shows all platforms the media can be found on. It lists them by name, as well as the pricing it would cost to subscribe or purchase the service it is available on. Each service is a link to the home page of that service. If the media is not available to stream, a message appears stating it is not currently available.
 
+![providerClickExample](https://user-images.githubusercontent.com/82406930/156896487-50f5024f-cd5c-4447-ba66-80890d167bf6.gif)
+
 *Reviews*
 
 The reviews section is a list of reviews provided by our users. The reviews themselves are displayed to everyone, but only registered users can add a review. The current total amount of reviews available is displayed in the review header, as well as how many of those users gave it a thumbs up or thumbs down rating.
