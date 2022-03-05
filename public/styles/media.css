@@ -186,6 +186,10 @@
   border: 3px solid var(--card-bg);
 }
 
+.services h3:hover {
+  transform: scale(1.05);
+}
+
 .services h3:hover::before {
   content: '';
   position: absolute;
@@ -208,6 +212,12 @@
 
 .services .subscribed h3 {
   border: 3px solid var(--accent-bg-high);
+}
+
+.services h4 {
+  margin: 5px;
+  text-align: center;
+  color: var(--accent-text-mid);
 }
 
 /* ================= */
