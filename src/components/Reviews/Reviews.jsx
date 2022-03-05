@@ -76,10 +76,10 @@ const Reviews = (props) => {
 
   const displayButton = () => {
     if (props.email) {
-      return <button className='addReviewButton' onClick={openModal.bind(this)}>Add a Review +
+      return <button className='addReviewButton' onClick={openModal.bind(this)}>Add a review +
       </button>
     } else {
-      return <button className="reviewButton" onClick={() => loginWithRedirect()}>Log In</button>
+      return <button className="reviewButton" onClick={() => loginWithRedirect()}>Log in to leave a review</button>
     }
   }
 

@@ -49,7 +49,7 @@ class MediaInfoPage extends React.Component {
       .then(data => {
         mediaInfo = data.data.mediaDetails;
         availability = data.data.providers;
-        console.log('availability:', availability);
+        // console.log('availability:', availability);
 
         this.setState({
           title: mediaInfo['title'],
@@ -79,8 +79,8 @@ class MediaInfoPage extends React.Component {
     return(<div className="addToWatchlist"></div>)
   }
 
-  renderServices(providerNames, serviceLinks) {
-    // console.log('attempting to render services:', providerNames, serviceLinks);
+  renderServices(providerNames, serviceLinks, availableServices) {
+    // console.log('attempting to render services:', providerNames, serviceLinks, availableServices);
 
     if (providerNames.length === 0) {
       return (<p classList="no-service">this title is not currently available to stream 😞</p>);
@@ -89,10 +89,11 @@ class MediaInfoPage extends React.Component {
     return (
       <div className="services">
         { providerNames.map(service => {
+          // console.log('Service:', availableServices[service].plan);
           if (this.props.isLoggedIn && this.props.providersList[service]) {
-            return ( <Service email={this.props.email} type={this.state.type} id={this.state.id} name={service} link={serviceLinks[service]} addToWatchHistory={this.props.addToWatchHistory} subscribed="true" /> )
+            return ( <Service email={this.props.email} type={this.state.type} id={this.state.id} name={service} link={serviceLinks[service]} addToWatchHistory={this.props.addToWatchHistory} subscribed="true" cost={availableServices[service].plan} /> )
           }
-          return ( <Service email={this.props.email} type={this.state.type} id={this.state.id} name={service} link={serviceLinks[service]} subscribed="false" /> )
+          return ( <Service email={this.props.email} type={this.state.type} id={this.state.id} name={service} link={serviceLinks[service]} subscribed="false" cost={availableServices[service].plan} /> )
           }) }
       </div>
     )
@@ -102,6 +103,9 @@ class MediaInfoPage extends React.Component {
     let testData = this.state.allData.movies[0];
     // console.log('dummy data:', testData);
     let posterUrl = 'https://image.tmdb.org/t/p/w185' + this.state['img'];
+
+    let ratingPercent = Math.round(this.state['rating'] * 10) + '%';
+    console.log('Rated:', ratingPercent);
 
     return (
       <div className="info-page">
@@ -117,7 +121,7 @@ class MediaInfoPage extends React.Component {
               <h2>{this.state['release']}</h2>
               {this.renderWatchListBtn()}
               <p>{this.state['description']}</p>
-              <div className="ratingDot">{this.state['rating']}</div>
+              <div className="ratingDot">{ratingPercent}</div>
             </div>
           </div>
           <Services availability={this.state.availability} renderServices={this.renderServices} />

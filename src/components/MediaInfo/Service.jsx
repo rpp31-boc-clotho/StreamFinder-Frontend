@@ -14,13 +14,24 @@ const Service = function(props) {
   };
 
   if (props.subscribed === 'true') {
-    return ( <a onClick={function() {
-      // console.log('attempting to add:', data);
-      props.addToWatchHistory(data) }} class="subscribed" href={props.link} target="_blank"><h3>{props.name}</h3></a> )
+    return (
+      <a onClick={function() {
+          props.addToWatchHistory(data)
+        }} class="subscribed" href={props.link} target="_blank">
+        <h3>{props.name}</h3>
+        <h4>{props.cost}</h4>
+      </a>
+    )
   }
-  return ( <a onClick={function() {
-    // console.log('attempting to add:', data);
-    props.addToWatchHistory(data) }} href={props.link} target="_blank"><h3>{props.name}</h3></a> )
+  return (
+    <a onClick={function() {
+        props.addToWatchHistory(data)
+      }} href={props.link} target="_blank">
+      <h3>{props.name}</h3>
+      <h4>{props.cost}</h4>
+    </a>
+    )
+
 }
 
 export default Service;

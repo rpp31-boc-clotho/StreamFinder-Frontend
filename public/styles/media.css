@@ -70,6 +70,11 @@
   box-shadow: 0 5px 5px var(--drop-shadow);
   right: 10px;
   bottom: 10px;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* ======================= */
@@ -186,6 +191,10 @@
   border: 3px solid var(--card-bg);
 }
 
+.services h3:hover {
+  transform: scale(1.05);
+}
+
 .services h3:hover::before {
   content: '';
   position: absolute;
@@ -208,6 +217,12 @@
 
 .services .subscribed h3 {
   border: 3px solid var(--accent-bg-high);
+}
+
+.services h4 {
+  margin: 5px;
+  text-align: center;
+  color: var(--accent-text-mid);
 }
 
 /* ================= */
@@ -358,4 +373,25 @@
 .closeModal {
   float: right;
   cursor: pointer;
+}
+
+.reviewButton,
+.addReviewButton {
+  font-family: 'Ubuntu', sans-serif;
+  margin: 10px 25%;
+  width: 50%;
+  background: var(--component-bg);
+  padding: 20px;
+  border: 3px solid var(--accent-text-mid);
+  color: var(--accent-text-mid);
+  font-size: 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition-duration: 300ms;
+}
+
+.reviewButton:hover,
+.addReviewButton:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 5px var(--drop-shadow);
 }
