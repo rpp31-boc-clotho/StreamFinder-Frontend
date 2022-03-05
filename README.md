@@ -46,7 +46,7 @@ The top component contains all the specific details related to the film or serie
 
 *Available Service Providers*
 
-This section shows all platforms the media can be found on. It lists them by name, as well as the pricing it would cost to subscribe or purchase the service it is available on. Each service is a link to the media itself, and if the user is already logged into their service it goes directly to that page (unless its free). If the media is not available to stream, a message appears stating it is not currently available.
+This section shows all platforms the media can be found on. It lists them by name, as well as the pricing it would cost to subscribe or purchase the service it is available on. Each service is a link to the home page of that service. If the media is not available to stream, a message appears stating it is not currently available.
 
 *Reviews*
 
