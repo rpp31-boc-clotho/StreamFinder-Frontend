@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from 'react';
 
-
-
-
 const Subscriptions = (props) => {
 
   let providers;
