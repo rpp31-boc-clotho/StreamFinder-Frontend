@@ -1,0 +1,183 @@
+.searchDiv {
+  margin: 30px auto;
+}
+
+.searchDiv form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.search-container {
+  position: relative;
+  width: 75%;
+  text-align: center;
+  background-color: var(--component-bg);
+  border-radius: 50px;
+  box-shadow: 0 3px 5px var(--drop-shadow);
+}
+
+.Search_Bar_Title {
+  font-size: 28px;
+}
+
+#Search_Bar {
+  width: calc(100% - 90px);
+  padding: 10px 30px 7px;
+  border: none;
+  box-shadow: 0 3px 3px var(--drop-shadow) inset;
+  margin: 15px;
+  font-size: 18px;
+}
+
+#searchSubmit {
+  background: none;
+  border: none;
+  position: absolute;
+  right: 25px;
+  top: 27px;
+  cursor: pointer;
+  filter: drop-shadow(0px 3px 2px var(--drop-shadow));
+}
+
+/* ==================================================== */
+/* Search Bar => Search Page, User Settings, Media Info */
+/* ==================================================== */
+
+.search-page .searchDiv,
+.profile-page .searchDiv,
+.info-page .searchDiv {
+  padding: 0;
+  margin: 0 0 20px 0;
+}
+
+.search-page .searchDiv form,
+.profile-page .searchDiv form,
+.info-page .searchDiv form {
+  gap: 0;
+}
+
+.search-page .searchDiv label,
+.profile-page .searchDiv label,
+.info-page .searchDiv label {
+  display: none;
+}
+
+.search-page .search-container,
+.profile-page .search-container,
+.info-page .search-container {
+  width: 100%;
+  border-radius: 0;
+}
+
+.search-page #Search_Bar,
+.profile-page #Search_Bar,
+.info-page #Search_Bar {
+  width: -webkit-fill-available;
+  margin: 15px 5%;
+}
+
+.search-page #searchSubmit,
+.profile-page #searchSubmit,
+.info-page #searchSubmit {
+  right: 6%;
+}
+
+/* ===================== */
+/* Search Page / Results */
+/* ===================== */
+
+.results-display {
+  display: flex;
+  flex-direction: row;
+}
+
+.search-filters {
+  display: flex;
+  flex-direction: column;
+  min-width: 200px;
+  padding: 15px;
+}
+
+.search-filters button {
+  font-family: 'Ubuntu', sans-serif;
+  margin-bottom: 10px;
+  background: none;
+  height: 80px;
+  border: 3px solid var(--accent-text-mid);
+  color: var(--accent-text-mid);
+  cursor: pointer;
+  transition-duration: 300ms;
+  border-radius: 40px;
+  font-size: 18px;
+}
+
+.search-filters button:hover {
+  background-color: var(--component-bg);
+  box-shadow: 0 2px 5px var(--drop-shadow);
+  transform: scale(1.05);
+}
+
+.search-filters button.active-filter {
+  background-color: var(--accent-bg-high);
+  color: black;
+  box-shadow: 0 2px 5px var(--drop-shadow) inset;
+}
+
+.searchResultsHeader {
+  margin: 10px 30px 20px;
+  font-size: 28px;
+}
+
+.result-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.searchResults .filmCard {
+  height: 360px;
+  width: 250px;
+  margin: 0;
+  padding: 15px;
+  background-color: var(--component-bg);
+  box-shadow: 0 5px 5px var(--drop-shadow);
+  position: relative;
+}
+
+.searchResults .filmCard .cardImgWrapper {
+  text-align: center;
+  padding-top: 10px;
+}
+
+.searchResults .filmCard img {
+  width: 75%;
+  height: auto;
+  box-shadow: 0 5px 5px var(--drop-shadow);
+}
+
+.searchResults .filmCard .filmRating {
+  position: absolute;
+  height: 50px;
+  width: 50px;
+  bottom: 77px;
+  right: 27px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  box-shadow: 0 6px 3px var(--drop-shadow);
+}
+
+.searchResults .filmCard .filmTitle {
+  font-size: 18px;
+  text-align: center;
+}
+
+.searchResults .filmCard .filmDate {
+  font-size: 16px;
+  text-align: center;
+}

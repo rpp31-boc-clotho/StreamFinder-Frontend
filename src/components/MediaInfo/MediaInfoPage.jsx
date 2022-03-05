@@ -5,6 +5,7 @@ import Reviews from '../Reviews/Reviews.jsx';
 import Services from './Services.jsx';
 import MediaDetails from './MediaDetails.jsx';
 import Service from './Service.jsx';
+import SearchBar from '../Search/SearchBar.jsx';
 
 import axios from 'axios';
 // const https = require('https');
@@ -103,22 +104,25 @@ class MediaInfoPage extends React.Component {
     let posterUrl = 'https://image.tmdb.org/t/p/w185' + this.state['img'];
 
     return (
-      <div className="mediaInfoPage">
-        <div className="mediaHeader">
-          <div className="posterImage">
-            <img src={posterUrl}></img>
+      <div className="info-page">
+        <SearchBar />
+        <div className="mediaInfoPage">
+          <div className="mediaHeader">
+            <div className="posterImage">
+              <img src={posterUrl}></img>
+            </div>
+            {/* <p onClick={this.props.getInfo}>Loading Media Info...</p> */}
+            <div className="mediaDetails" style={{ backgroundImage: `url(${posterUrl})` }}>
+              <h1>{this.state['title']}</h1>
+              <h2>{this.state['release']}</h2>
+              {this.renderWatchListBtn()}
+              <p>{this.state['description']}</p>
+              <div className="ratingDot">{this.state['rating']}</div>
+            </div>
           </div>
-          {/* <p onClick={this.props.getInfo}>Loading Media Info...</p> */}
-          <div className="mediaDetails" style={{ backgroundImage: `url(${posterUrl})` }}>
-            <h1>{this.state['title']}</h1>
-            <h2>{this.state['release']}</h2>
-            {this.renderWatchListBtn()}
-            <p>{this.state['description']}</p>
-            <div className="ratingDot">{this.state['rating']}</div>
-          </div>
+          <Services availability={this.state.availability} renderServices={this.renderServices} />
+          <Reviews id={this.state.id} type={this.state.type} email={this.props.email} avatar={this.props.avatar} />
         </div>
-        <Services availability={this.state.availability} renderServices={this.renderServices} />
-        <Reviews id={this.state.id} type={this.state.type} email={this.props.email} avatar={this.props.avatar} />
       </div>
     )
   }
