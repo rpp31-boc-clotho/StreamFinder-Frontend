@@ -357,20 +357,28 @@ div.error{
   align-items: center;
 }
 
-div.landingPage div.horizontalScrollBar #leftScrollIcon{
-  grid-column:1;
+.landingPage #leftScrollIcon:hover,
+.landingPage #rightScrollIcon:hover {
+  transition-duration: 300ms;
   width:30%;
   height:75%;
-  padding:10px;
   cursor: pointer;
+}
+
+div.landingPage div.horizontalScrollBar #leftScrollIcon{
+  grid-column:1;
+  padding:10px;
 }
 
 div.landingPage div.horizontalScrollBar #rightScrollIcon{
   grid-column:3;
-  width:30%;
-  height:75%;
   padding:20px;
-  cursor: pointer;
+}
+
+.landingPage #leftScrollIcon:hover,
+.landingPage #rightScrollIcon:hover {
+  transform: scale(1.1);
+  filter: drop-shadow(0 5px 3px var(--drop-shadow));
 }
 
 .landingPage .movieDisplay {
@@ -399,16 +407,14 @@ button.addToWatch {
 
 .filmCard {
   position: relative;
-  padding:5px;
-  margin: auto 15px;
-  border: solid;
-  border-color: black;
+  margin: 20px 15px;
   border-radius: 30px;
   font-size: 15px;
-  height: 85%;
+  height: 300px;
   width: 190px;
   font-weight:bold;
   background-color: var(--card-bg);
+  box-shadow: 0 5px 5px var(--drop-shadow);
 }
 
 .filmCard:hover {
@@ -419,15 +425,20 @@ button.addToWatch {
 .cardLink {
   text-decoration: none;
   color: black;
+  margin: 0;
+}
+
+.cardImgWrapper {
+  height: 215px;
+  clip-path: inset(-20px 0px 20px 0px);
+  border-radius: 30px 30px 0 0;
+  overflow: hidden;
 }
 
 .cardImage {
- margin-top: -17px;
- margin-bottom: 5px;
- height: 215px;
  width:190px;
- border-radius: 27px;
- object-fit: fill;
+ position: relative;
+ top: -20px;
 }
 
 .filmRating {
