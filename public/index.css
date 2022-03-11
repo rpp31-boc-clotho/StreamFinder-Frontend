@@ -57,7 +57,7 @@ html, body, #app {
   justify-content: space-between;
   flex-direction: row;
   font-weight: lighter;
-  border: solid;
+  box-shadow: 0 5px 5px var(--drop-shadow);
   background-color:#343c44f8;
 }
 
@@ -302,6 +302,7 @@ a {
 .login {
   display: flex;
   padding-right: 20px;
+  cursor: pointer;
 }
 
 .login-button {
@@ -310,6 +311,7 @@ a {
   margin: 30px;
   font-size: 20px;
   border: none;
+  cursor: pointer;
 }
 
 .avatar {
@@ -321,6 +323,35 @@ a {
   border: solid;
   border-radius: 50%;
   padding: 2px;
+}
+
+.MuiButtonBase-root .MuiAvatar-root {
+  background-color: var(--button);
+  color: var(--card-bg);
+  box-shadow: 0 3px 5px var(--drop-shadow);
+}
+
+.css-h1tngs-MuiPaper-root-MuiMenu-paper-MuiPaper-root-MuiPopover-paper {
+  border-radius: 15px !important;
+  background-color: var(--component-bg) !important;
+  color: var(--accent-text-mid) !important;
+}
+
+.css-h1tngs-MuiPaper-root-MuiMenu-paper-MuiPaper-root-MuiPopover-paper ul {
+  padding: 5px;
+}
+
+.css-h1tngs-MuiPaper-root-MuiMenu-paper-MuiPaper-root-MuiPopover-paper li {
+  background-color: var(--card-bg);
+  margin: 5px;
+  padding: 5px 10px;
+  border-radius: 15px;
+  box-shadow: 0 2px 3px var(--drop-shadow);
+}
+
+.css-h1tngs-MuiPaper-root-MuiMenu-paper-MuiPaper-root-MuiPopover-paper:before {
+  background-color: var(--component-bg) !important;
+  right: 25px !important;
 }
 
 div.landingPage {
@@ -340,7 +371,6 @@ div.landingPage div#recommended,
 div.landingPage div#watchList,
 div.landingPage div#recentlyWatched{
   font-size:30px;
-  height:450px;
   border-spacing: 20px;
   margin-bottom: 40px;
 }

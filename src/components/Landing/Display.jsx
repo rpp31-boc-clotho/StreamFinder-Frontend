@@ -5,7 +5,7 @@ import MovieCard from './MovieCard.jsx';
 
 
 var Display = (props) => {
-  console.log('list',props.list);
+  // console.log('list',props.list);
   return(
     <div className="movieDisplay">
 
