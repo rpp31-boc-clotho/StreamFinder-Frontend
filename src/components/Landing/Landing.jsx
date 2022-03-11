@@ -23,7 +23,7 @@ class Landing extends React.Component {
     //let email = "chris.lazzarini+5@gmail.com";
     axios.get(server+'/homepage/user?username='+email+'&recommendation=true')
       .then((response) => {
-        console.log("RESPONSE DATA FROM USER ", response.data);
+        // console.log("RESPONSE DATA FROM USER ", response.data);
         this.setState({
           watchList:response.data.watchList.movies.concat(response.data.watchList.shows),
           recentlyWatched:response.data.watchHistory.movies.concat(response.data.watchHistory.shows),
@@ -54,7 +54,7 @@ class Landing extends React.Component {
 
     axios.get(server+'/homepage')
     .then((response) => {
-      console.log('axios response:', response);
+      // console.log('axios response:', response);
       this.setState({
         popularMovies:response.data.movies,
         popularTV: response.data.shows

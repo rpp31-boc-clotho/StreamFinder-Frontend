@@ -363,15 +363,66 @@
 }
 
 .reviewForm {
-  border: solid 2px;
-  background-color: #F4F1DE;
-  height:300px;
-  width: 275px;
-  padding: 5px;
+  background-color: var(--component-bg);
+  padding: 60px;
+  border-radius: 25px;
+  box-shadow: 0 5px 5px var(--drop-shadow);
+  position: relative;
 }
 
 .closeModal {
-  float: right;
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  cursor: pointer;
+  transition-duration: 300ms;
+}
+
+.closeModal:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 3px 3px var(--drop-shadow));
+}
+
+.modalTitle {
+  margin: 0px auto 20px;
+}
+
+.MuiButton-root {
+  margin: 0 20px 20px !important;
+  cursor: pointer;
+  transition-duration: 300ms;
+}
+
+.MuiButton-root:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 3px 3px var(--drop-shadow));
+}
+
+.reviewForm textarea {
+  font-family: 'Ubuntu', sans-serif;
+  border: none;
+  background-color: var(--card-bg);
+  padding: 20px 30px;
+  border-radius: 15px;
+  min-width: 260px;
+}
+
+.submitReviewBtn {
+  font-family: 'Ubuntu', sans-serif;
+  background-color: var(--button);
+  border: none;
+  padding: 20px 40px;
+  margin-top: 40px;
+  border-radius: 10px;
+  color: var(--card-bg);
+  font-size: 24px;
+  box-shadow: 0 5px 5px var(--drop-shadow);
+  cursor: pointer;
+  transition-duration: 300ms;
+}
+
+.submitReviewBtn:hover {
+  background-color: var(--accent-bg-high);
 }
 
 .reviewButton,
