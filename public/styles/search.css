@@ -1,5 +1,5 @@
 .searchDiv {
-  margin: 30px auto;
+  margin: 30px auto 60px;
 }
 
 .searchDiv form {
@@ -90,27 +90,28 @@
 /* ===================== */
 
 .results-display {
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: 1fr 4fr;
 }
 
 .search-filters {
   display: flex;
   flex-direction: column;
-  min-width: 200px;
   padding: 15px;
 }
 
 .search-filters button {
   font-family: 'Ubuntu', sans-serif;
   margin-bottom: 10px;
-  background: none;
+  background-color: var(--component-bg);
   height: 80px;
-  border: 3px solid var(--accent-text-mid);
-  color: var(--accent-text-mid);
+  border: none;
+  border-left: 3px solid var(--accent-text-mid);
+  border-right: 3px solid var(--accent-text-mid);
+  color: var(--accent-bg);
   cursor: pointer;
   transition-duration: 300ms;
-  border-radius: 40px;
+  border-radius: 10px;
   font-size: 18px;
 }
 
@@ -146,38 +147,55 @@
   background-color: var(--component-bg);
   box-shadow: 0 5px 5px var(--drop-shadow);
   position: relative;
+  border-radius: 25px;
+  transition-duration: 300ms;
+}
+
+.searchResults .filmCard:hover {
+  transform: scale(1.05);
+}
+
+.searchResults .cardLink {
+  margin: 0;
 }
 
 .searchResults .filmCard .cardImgWrapper {
   text-align: center;
-  padding-top: 10px;
+  padding-top: 15px;
 }
 
 .searchResults .filmCard img {
   width: 75%;
   height: auto;
   box-shadow: 0 5px 5px var(--drop-shadow);
+  border-radius: 15px;
 }
 
 .searchResults .filmCard .filmRating {
   position: absolute;
-  height: 50px;
-  width: 50px;
-  bottom: 77px;
-  right: 27px;
+  height: 65px;
+  width: 65px;
+  top: 20px;
+  right: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 20px;
   box-shadow: 0 6px 3px var(--drop-shadow);
+  border-radius: 50%;
 }
 
 .searchResults .filmCard .filmTitle {
-  font-size: 18px;
   text-align: center;
+  color: var(--accent-text-mid);
+  font-size: 22px;
+  width: 80%;
+  margin: auto;
 }
 
 .searchResults .filmCard .filmDate {
-  font-size: 16px;
+  font-size: 18px;
   text-align: center;
+  font-style: italic;
+  color: var(--sub-text);
 }

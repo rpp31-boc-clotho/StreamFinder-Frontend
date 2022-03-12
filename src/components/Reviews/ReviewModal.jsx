@@ -100,16 +100,20 @@ class ReviewModal extends React.Component {
       return (
         <div className='reviewModal'>
           <form className='reviewForm' onSubmit={(e) => { this.handleSubmit(e); }}>
-            <section className='closeModal' onClick={this.exit.bind(this)}>X</section>
+            <section className='closeModal' onClick={this.exit.bind(this)}>
+              <svg width="20" height="20" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2.5 2.5L26.5 26.5M26.5 2.5L2.5 26.5" stroke="black" stroke-width="5" stroke-linecap="round"/>
+              </svg>
+            </section>
             <h2 className='modalTitle'>Submit a Review!</h2>
             <Button onClick={this.thumbsUp.bind(this)} style={thumbsUpStyle}><ThumbUpIcon /></Button>
             <Button onClick={this.thumbsDown.bind(this)} style={thumbsDownStyle}><ThumbDownIcon /></Button>
             <section className="addReviewSummary">
               <section>
-                <textarea rows="6" name='reviewContent' placeholder="type here" onChange={e => this.setMessage(e.target.value)} ></textarea>
+                <textarea rows="6" name='reviewContent' placeholder="type your review here" onChange={e => this.setMessage(e.target.value)} ></textarea>
               </section>
             </section>
-            <button >Submit</button>
+            <button className="submitReviewBtn">Submit</button>
             {this.state.displayError ? (<div>please fill all fields</div>) : null}
           </form>
         </div>

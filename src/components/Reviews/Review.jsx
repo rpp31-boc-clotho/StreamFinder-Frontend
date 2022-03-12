@@ -19,7 +19,7 @@ const Review = (props) => {
 
   return (
     <div className="reviewContainer">
-      {console.log(props.review)}
+      {/* {console.log(props.review)} */}
       <div className='reviewUsername'>
       {props.review.username.split("@")[0]}
       {displayThumbs(props.review.recommend)}

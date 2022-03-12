@@ -36,7 +36,7 @@ class MediaInfoPage extends React.Component {
 
   getMediaInfo() {
     let url = window.location.pathname.split('/');
-    console.log('requesting https:', url);
+    // console.log('requesting https:', url);
 
     let mediaInfo = null;
     let availability = {};
@@ -105,7 +105,7 @@ class MediaInfoPage extends React.Component {
     let posterUrl = 'https://image.tmdb.org/t/p/w185' + this.state['img'];
 
     let ratingPercent = Math.round(this.state['rating'] * 10) + '%';
-    console.log('Rated:', ratingPercent);
+    // console.log('Rated:', ratingPercent);
 
     return (
       <div className="info-page">

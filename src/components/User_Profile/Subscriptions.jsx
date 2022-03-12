@@ -22,7 +22,7 @@ const Subscriptions = (props) => {
     )
   } else {
     return (
-      <div>
+      <div className="profileSubscriptionsList">
         {subs.map((sub, i) =>
           <div className="subscribedProviders" key={i}>
             <img className="providerLogo" src={`/providers/${sub}.jpeg`}></img>

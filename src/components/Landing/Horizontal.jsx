@@ -52,7 +52,7 @@ var Horizontal = function(props) {
       setHeader("Popular TV Shows");
       setList(props.popularTV);
       chooseStyle(props.popularTV);
-      console.log('props.popularTV.length:',props.popularTV.length);
+      // console.log('props.popularTV.length:',props.popularTV.length);
     }else if(props.recommended){
       setId("recommended");
       setHeader("Recommended");
@@ -79,7 +79,7 @@ var Horizontal = function(props) {
   }, [props]);
   useEffect(() => {
 
-    console.log('elementLeftScroll:',elementLeftScroll);
+    // console.log('elementLeftScroll:',elementLeftScroll);
     if(elementLeftScroll <= 0) {
       setLeftScrollStyle(hideStyle);
       setRightScrollStyle(visibleStyle);
@@ -98,7 +98,7 @@ var Horizontal = function(props) {
       let scrollLeftThrJQuery = element.scrollLeft();
       scrollLeftThrJQuery += offset;
       element.scrollLeft(scrollLeftThrJQuery);
-      console.log('scrollLeftThrJQuery:',scrollLeftThrJQuery);
+      // console.log('scrollLeftThrJQuery:',scrollLeftThrJQuery);
       setElementLeftScroll(scrollLeftThrJQuery);
       if(JSON.stringify(hideStyle) === JSON.stringify(leftScrollStyle)) {
         calculateScrollWidth();
@@ -158,10 +158,6 @@ var Horizontal = function(props) {
           <FontAwesomeIcon  style={leftScrollStyle} id="leftScrollIcon" onClick={(event) => scroll(event, leftOffset)} icon = {faAngleLeft} />
           <Display list={list} isWatchList={isWatchList}/>
           <FontAwesomeIcon  style={rightScrollStyle} id="rightScrollIcon" onClick={(event) => scroll(event, rightOffset)} icon = {faAngleRight} />
-          {isWatchList
-          ?<div className="addToWatch"><AddToWatch/></div>
-          :<div></div>
-          }
         </div>
     </div>
   );

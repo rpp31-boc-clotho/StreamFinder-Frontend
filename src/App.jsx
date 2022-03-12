@@ -60,14 +60,14 @@ const App = (props) => {
       },
     })
     .then((res) => {
-      console.log('res', res)
+      // console.log('res', res)
       if (res.data.status) {
-        console.log('hitting user exists')
+        // console.log('hitting user exists')
         setProvidersList(res.data.userProfile.subscriptions);
         setWatchList(res.data.userProfile.watchList);
         setRecentlyWatched(res.data.userProfile.watchHistory);
       } else {
-        console.log('hitting new user')
+        // console.log('hitting new user')
         setProvidersList(res.data.subscriptions);
         setWatchList(res.data.watchList);
         setRecentlyWatched(res.data.watchHistory);
