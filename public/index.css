@@ -420,11 +420,14 @@ div.landingPage div.horizontalScrollBar #rightScrollIcon{
   flex-direction: row;
   background-color: var(--component-bg);
   box-shadow: 0 5px 5px var(--drop-shadow) inset;
-}
-
-div.landingPage div.movieDisplay {
   overflow-x: hidden;
   scroll-behavior: smooth;
+  border-right: 5px solid var(--accent-bg);
+  border-left: 5px solid var(--accent-bg);
+}
+
+.landingPage .movieDisplay .filmCard:last-child {
+  margin-right: 50px;
 }
 
 button.addToWatch {
