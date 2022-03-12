@@ -185,73 +185,99 @@ a {
 }
 
 .profile {
-  border: 2px solid;
   border-radius: 25px;
-  padding-top: 25px;
-  padding-left: 25px;
-  padding-bottom: 25px;
+  margin-bottom: 50px;
+  padding: 0px;
   width: 75%;
   height: 90%;
-  background-color: #F2CC84;
+  background-color: var(--component-bg);
   justify-content: center;
+  box-shadow: 0 5px 5px var(--drop-shadow);
 }
 
 .profileUserInfo {
   display: flex;
-  padding: 20px;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  background: var(--accent-bg);
+  border-radius: 25px 25px 0 0;
 }
 
 .profileDivider {
-
-  width: 95%;
-  border-top: 2px solid;
+  /* border-top: 5px solid; */
 }
 
 .profileAvatar {
   border-radius: 50%;
-  width: 120px;
-  height: 120px;
+  width: 150px;
+  height: 150px;
+  background: var(--card-bg);
+  overflow: hidden;
+  margin: 20px 0 50px;
+  box-shadow: 0 5px 5px var(--drop-shadow);
 }
 
 .profileUsername {
-  padding-left: 20px;
-  padding-top: 10px;
+  position: absolute;
+  bottom: -7px;
+  text-shadow: 0 -3px 3px var(--drop-shadow);
+  color: var(--card-bg);
 }
 
 .profileBody {
-  display: flex;
+  display: grid;
+  grid-template-columns: 3fr 4fr;
+  margin: 0 25px;
+  column-gap: 20px;
+  padding: 20px 0;
 }
 
-.profileSubscriptions {
-  padding: 20px;
-  width: 35%;
+.profileBody h2 {
+  margin: 15px 0;
+  text-align: center;
 }
 
+.profileSubscriptions,
 .profileActivity {
-  padding: 20px;
-  width: 50%;
-  border-left: 2px solid;
+  padding: 5px 20px 20px;
+  background-color: var(--card-bg);
+  box-shadow: 0 3px 5px var(--drop-shadow);
+  border-radius: 15px;
+}
+
+.profileSubscriptionsList {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-items: center;
+  gap: 20px;
 }
 
 .profileWatchHistory {
   display: flex;
-  padding-bottom: 10px;
+  padding: 5px 5px 3px 5px;
+  align-items: center;
+  background-color: var(--component-bg);
+  border-radius: 15px;
+  box-shadow: 0 3px 3px var(--drop-shadow);
 }
 
 .profileWatchHistoryPoster {
   margin: 0px;
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  border-radius: 15px;
+  transition-duration: 300ms;
 }
 
 .profileWatchHistoryPoster:hover {
-  transform: scale(2);
+  transform: scale(1.75);
+  box-shadow: 0 3px 3px var(--drop-shadow);
 }
 
 .profileWatchHistoryTitle {
-  padding-left: 15px;
-  padding-top: 23px;
-  font-size: 25px;
+  padding-left: 30px;
+  font-size: 28px;
 }
 
 .profileWatchHistoryTitle:hover {
@@ -264,35 +290,44 @@ a {
 }
 
 .profileEditSubsButton {
-  padding-top: 15px;
-  padding-bottom: 20px;
-  padding-left: 30px;
+  text-align: center;
+  margin: 20px 0 10px;
 }
 
 .editSubs {
   font-family: 'Ubuntu', sans-serif;
-  font-size: 18px;
+  font-size: 22px;
+  background-color: var(--component-bg);
+  border: 3px solid var(--accent-bg);
+  border-radius: 7px;
+  padding: 25px 50px;
+  cursor: pointer;
+  transition-duration: 300ms;
+}
+
+.editSubs:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 5px var(--drop-shadow);
 }
 
 .subscribedProviders {
   display: flex;
-  padding-bottom: 10px;
+  margin-bottom: 10px;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 .userSubscribed {
-  padding-top: 23px;
-  font-size: 25px;
+  display: none;
 }
-
-
 
 .providerLogo {
-  width: 70px;
-  height: 70px;
-  padding-right: 15px;
+  width: 85px;
+  height: 85px;
+  border-radius: 15px;
+  box-shadow: 0 3px 5px var(--drop-shadow);
 }
-
-
 
 .settings {
   color: black;

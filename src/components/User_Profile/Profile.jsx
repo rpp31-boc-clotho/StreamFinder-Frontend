@@ -67,7 +67,7 @@ const profile = (props) => {
           <div className="profileBody">
             <div className="profileSubscriptions">
               <h2>Your Subscriptions</h2>
-              <div className="profileSubscriptionsList">
+              <div>
                 <Subscriptions providersList={props.providersList} />
                 <div className="profileEditSubsButton">
                   <button className="editSubs" onClick={() => setModal(true)}>Edit Subscriptions</button>
