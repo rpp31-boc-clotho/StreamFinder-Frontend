@@ -158,10 +158,6 @@ var Horizontal = function(props) {
           <FontAwesomeIcon  style={leftScrollStyle} id="leftScrollIcon" onClick={(event) => scroll(event, leftOffset)} icon = {faAngleLeft} />
           <Display list={list} isWatchList={isWatchList}/>
           <FontAwesomeIcon  style={rightScrollStyle} id="rightScrollIcon" onClick={(event) => scroll(event, rightOffset)} icon = {faAngleRight} />
-          {isWatchList
-          ?<div className="addToWatch"><AddToWatch/></div>
-          :<div></div>
-          }
         </div>
     </div>
   );
