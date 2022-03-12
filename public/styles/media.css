@@ -10,6 +10,8 @@
   padding: 25px;
   box-shadow: 0 5px 5px var(--drop-shadow);
   border-radius: 20px;
+  border-left: 5px solid var(--accent-bg);
+  border-right: 5px solid var(--accent-bg);
 }
 
 .mediaHeader {
@@ -365,7 +367,6 @@
 
 .reviewForm {
   background-color: var(--component-bg);
-  padding: 60px;
   border-radius: 25px;
   box-shadow: 0 5px 5px var(--drop-shadow);
   position: relative;
@@ -379,13 +380,21 @@
   transition-duration: 300ms;
 }
 
+.closeModal path {
+  stroke: var(--component-bg);
+}
+
 .closeModal:hover {
   transform: scale(1.05);
   filter: drop-shadow(0 3px 3px var(--drop-shadow));
 }
 
 .modalTitle {
-  margin: 0px auto 20px;
+  margin: 0 0 10px;
+  background-color: var(--accent-bg);
+  color: var(--component-bg);
+  padding: 50px 80px 30px;
+  border-radius: 25px 25px 0 0;
 }
 
 .MuiButton-root {
@@ -406,6 +415,8 @@
   padding: 20px 30px;
   border-radius: 15px;
   min-width: 260px;
+  border-left: 5px solid var(--accent-bg);
+  border-right: 5px solid var(--accent-bg);
 }
 
 .submitReviewBtn {
@@ -413,7 +424,7 @@
   background-color: var(--button);
   border: none;
   padding: 20px 40px;
-  margin-top: 40px;
+  margin: 30px;
   border-radius: 10px;
   color: var(--card-bg);
   font-size: 24px;
