@@ -90,7 +90,7 @@ a {
   top: 0;
   right: 0;
   bottom: 0;
-  background-color:rgba(0, 0, 0, 0.5);
+  /* background-color:rgba(0, 0, 0, 0.5); */
   backdrop-filter: blur(15px);
   display: flex;
   align-items: center;
@@ -99,42 +99,39 @@ a {
 }
 
 .modal-content {
-  font-size: 15px;
-  width: 700px;
-  height: 700px;
   background-color: #F2CC84;
+  border-radius: 35px;
+  overflow: hidden;
+  box-shadow: 0 5px 5px var(--drop-shadow);
 }
 
 .modal-header {
-  flex-direction: row;
-  padding: 10px;
-  text-align: left;
-  background-color: #353531;
-  color: white;
+  padding: 40px 80px 30px;
+  text-align: center;
+  background-color: var(--accent-bg);
+  color: var(--card-bg);
+  position: relative;
 }
 
 .modal-footer {
-  padding: 20px;
-  text-align: left;
-  background-color: #353531;
-  color: white;
-  justify-content: center;
+  padding: 20px 0;
+  text-align: center;
 }
 
 .modal-footer-button {
   font-family: 'Ubuntu', sans-serif;
   font-size: 20px;
-  font-weight: bold;
-  width: 50%;
-  height: 100px;
-  background-color: white;
-  color: black;
-  padding: 0px;
-  justify-content: center;
+  background-color: var(--component-bg);
+  color: var(--accent-text-mid);
+  padding: 20px 40px;
+  border-radius: 7px;
+  cursor: pointer;
+  transition-duration: 300ms;
 }
 
 .modal-footer-button:hover {
-  background-color: #F2CC84;
+  transform: scale(1.1);
+  box-shadow: 0 5px 5px var(--drop-shadow);
 }
 
 .submit-button {
@@ -143,6 +140,7 @@ a {
 
 .modal-title {
   margin: 0;
+  font-size: 28px;
 }
 
 .modal-subtitle {
@@ -151,26 +149,26 @@ a {
 }
 
 .close-modal-button {
-  margin-left: 650px;
-  display: flex;
-  background-color: white;
-  color: black;
-  font-weight: bolder;
-  text-align: center;
-  justify-content: center;
-  width: 20px;
-  height: 20px;
+  position: absolute;
+  top: 15px;
+  right: 25px;
   cursor: pointer;
+  transition-duration: 300ms;
+}
+
+.close-modal-button path {
+  stroke: var(--card-bg);
 }
 
 .close-modal-button:hover {
-  background-color: #F2CC84;
+  transform: scale(1.1);
 }
 
 .modal-body {
-  padding: 10px;
-  border-top: 1px solid white;
-  border-bottom: 1px solid white;
+  display: grid;
+  padding: 10px 20px;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
 }
 
 /* MODAL */
@@ -245,6 +243,7 @@ a {
   background-color: var(--card-bg);
   box-shadow: 0 3px 5px var(--drop-shadow);
   border-radius: 15px;
+  height: fit-content;
 }
 
 .profileSubscriptionsList {
@@ -261,6 +260,7 @@ a {
   background-color: var(--component-bg);
   border-radius: 15px;
   box-shadow: 0 3px 3px var(--drop-shadow);
+  margin-bottom: 10px;
 }
 
 .profileWatchHistoryPoster {
@@ -584,11 +584,13 @@ button.addToWatch {
 .cm-toggle:after {
 	content: '';
 	width: 45px;
-	height: 20px;
+	height: 25px;
 	display: inline-block;
-	background: white;
+	background: var(--card-bg);
 	border-radius: 18px;
 	clear: both;
+  transition-duration: 50ms;
+  box-shadow: 0 2px 3px var(--drop-shadow) inset;
 }
 
 /* Contents before checkbox to create toggle handle */
@@ -599,18 +601,19 @@ button.addToWatch {
 	display: block;
 	position: absolute;
 	left: 0;
-	top: -3px;
 	border-radius: 50%;
-	background: #255F85;
+	background: var(--accent-text-mid);
 	box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+  transition-duration: 50ms;
 }
 
 /* Shift the handle to left on check event */
 .cm-toggle:checked:before {
 	left: 25px;
+  background-color: var(--accent-bg-high);
 	box-shadow: -1px 1px 3px rgba(0, 0, 0, 0.6);
 }
 /* Background color when toggle button will be active */
 .cm-toggle:checked:after {
-	background: #81B29A;
+	background-color: var(--button);
 }

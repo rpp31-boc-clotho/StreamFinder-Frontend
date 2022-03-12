@@ -31,7 +31,11 @@ const Update = (props) => {
     <div className="modal">
       <div className="modal-content">
         <div className="modal-header">
-          <div className="close-modal-button" onClick={()=> props.hide()}>X</div>
+          <div className="close-modal-button" onClick={()=> props.hide()}>
+              <svg width="18" height="18" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2.5 2.5L26.5 26.5M26.5 2.5L2.5 26.5" stroke="black" stroke-width="5" stroke-linecap="round"/>
+              </svg>
+            </div>
           <h1 className="modal-title">Available Providers</h1>
         </div>
         <div className="modal-body">
