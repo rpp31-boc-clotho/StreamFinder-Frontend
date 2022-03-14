@@ -36,7 +36,7 @@ Any media that the user has clicked through to a respective streaming website is
 
 *Watch List*
 
-This section is a list of media the user can add to. On each Media Info page is an option to add  Film or Show to watch list, when clicked it is added to this list. The button nest to the watch list link directly to the search page, giving users an opportunity to find Movies or series to add to their watch list.
+This section is a list of media the user can add to. On each Media Info page is an option to add a Film or Show to the watch list, when clicked it is added to this list. The button next to the watch list links directly to the search page, giving users an opportunity to find Movies or series to add to their watch list.
 
 ![remainderExample](https://user-images.githubusercontent.com/82406930/156897095-0e2aef56-381c-46e5-be81-ff1c1df96f87.gif)
 
